@@ -31,8 +31,6 @@ jobs:
           command: |
             hugo
             cd public
-            git init
-            git checkout -b gh-pages
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
             git push -f origin gh-pages
