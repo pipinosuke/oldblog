@@ -1,0 +1,67 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% endif %}
+
+<div class="tags">
+  <ul class="label">
+    {% for tag in site.tags %}
+    <li>
+      {% if tag[0] == "ファイナンス"  %}
+      <a href="#{{ tag[0] }}" style="background-color: #ffec99">
+      {% elsif tag[0] == "読書" %}
+      <a href="#{{ tag[0] }}" style="background-color: #bac8ff">
+      {% elsif tag[0] == "技術" %}
+      <a href="#{{ tag[0] }}" style="background-color: #ffc9c9">
+      {% elsif tag[0] == "思考" %}
+      <a href="#{{ tag[0] }}" style="background-color: #96f2d7">
+      {% else %}
+      <a href="#{{ tag[0] }}">
+      {% endif %}
+        <span>{{ tag[0] }}</span>
+        <span class="count">{{ tag[1] | size }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% for tag in site.tags %}
+    <h2 id="{{ tag[0] }}">
+      {{ tag[0] }}
+    </h2>
+    {% if tag[0] == "「俺の◯◯」シリーズ" %}
+    <img src="/images/thumbs/my-series.png" alt="my-series">
+    <p>自分自身に関する様々なテーマの記事</p>
+    {% elsif tag[0] == "読書" %}
+    <img src="/images/thumbs/book.jpg" alt="reading">
+    <p>読んだ本の感想やエッセンスをまとめたりする記事</p>
+    {% elsif tag[0] == "ファイナンス" %}
+    <img src="/images/thumbs/finance.jpg" alt="finance">
+    <p>主にIRの分析。会計やファイナンス領域がテーマの記事</p>
+    {% elsif tag[0] == "技術" %}
+    <img src="/images/thumbs/programming.jpeg" alt="programming">
+    <p>言語および、WEB/アプリ開発に関するテーマの記事</p>
+    {% endif %}
+    <ul class="tag">
+      {% for post in tag[1] %}
+        {% if post.title != null %}
+          <li>
+            {% if post.link %}
+              <a href="{{ post.link }}">
+            {% else %}
+              <a href="{{ site.baseurl }}{{ post.url }}">
+            {% endif %}
+                {{ post.title }}
+              </a>
+              <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>
