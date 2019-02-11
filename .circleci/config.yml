@@ -32,6 +32,7 @@ jobs:
             hugo
             ls
             cd public
+            git init
             git checkout -b gh-pages
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
