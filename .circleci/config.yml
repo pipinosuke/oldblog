@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+        environment:
+          TZ: Asia/Tokyo
+
+    working_directory: ~/blog
+    steps:
+      - checkout
+
+      - run:
+          name: "Setting for Git"
+          command: |
+            git config --global user.name "pipinosuke"
+            git config --global user.email "ys.pipinosuke@gmail.com@gmail.com"
+
+      # - run:
+      #     name: "Up to date themes"
+      #     command: |
+      #       git submodule sync
+      #       git submodule update --init --recursive
+
+      - run:
+          name: "Get GitHub repository"
+          command: git clone git@github.com:pipinosuke/blog.git
+
+      - run:
+          name: "Build & Push"
+          command: |
+            hugo
+            cd public
+            git checkout -b gh-pages
+            git add .
+            git commit -m "rebuilding site `date '+%Y-%m-%d'`"
+            git push origin gh-pages
