@@ -7,11 +7,14 @@ date: 2018-12-31T09:03:48+09:00
 ---
 #### 参考書籍
 今回参考にしたのは入門書としてそこそこ著名？なこの本です。
-- [ざっくり分かるファイナンス 経営センスを磨くための財務](https://amzn.to/2rZMLUk)
+
+- [ざっくり分かるファイナンス 経営センスを磨くための財務](https://amzn.to/2rZMLUk)  
 <a href="https://www.amazon.co.jp/%E3%81%96%E3%81%A3%E3%81%8F%E3%82%8A%E5%88%86%E3%81%8B%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%B3%E3%82%B9-%E7%B5%8C%E5%96%B6%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%92%E7%A3%A8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AE%E8%B2%A1%E5%8B%99-%E5%85%89%E6%96%87%E7%A4%BE%E6%96%B0%E6%9B%B8-%E7%9F%B3%E9%87%8E-%E9%9B%84%E4%B8%80/dp/4334033970/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=pipinosuke04-22&linkId=229cd94627a8ae5d658379a9a82c7c78&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4334033970&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=pipinosuke04-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=pipinosuke04-22&language=ja_JP&l=li2&o=9&a=4334033970" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
 ## 概要
 
 **決算書に登場する基本概念**
+
 > - バランスシート → 資産
 > - 損益計算書 → 利益
 > -  キャッシュフロー計算書 → お金の流れ

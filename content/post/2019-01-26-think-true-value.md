@@ -8,7 +8,7 @@ date: 2019-01-26T09:03:48+09:00
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">某大学の優秀なエンジニア達が集まってはいるが作りたいものがなく燻っている様子を目の当たりにし、<br>｢高いスキルを持った人間はたしかに希少だし価値は高いがあくまで代替可能、真に価値ある人間は優れたビジョン･価値観を持ち、他人に語り動かすことが出来る人間｣ということを感じました。</p>&mdash; とり (@nosugi1) <a href="https://twitter.com/nosugi1/status/1088853220783353856?ref_src=twsrc%5Etfw">2019年1月25日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### 代替可能かそうでないかを決定する
+### 代替可能かそうでないかを決定する要素
 そもそも代替可能かそうでないか、というものは何によって決定されるのか。それは
 > 「再現性があるか否か」
 
