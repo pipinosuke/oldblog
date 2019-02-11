@@ -29,6 +29,7 @@ jobs:
       - run:
           name: "Build & Push"
           command: |
+          ls
             hugo
             cd public
             git checkout -b gh-pages
