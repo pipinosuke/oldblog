@@ -5,6 +5,7 @@ general:
   branches:
     only:
       - master
+      - gh-pages
 
 dependencies:
   pre:
