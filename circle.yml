@@ -22,7 +22,7 @@ test:
     - cd public && git add --all && git commit -m "Update blog via Circle CI"
 
 deployment:
-  master:
-    branch: master
+  deploy:
+    branch: gh-pages
     commands:
       - cd public && git push origin gh-pages
