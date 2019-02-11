@@ -36,4 +36,4 @@ jobs:
             git remote add origin https://github.com/pipinosuke/blog.git
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
-            git push -u origin gh-pages
+            git push -f origin gh-pages
