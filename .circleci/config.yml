@@ -9,6 +9,7 @@ jobs:
     branches:
       ignore:
         - gh-pages
+
     steps:
       - checkout
 
@@ -31,11 +32,9 @@ jobs:
       - run:
           name: "Build & Push"
           command: |
+            git clone -b gh-pages git@github.com:pipinosuke/blog.git public
             hugo
             cd public
-            git init
-            git checkout -b gh-pages
-            git remote add origin https://github.com/pipinosuke/blog.git
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
             git push -f origin gh-pages
