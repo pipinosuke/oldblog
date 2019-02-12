@@ -6,11 +6,9 @@ jobs:
         environment:
           TZ: Asia/Tokyo
 
-    # working_directory: ~/blog
-    general:
-      branches:
-        only:
-          - master
+    branches:
+      only:
+        - master
     steps:
       - checkout
 
