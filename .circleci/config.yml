@@ -7,9 +7,10 @@ jobs:
           TZ: Asia/Tokyo
 
     # working_directory: ~/blog
-    branches:
+    general:
+      branches:
         only:
-         - master
+          - master
     steps:
       - checkout
 
