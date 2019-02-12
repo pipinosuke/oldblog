@@ -34,20 +34,21 @@ $ git push
 - デプロイキーの登録  
 今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、書き込み権限の付与がされてなくてエラーになりました。解決方法はわかってません。
 #### 2.  Circle.ymlの記述
-.circleci/config.ymlに記述します。
+CircleCiにやってほしいことを.circleci/config.ymlに記述します。githubのレポジトリにpushされた時発火します。
+僕の場合masterブランチでhugoプロジェクト本体、gh-pagesブランチで公開用のpublic以下のファイル群を管理しています。内容はこんな感じです参考までに
 
-```yaml
+``` yaml
 version: 2
 jobs:
   build:
     docker:
       - image: cibuilds/hugo:latest
         environment:
-          TZ: Asia/Tokyo
+          TZ: Asia/Tokyo  #ここら辺はコピペでいいと思う
 
     branches:
       ignore:
-        - gh-pages
+        - gh-pages #gh-pagesにプッシュされた際に反応しないようにignoreを設定している
 
     steps:
       - checkout
