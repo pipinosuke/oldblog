@@ -35,6 +35,40 @@ $ git push
 今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、書き込み権限の付与がされてなくてエラーになりました。解決方法はわかってません。
 #### 2.  Circle.ymlの記述
 .circleci/config.ymlに記述します。
-```yaml
 
+```yaml
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+        environment:
+          TZ: Asia/Tokyo
+
+    branches:
+      ignore:
+        - gh-pages
+
+    steps:
+      - checkout
+
+      - run:
+          name: "Setting for Git"
+          command: |
+            git config --global user.name "pipinosuke"
+            git config --global user.email "ys.pipinosuke@gmail.com@gmail.com"
+
+      - run:
+          name: "Get GitHub repository"
+          command: git clone git@github.com:pipinosuke/blog.git
+
+      - run:
+          name: "Build & Push"
+          command: |
+            git clone -b gh-pages git@github.com:pipinosuke/blog.git public
+            hugo
+            cd public
+            git add .
+            git commit -m "rebuilding site `date '+%Y-%m-%d'`"
+            git push origin gh-pages
 ```
