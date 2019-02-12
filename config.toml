@@ -2,7 +2,7 @@ baseURL = "https://blog.nosugi.tech"
 disablePathToLower = true
 languageCode = "en-us"
 title = "nosugi blog"
-theme = "pixyll"
+theme = "pixyll1"
 
 [indexes]
 category = "categories"
