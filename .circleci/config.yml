@@ -7,8 +7,8 @@ jobs:
           TZ: Asia/Tokyo
 
     branches:
-      only:
-        - master
+      ignore:
+        - gh-pages
     steps:
       - checkout
 
