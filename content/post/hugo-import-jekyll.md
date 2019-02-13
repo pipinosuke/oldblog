@@ -3,6 +3,7 @@ title = "ブログをJekyllからHugoへ移行した"
 date = 2019-02-12T22:01:43+09:00
 description = "Hugoが予想以上に良かったのと、どうせ移行するなら早い方が良いなと思い移行しました。移行手順のメモです。参考になれば幸いです。"
 category = ["技術"]
+tags = ["Hugo","jekyll"]
 draft = false
 +++
 

@@ -3,7 +3,7 @@ title = "CircleCIで毎回面倒なHugoのデプロイ作業を自動化する"
 date = 2019-02-12T22:03:25+09:00
 description = "Hugoでブログを書いているのだが、毎回行わなければならないgit commit→git pushの作業が段々と面倒になってきた。その辺を自動でやってくれるらしいCIサービス「CircleCi」を試してみた。"
 category = ["技術"]
-categories = ["ああああ"]
+tags = ["Hugo","CircleCI"]
 draft = false
 +++
 
