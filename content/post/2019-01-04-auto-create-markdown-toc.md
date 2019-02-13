@@ -1,7 +1,7 @@
 ---
 layout: post
 title: TOC(Table Of Contents)を自動生成する
-tags: ["技術"]
+category: ["技術"]
 description: "GithubMarkdownが対応していない、目次（TOC）を自動生成できるツールの紹介です"
 image: programming.png
 date: 2019-01-04T09:03:48+09:00

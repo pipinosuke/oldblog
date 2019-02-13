@@ -4,8 +4,11 @@ languageCode = "en-us"
 title = "nosugi blog"
 theme = "pixyll1"
 
+[permalinks]
+posts = "/:date/:title/"
+
 [indexes]
-category = "categories"
+category = "category"
 tag = "tags"
 
 [params]

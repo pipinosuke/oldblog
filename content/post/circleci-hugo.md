@@ -1,14 +1,18 @@
 +++
-title = "CircleCIで毎回面倒なデプロイ作業を自動化する"
+title = "CircleCIで毎回面倒なHugoのデプロイ作業を自動化する"
 date = 2019-02-12T22:03:25+09:00
 description = "Hugoでブログを書いているのだが、毎回行わなければならないgit commit→git pushの作業が段々と面倒になってきた。その辺を自動でやってくれるらしいCIサービス「CircleCi」を試してみた。"
-tags = ["技術"]
+category = ["技術"]
+categories = ["ああああ"]
 draft = false
 +++
 
 #### CIサービスとは
-CIサービスって言われてもよくわからんので、なんぞやということをメモっておきます。
+> ビルドとテストを自動化するためのサービス
 
+ということで理解しておけばいいと思います。一応直訳すると「Continuous Integration（継続的インテグレーションサービス）」、略してCIサービスということらしいです。
+
+参考: [なぜCIが必要なのか](https://dev.classmethod.jp/devenv/why-ci-is-needed/)
 ### 目標
 > GithubPagesで公開しているHugoプロジェクトのデプロイ作業を自動化する
 
@@ -32,7 +36,8 @@ $ git push
 - レポジトリの登録  
 最初のブランチ一覧が表示される画面で登録したいレポジトリにチェックマークをつけてFollowを押せば登録できます。
 - デプロイキーの登録  
-今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、書き込み権限の付与がされてなくてエラーになりました。解決方法はわかってません。
+今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、pushのための書き込み権限の付与がされてなくてエラーになりました、何やかんややりましたが解決できなかったので、check out ssh keyからの登録をお勧めします。
+
 #### 2.  Circle.ymlの記述
 CircleCiにやってほしいことを.circleci/config.ymlに記述します。githubのレポジトリにpushされた時発火します。
 僕の場合masterブランチでhugoプロジェクト本体、gh-pagesブランチで公開用のpublic以下のファイル群を管理しています。内容はこんな感じです参考までに
@@ -56,12 +61,12 @@ jobs:
       - run:
           name: "Setting for Git"
           command: |
-            git config --global user.name "pipinosuke"
-            git config --global user.email "ys.pipinosuke@gmail.com@gmail.com"
+            git config --global user.name "username"
+            git config --global user.email "adress@adress"
 
       - run:
           name: "Get GitHub repository"
-          command: git clone git@github.com:pipinosuke/blog.git
+          command: git clone git@github.com:username/blog.git
 
       - run:
           name: "Build & Push"

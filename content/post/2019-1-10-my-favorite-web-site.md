@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 俺の便利WEBサイト
-tags: ["「俺の◯◯」シリーズ"]
+category: ["「俺の◯◯」シリーズ"]
 description: "便利ではあるものの、使用頻度が高くないせいで毎回忘れるのでメモしておきます。はっと思い出したりしたら随時更新します。"
 image: programming.png
 date: 2019-01-10T09:03:48+09:00

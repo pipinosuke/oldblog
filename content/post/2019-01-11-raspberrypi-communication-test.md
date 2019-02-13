@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  RaspberryPIでSoracomAirのSimを使って通信してみる
-tags: ["技術"]
+category: ["技術"]
 image: programming.jpeg
 description: "必要最低限かつコストをなるべく抑えた構成で行いました。"
 date: 2019-01-14T09:03:48+09:00

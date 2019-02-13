@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Hugo覚書とその所感
-tags: ["技術"]
+category: ["技術"]
 image: programming.jpeg
 description: "ruby製の静的webサイトジェネレータ「jekyll」が非常によかったので、同じWEBサイトジェネレーターであるGo製の「Hugo」も試してみた。Hugo、結果的にはかなりイケてた。"
 date: 2019-01-20T09:03:48+09:00

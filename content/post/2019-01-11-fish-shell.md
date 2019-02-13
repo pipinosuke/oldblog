@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fish Shell覚書
-tags: ["技術"]
+category: ["技術"]
 description: "デフォルトのシェルではなく、fishシェルを愛用している。その際の設定などをメモ。"
 image: programming.jpeg
 date: 2019-01-12T09:03:48+09:00

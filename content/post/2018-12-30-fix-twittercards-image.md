@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GithubPagesのサイトで、Twitterカードの画像だけが反映されない
-tags: ["技術"]
+category: ["技術"]
 description: "TitleやDescriptionはうまくいっているのに画像だけ反映されないということがありました。本来のドメインと異なるドメインのパスを指定していると起こるようです。"
 image: programming.jpeg
 date: 2018-12-30T09:03:48+09:00

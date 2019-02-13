@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SwiftでEnumのおさらい
-tags: ["技術"]
+category: ["技術"]
 image: swift.png
 description: "Enum自体についての解説は割愛します。
 SwiftのEnum型の要諦を適当にまとめます。"
