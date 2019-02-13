@@ -3,7 +3,7 @@
   <p class="post-meta left">
     <!-- {{ i18n "tags" }}:&nbsp; -->
   {{ .Date.Format "2006-1-2" }}
-  {{ range $i, $e := .Params.tags }}
+  {{ range $i, $e := .Params.category }}
       {{if $i}},&nbsp;{{end}}
       <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . }}">{{ . }}</a>
   {{ end }}
