@@ -30,8 +30,11 @@ $ git push
 このルーティンが段々だるくなってくきたので、[CircleCi](https://circleci.com/)でこれを自動化する。
 
 ### 手順
-1. CircleCIからレポジトリを登録
-2. Circle.ymlの記述
+1. レポジトリとデプロイキーを登録する
+2. .circleci/config.ymlの記述
+
+参考: [CircleCIでHugoを実行してGitHub Pagesにデプロイ](https://t32k.me/mol/log/hugo-circleci-ghpages-2018/)  
+[ブログ(HUGO)のビルドとデプロイをCircleCIで自動化した](https://koirand.github.io/blog/2018/blog-auto-deploy/)
 
 #### 1. レポジトリとデプロイキーを登録する
 - レポジトリの登録  
@@ -39,7 +42,7 @@ $ git push
 - デプロイキーの登録  
 今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、pushのための書き込み権限の付与がされてなくてエラーになりました、何やかんややりましたが解決できなかったので、check out ssh keyからの登録をお勧めします。
 
-#### 2.  Circle.ymlの記述
+#### 2. .circleci/config.ymlの記述
 CircleCiにやってほしいことを.circleci/config.ymlに記述します。githubのレポジトリにpushされた時発火します。
 僕の場合masterブランチでhugoプロジェクト本体、gh-pagesブランチで公開用のpublic以下のファイル群を管理しています。内容はこんな感じです参考までに
 
