@@ -5,7 +5,7 @@
   {{ .Date.Format "2006-1-2" }}
   {{ range $i, $e := .Params.category }}
       {{if $i}},&nbsp;{{end}}
-      <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . }}">{{ . }}</a>
+      <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/category/{{ . }}">{{ . }}</a>
   {{ end }}
 
 </p>
