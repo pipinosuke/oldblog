@@ -6,10 +6,6 @@ description: "「Factfullness」の日本語版が発売前からフォローし
 date: 2019-01-18T09:03:48+09:00
 ---
 
-@(書評)
-# 「ファクトフルネス」を読んで、書評と要点をまとめる
-「Factfullness」の日本語版が発売前からフォローしている人の間で話題になっていた。この本に関するツイートを見る限り「思い込みや直感ではなくデータ・数字ベースで事象をとらえてみよう」というのがざっくりしたテーマである印象を受けた。自分も気になったので読んでみることにした。
-
 ## 概要
 [FACTFULNESS（ファクトフルネス）10の思い込みを乗り越え、データを基に世界を正しく見る習慣](https://amzn.to/2FBzOc7)  
 <a href="https://www.amazon.co.jp/FACTFULNESS-%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%95%E3%83%AB%E3%83%8D%E3%82%B9-10%E3%81%AE%E6%80%9D%E3%81%84%E8%BE%BC%E3%81%BF%E3%82%92%E4%B9%97%E3%82%8A%E8%B6%8A%E3%81%88%E3%80%81%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%9F%BA%E3%81%AB%E4%B8%96%E7%95%8C%E3%82%92%E6%AD%A3%E3%81%97%E3%81%8F%E8%A6%8B%E3%82%8B%E7%BF%92%E6%85%A3-%E3%83%8F%E3%83%B3%E3%82%B9%E3%83%BB%E3%83%AD%E3%82%B9%E3%83%AA%E3%83%B3%E3%82%B0/dp/4822289605/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=pipinosuke04-22&linkId=e06622404611706627c53e3723f31a6d&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4822289605&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=pipinosuke04-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=pipinosuke04-22&language=ja_JP&l=li2&o=9&a=4822289605" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
