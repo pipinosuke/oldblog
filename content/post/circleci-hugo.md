@@ -75,10 +75,13 @@ jobs:
       - run:
           name: "Build & Push"
           command: |
-            git clone -b gh-pages git@github.com:pipinosuke/blog.git public
+            git clone -b gh-pages git@github.com:username/blog.git public
             hugo
             cd public
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
             git push origin gh-pages
 ```
+
+### 最後に
+目的が達成できたので非常に満足。Hugoのブログを管理しているレポジトリではmaster(hugoプロジェクト)とgh-pages（public/以下を管理する公開用）と言う二つのブランチで管理しており、masterへの配置で満足してgh-pagesの方のブランチにconfig.ymlを置き忘れたせいで、ずっとブランチをignoreする設定が効かなかった。注意しましょう。笑
