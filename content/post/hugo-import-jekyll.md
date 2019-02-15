@@ -19,6 +19,7 @@ $ hugo imoprt jekyll path_to_jekyll_root_project path_to_hugo_root_project
 $ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-cove
 $ hugo server --theme=herring-cove
 ```
+
 「このコマンド打ってな〜」と言われると思いますが、なんとその通りにやってもうまくいきません！笑
 git cloneしたherring-coveテーマが原因です。おそらくアプデされていないのでしょう。以下のように直します。変更箇所は複数のファイルで存在するので、エディタの機能使うなどして一括変換するといいと思います。
 
