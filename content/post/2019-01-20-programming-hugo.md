@@ -5,7 +5,7 @@ category: ["技術"]
 image: programming.jpeg
 description: "ruby製の静的webサイトジェネレータ「jekyll」が非常によかったので、同じWEBサイトジェネレーターであるGo製の「Hugo」も試してみた。Hugo、結果的にはかなりイケてた。"
 date: 2019-01-20T09:03:48+09:00
-tag: ["Hugo","ブログ"]
+tags: ["Hugo","ブログ"]
 ---
 ### ざっくりHugoについて
 Go製の静的webジェネレータ。新しいライブラリというかフレームワーク？？なので、コミュニティもJekyllに比べて盛んな印象です。
