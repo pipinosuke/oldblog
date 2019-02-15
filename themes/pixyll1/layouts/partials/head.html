@@ -14,7 +14,7 @@
   <meta name="twitter:site" content="@nosugi1" />
 
 {{ if .Title }}
-  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
 {{ else }}
   <meta name="twitter:title" content="{{ .Site.Title }}" />
 {{ end }}
@@ -24,6 +24,20 @@
 {{ end }}
 
   <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
+
+  <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#"> -->
+
+<meta property="og:url" content="{{.URL}}" />
+
+<meta property="og:type" content="artiecl" />
+
+<meta property="og:title" content=" {{ .Title }} " />
+
+<meta property="og:description" content="{{ .Description }}" />
+
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+<meta property="og:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
 
 
   <!-- Custom CSS -->
