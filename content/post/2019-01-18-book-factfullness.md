@@ -6,6 +6,10 @@ description: "「Factfullness」の日本語版が発売前からフォローし
 date: 2019-01-18T09:03:48+09:00
 ---
 
+@(書評)
+# 「ファクトフルネス」を読んで、書評と要点をまとめる
+「Factfullness」の日本語版が発売前からフォローしている人の間で話題になっていた。この本に関するツイートを見る限り「思い込みや直感ではなくデータ・数字ベースで事象をとらえてみよう」というのがざっくりしたテーマである印象を受けた。自分も気になったので読んでみることにした。
+
 ## 概要
 [FACTFULNESS（ファクトフルネス）10の思い込みを乗り越え、データを基に世界を正しく見る習慣](https://amzn.to/2FBzOc7)  
 <a href="https://www.amazon.co.jp/FACTFULNESS-%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%95%E3%83%AB%E3%83%8D%E3%82%B9-10%E3%81%AE%E6%80%9D%E3%81%84%E8%BE%BC%E3%81%BF%E3%82%92%E4%B9%97%E3%82%8A%E8%B6%8A%E3%81%88%E3%80%81%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%9F%BA%E3%81%AB%E4%B8%96%E7%95%8C%E3%82%92%E6%AD%A3%E3%81%97%E3%81%8F%E8%A6%8B%E3%82%8B%E7%BF%92%E6%85%A3-%E3%83%8F%E3%83%B3%E3%82%B9%E3%83%BB%E3%83%AD%E3%82%B9%E3%83%AA%E3%83%B3%E3%82%B0/dp/4822289605/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=pipinosuke04-22&linkId=e06622404611706627c53e3723f31a6d&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4822289605&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=pipinosuke04-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=pipinosuke04-22&language=ja_JP&l=li2&o=9&a=4822289605" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
@@ -24,7 +28,7 @@ date: 2019-01-18T09:03:48+09:00
 人間の脳にはこのように現実の認知を狂わせる10の本能が存在する。
 ##### 認知を狂わせる10の本能
 > 1. **分断本能**
-> 2. **ネガティブ本能**
+> 2. **ネガティブ本能]**
 > 3. **直線本能**
 > 4. **恐怖本能**
 > 5. **過大視本能**
@@ -156,6 +160,11 @@ date: 2019-01-18T09:03:48+09:00
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174019.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
 
+#### 対策
+- 小さな進歩を追いかける
+- 文化が変わる例を集める
+- 知識のアップデート
+- 高齢者に話を聞く
 
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174024.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
@@ -166,7 +175,7 @@ date: 2019-01-18T09:03:48+09:00
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174028.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
 #### 物事を多面的に捉える・考える
-> - 自分の意見に合わない情報や、専門外の情報を進んで仕入れる
+>  自分の意見に合わない情報や、専門外の情報を進んで仕入れる
 
 #### 現状を一つの切り口のみで考えてしまう原因
 現実はいろんな要素や側面が絡み合っているが、我々は単純化本能によってそのうちの一つ側面のみから考えてしまいがちだその原因として以下の2つ挙げられていた。
@@ -184,8 +193,7 @@ date: 2019-01-18T09:03:48+09:00
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174037.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
 
-#### 原因は人ではなくシステムにある
-
+#### 成否を分ける原因は人ではなくシステムにあることを念頭に置く
 - 社会基盤
 - テクノロジー
 
@@ -193,11 +201,23 @@ date: 2019-01-18T09:03:48+09:00
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
 
 #### 一言コメント
-何か事件があった時多くの人々は原因の解決のために議論するのではなく、ある人物を責めたり避難することに躍起になってしまうという現象はありとあらゆるところで起こっていると思う。
+不祥事を起こした人が責任を取り退職・辞任したというニュースをよく耳にすると思う。だがそれだけだは問題解決にはなってはいない。構造的な問題点の分析とそれについて何を対策したかということが重要であるはずである。周りを見ていると安易に人に対する非難に傾倒するあまり、構造的な問題に対する具体的な解決策についての報道や議論がおろそかになっていると感じる。
 
 ### 10.焦り本能
+> 恐怖を感じたり、期間を限定され急かされた時、焦るあまり批判的によく考えることなく決断・行動してしまう本能
+
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174046.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
+
+#### 意識すると良いこと
+- 総合的な分析  
+情報を集め、落ち着いて判断。
+- 考え抜かれた決断  
+- 段階的な行動  
+過激な対策とその副作用に気をつける。そしてその対策が本当に効果があるのかを考える。
+- 慎重な評価  
+最悪なシナリオと最高のシナリオの間の幅を考え、正しくリスクを評価する。
+
 ![enter image description here](https://cdn-ak.f.st-hatena.com/images/fotolife/f/finfinmaru/20190114/20190114174052.png)
 引用: [FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ](http://bit.ly/2DkDFrZ)
 
