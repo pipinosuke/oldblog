@@ -10,7 +10,7 @@
   <meta name="keywords" content="">
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@nosugi1" />
 
 {{ if .Title }}
@@ -23,23 +23,18 @@
   <meta name="twitter:description" content="{{ .Description }}" />
 {{ end }}
 
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
+
+  <!-- <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/thumbs/avator.jpg" /> -->
+<meta property="og:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
 
   <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#"> -->
 
-<meta property="og:url" content="{{.URL}}" />
-
-<meta property="og:type" content="artiecl" />
-
-<meta property="og:title" content=" {{ .Title }} " />
-
-<meta property="og:description" content="{{ .Description }}" />
-
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-
-<meta property="og:image" content="https://raw.githubusercontent.com/pipinosuke/blog/gh-pages/images/avator.jpg" />
-
-
+<meta property="og:title" content=" {{ .Title }} " />
+<meta property="og:url" content="{{.URL}}" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="{{ .Description }}" />
   <!-- Custom CSS -->
   <!-- Those css minifined and combined together. See combined-min.css below
   <link rel="stylesheet" type="text/css" href="/css/basscss.css">

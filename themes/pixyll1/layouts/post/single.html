@@ -17,7 +17,8 @@
       <article class="post-content">
       {{ .Content }}
       </article>
-      <span class="post-meta">{{ .Date.Format "2006年1月2日" }} written by <a href="{{ $baseurl }}/about">{{ .Site.Params.author }}</a>  </span>
+      <span class="post-meta">{{ .Date.Format "2006年1月2日" }} written by <a href="{{ $baseurl }}/about">{{ .Site.Params.author }}</a></span>
+      <center><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
       {{ partial "comments.html" . }}
     </div>
   </div>
