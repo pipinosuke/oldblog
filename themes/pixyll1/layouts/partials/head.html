@@ -10,6 +10,28 @@
   <meta name="keywords" content="">
   <link rel="canonical" href="{{ .Permalink }}">
 
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@nosugi1" />
+
+{{ if isset .Title }}
+  <meta name="twitter:title" content="{{ .Title }}" />
+{{ else }}
+  <meta name="twitter:title" content="{{ Site.title }}" />
+{{ end }}
+
+{{ if isset Description }}
+  <meta name="twitter:description" content="{{ .Description }}" />
+{{ end }}
+
+<!-- {{ if page.image }}
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/master/images/thumbs/{{ page.image }}" />
+{{ elsif page.tags[0] == "「俺の◯◯」シリーズ" }}
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/master/images/thumbs/my-series.png" />
+{{ else  }}
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/pipinosuke/blog/master/images/avator.jpg" />
+{{ endif }} -->
+
+
   <!-- Custom CSS -->
   <!-- Those css minifined and combined together. See combined-min.css below
   <link rel="stylesheet" type="text/css" href="/css/basscss.css">
