@@ -5,6 +5,7 @@ description = "Hugoが予想以上に良かったのと、どうせ移行する�
 category = ["技術"]
 tags = ["Hugo","jekyll"]
 draft = false
+image = "hugo.png"
 +++
 
 ### データをJekyllからインポート

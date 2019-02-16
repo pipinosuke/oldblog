@@ -5,6 +5,7 @@ description = "Hugoでブログを書いているのだが、毎回行わなけ�
 category = ["技術"]
 tags = ["Hugo","CircleCI"]
 draft = false
+image = "circleci.png"
 +++
 
 #### CIサービスとは
