@@ -18,18 +18,35 @@ draft = false
 [![Image from Gyazo](https://i.gyazo.com/7f4cca4f19fb379db83ede56063940ac.png)](https://gyazo.com/7f4cca4f19fb379db83ede56063940ac)
 
 #### APIを叩いてみる
+##### 1.APIキーとトークンの取得
+- リクエストURL
+	- https://api.soracom.io/v1/auth
+- クエリ
+	- email: メールアドレス
+	- password: パスワード
+- レスポンス
+
+``` json
+{
+  "apiKey": "APIKEY",
+  "operatorId": "OPERATORID",
+  "userName": null,
+  "token": "TOKEN"
+}
+```
+一応WEBからも発行可能です。[こちらのリンク](https://dev.soracom.io/jp/docs/api/)から二種類あるので好きなやり方で認証・発行してください。
+[![Image from Gyazo](https://i.gyazo.com/ed8209b0509d5c1177e442ce4c288e64.png)](https://gyazo.com/ed8209b0509d5c1177e442ce4c288e64)
+
+##### 2.APIを叩いてみる
 試しに登録したSimカードの一覧を取得するAPIを叩いてみます。
 
-1. APIキーとトークンの取得
-[こちらのリンク](https://dev.soracom.io/jp/docs/api/)から二種類あるので好きなやり方で認証・発行してください。
-[![Image from Gyazo](https://i.gyazo.com/ed8209b0509d5c1177e442ce4c288e64.png)](https://gyazo.com/ed8209b0509d5c1177e442ce4c288e64)
-2. APIを叩いてみる
-  - リクエストURL
-	   - https://api.soracom.io/v1/subscribers
-  - リクエストヘッダ
-		 - X-Soracom-Token=TOKEN
-     - X-Soracom-API-Key=APIKEY
-3. レスポンス
+- リクエストURL
+  - https://api.soracom.io/v1/subscribers
+- リクエストヘッダ
+先ほど取得したapiKeyとTokenを使用します
+	- X-Soracom-API-Key=APIKEY
+	- X-Soracom-Token=TOKEN
+- レスポンス
 
 ``` json
 [

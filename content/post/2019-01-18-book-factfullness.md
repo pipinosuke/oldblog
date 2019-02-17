@@ -234,3 +234,7 @@ image: factfullness.jpeg
 この記事で使っている画像だが全て[コンサルタントのアウトプット図解](https://finfinmaru.hatenadiary.com/)というブログから引用している。質の高さに驚かされた！！圧倒的畏敬と感謝とと共にこの場を借りて紹介。
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">このブログ神すぎわろた<br>【図解レビュー】FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ <a href="https://t.co/XqkRqWvCIz">https://t.co/XqkRqWvCIz</a></p>&mdash; とり (@nosugi1) <a href="https://twitter.com/nosugi1/status/1086567565135032321?ref_src=twsrc%5Etfw">2019年1月19日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+さらに追記、あの本田圭佑も！！
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">先日読んだファクトフルネスという本に影響を受けて、貧困と先進国みたいな分け方と呼び方を改めて、レベル1、2、3、4と細分化して呼ぶようにします。<br><br>因みにレベル1の収入は1日に1ドル。世界は日々良くなってるけど、まだ世界には10億人の人がこのレベル1で生活している。 <a href="https://t.co/N3kmkWzhO2">https://t.co/N3kmkWzhO2</a></p>&mdash; KeisukeHonda(本田圭佑) (@kskgroup2017) <a href="https://twitter.com/kskgroup2017/status/1097004903304552448?ref_src=twsrc%5Etfw">February 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
