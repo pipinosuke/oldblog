@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ .Title }} - {{ .Site.Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -15,8 +14,10 @@
 
 {{ if .Title }}
   <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
+  <title>{{ .Title }} - {{ .Site.Title }}</title>
 {{ else }}
   <meta name="twitter:title" content="{{ .Site.Title }}" />
+  <title>{{ .Site.Title }}</title>
 {{ end }}
 
 {{ if .Description }}
