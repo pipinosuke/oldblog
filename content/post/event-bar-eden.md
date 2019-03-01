@@ -5,7 +5,7 @@ description = "札幌にあるイベントバーエデンというバーに先�
 tags = ["エデン","えらいてんちょう","不謹慎マン"]
 category = ["行動"]
 image = ""
-draft = true
+draft = false
 +++
 ### イベントバーエデンについて
 えらいてんちょう
