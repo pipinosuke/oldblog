@@ -5,7 +5,7 @@ description = "僕のポリシーとしてお金以外で自分の資産とな�
 tags = ["仕事"]
 category = ["思考"]
 image = "bar.jpg"
-draft = false
+draft = true
 +++
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">・まだ規模が小さく、成熟してない<br>・少し怪しい、怖い<br>・何をやっているかよくわからない、理解できない<br>みたいなことに飛び込むと美味しい思いや体験ができるという僕なりの経験則があるのですが、共感してくれる人いるかな？？</p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1100313510125264898?ref_src=twsrc%5Etfw">2019年2月26日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
