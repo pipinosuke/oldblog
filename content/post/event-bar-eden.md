@@ -72,5 +72,6 @@ draft = false
 
 旧友の協力もあって、結果的に盛況のうちに終えることができました。男子校バーという名前で売り出したのですが、札幌市内に男子校は一校しかないことに当日気づきました。笑
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">カウンター埋まりました！！<br>身を切ったかいがありました、ありがとうございます！<br>なぜか女性も来てて草。 <a href="https://t.co/UCFgnBQANY">pic.twitter.com/UCFgnBQANY</a></p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1101829944168992768?ref_src=twsrc%5Etfw">March 2, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 また今回は仕入れる必要がないものをオリジナルの商品として売り出してみたのですが、4・5回注文が入ってくれました。他にも工夫次第でいろんなやり方がありそうだと感じました。面白い案を思いつけばまた実験したいです。
 精神をすり減らし、時給換算すると1000円以下でしたが、この一日バーテンがきっかけでしばらく会ってなかった高校の同期に会うことができてプライスレスな夜でした。最後に周囲に流されず思考し、無からの創造をする方に敬意を示して終わりとさせていただきます。
