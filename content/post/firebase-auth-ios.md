@@ -8,14 +8,12 @@ image = "firebase-auth-ios.png"
 draft = false
 +++
 ##### 参考URL
-[Qiitaの記事](https://qiita.com/matsuei/items/4f56c0f8d9a1b96cd9f0)を参考にしました。[公式ドキュメント](https://firebase.google.com/docs/auth/ios/password-auth?hl=ja)を参考に導入するはずでしたが、重要なところを端折っていたりしたりしてわかりにくかった。
-
+基本的には[公式ドキュメント](https://firebase.google.com/docs/auth/ios/password-auth?hl=ja)を参考にしましたが端折られている部分もあったので、こちらの[Qiitaの記事](https://qiita.com/matsuei/items/4f56c0f8d9a1b96cd9f0)も合わせて参考にしました。
 ### 導入
-cocoapodsで導入。詳しくは割愛します。下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。
+cocoapodsでインストールします。cocoapodsの使い方については割愛します。そのあとは下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。
 [![FireBase installed image](https://i.gyazo.com/9f67804569f2d2d629136c98c3d7afd7.png)](https://gyazo.com/9f67804569f2d2d629136c98c3d7afd7)
 
-### 実装
-#### 共通
+#### 共通部分
 AppDelegateに追記。公式ドキュメントに従って**didFinishLaunchingWithOptionsに書くとエラーになるので注意**（ふざけんな）
 
 ``` swift
@@ -46,10 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ##### 1. Twitterログインの有効化
 [developer.twitter.com](https://developer.twitter.com/en/apps)からapiKeyとTokenを取得する必要があります。使用用途などについて300文字くらい書かされてクッソめんどかったです。まぁ無料で使わせてもらってるので大人しく感謝します。先ほどのリンクからアプリを登録したあと、FirebaseAuthのコンソールからそれぞれのキーを登録・有効化しましょう。
 [![TwitterLoginConfig](https://i.gyazo.com/3b90e9e386df85be75e637e25d1c6c54.png)](https://gyazo.com/3b90e9e386df85be75e637e25d1c6c54)
-##### 2. URLスキームの登録
+#### 2. TwitterのコールバックURLを設定
+- twitterkit-CONSUMERKEY(CONSUMERKEYの部分は[developer.twitter.com](https://developer.twitter.com/en/)から各自参照)
+- 上の画像のURL
+以上二つを[developer.twitter.com](https://developer.twitter.com/en/apps)のアプリのコールバックURLに設定します。
+[![Image from Gyazo](https://i.gyazo.com/b0939fdc9278a664f9372f560ae5bdab.png)](https://gyazo.com/b0939fdc9278a664f9372f560ae5bdab)
+##### 3. URLスキームの登録
 Xcodeのworkspace→target→Infoの「URL Types」からURLスキームを登録します。
 [![Image from Gyazo](https://i.gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef.png)](https://gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef)
 `twitterkit-CONSUMERKEY`という形で入力します。ConsumerKeyも[developer.twitter.com](https://developer.twitter.com/en/apps)から参照できます。
+
 ##### 3.  実装
 AppDelegateのdidFinishLaunchingWithOptionsに以下のように記述。引数は各自入力しましょう。
 ``` swift
@@ -64,9 +68,9 @@ import TwitterKit
         return true
     }
 ```
-4.
+
 #### Googleログイン
-Firebase コンソールで [Authentication] セクションを開き、Google ログインを有効にします。
+こちらは簡単Firebase コンソールで [Authentication] セクションを開き、Google ログインを有効にします。
 XCodeのURLスキームに`GoogleService-Info.plist`のREVERSED_CLIENT_IDを登録します。ツイッターと同じ要領で追加すればおk。
 
 ### ログイン画面の実装
@@ -82,15 +86,16 @@ pod 'FirebaseUI/Google'
 pod 'FirebaseUI/Twitter'
 ```
 
-#### 2. ログイン画面への遷移
+#### 2. ログイン画面の実装と遷移
 ``` swift
 import FirebaseAuthUI
 import FirebaseTwitterAuthUI
 import FirebaseGoogleAuthUI
 ~~~~~
 class ViewController: UIViewController {
-private var authUI = FUIAuth.defaultAuthUI()
-private let providers: [FUIAuthProvider] = [
+  private var authUI = FUIAuth.defaultAuthUI() //authUIの初期化
+  private let providers: [FUIAuthProvider] = [
+        //ここでプロバイダの追加を行う
         FUITwitterAuth(),
         FUIGoogleAuth()
     ]
@@ -106,5 +111,20 @@ let authVC = authUI.authViewController() //ログイン画面のインスタン�
 navigationController?.present(vc, animated: true, completion: nil)
 ```
 
+### コールバックの受け取り
+```swift
+extension ViewController: FUIAuthDelegate {
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if let error = error {
+            //エラー処理
+            print(error)
+        }
+        print(authDataResult?.user)
+        //ログイン後の処理
+    }
+}
+```
+FUIAuthのDelegateメソッドが用意されています。こんな感じで実装できます。
+
 #### カスタマイズ
-FUIAuthDelegateメソッドでUIのカスタマイズが可能です。
+FUIAuthDelegateメソッドでUIのカスタマイズが可能です。詳しく書く。
