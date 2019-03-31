@@ -4,7 +4,7 @@ date = 2019-03-31T09:48:36+09:00
 description = "名前がイケてる感あるので遅ればせながら使ってみました。機能的には「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能を提供してくれるFireBaseAuth及びFirebaseAuthUIを利用してみた際の覚書です。"
 tags = ["ios","firebase"]
 category = ["技術"]
-image = ""
+image = "firebase-auth-ios.png"
 draft = false
 +++
 ##### 参考URL
