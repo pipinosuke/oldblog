@@ -7,6 +7,8 @@ category = ["技術"]
 image = "firebase-auth-ios.png"
 draft = false
 +++
+名前がイケてる感あるので遅ればせながら使ってみました。機能的には「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能を提供してくれるFireBaseAuth及びFirebaseAuthUIを利用してみた際の覚書です。
+
 ##### 参考URL
 基本的には[公式ドキュメント](https://firebase.google.com/docs/auth/ios/password-auth?hl=ja)を参考にしましたが端折られている部分もあったので、こちらの[Qiitaの記事](https://qiita.com/matsuei/items/4f56c0f8d9a1b96cd9f0)も合わせて参考にしました。
 ### 導入
@@ -59,14 +61,29 @@ AppDelegateのdidFinishLaunchingWithOptionsに以下のように記述。引数�
 ``` swift
 import TwitterKit
 ~~~~~~~~~~~~~~~
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
         //Twitterログイン
         TWTRTwitter.sharedInstance().start(withConsumerKey: "CONSUMERKEY", consumerSecret: "SECRET")
         return true
     }
+```
+続いてAppDelegateのapplicationに記述。ここも公式に書いてなくてわからんかったです。
+```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+    //ツイッターログイン
+        if TWTRTwitter.sharedInstance().application(app, open: url, options: options) {
+            return true
+        }
+
+        // other URL handling goes here.
+        return false
+    }
+
 ```
 
 #### Googleログイン
@@ -111,7 +128,21 @@ let authVC = authUI.authViewController() //ログイン画面のインスタン�
 navigationController?.present(vc, animated: true, completion: nil)
 ```
 
-### コールバックの受け取り
+### ログイン状態か否かの判定について
+`viewWillAppear`でaddStateChangeListenerを呼ぶことで判定します。ログイン状態でないときはuserがnilになります。
+```swift
+    override func viewWillAppear(_ animated: Bool) {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                print(user)
+            } else {
+                self.login() //nilなのでログインさせる
+            }
+        }
+    }
+```
+
+### ログイン後の処理について
 ```swift
 extension ViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
@@ -119,7 +150,6 @@ extension ViewController: FUIAuthDelegate {
             //エラー処理
             print(error)
         }
-        print(authDataResult?.user)
         //ログイン後の処理
     }
 }
