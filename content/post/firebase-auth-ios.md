@@ -124,7 +124,7 @@ class ViewController: UIViewController {
 といった感じでログインできるプロバイダを追加してあげて、後はお決まりのやつで遷移できます。
 ``` swift
 let authVC = authUI.authViewController() //ログイン画面のインスタンス化
-navigationController?.present(vc, animated: true, completion: nil)
+present(vc, animated: true, completion: nil)
 ```
 
 ### ログイン状態か否かの判定について
