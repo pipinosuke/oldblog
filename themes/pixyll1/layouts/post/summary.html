@@ -12,8 +12,8 @@
   <p class="post-meta right"></p>
   <div class="clearfix"></div>
   <a class="post-link" href="{{ .Permalink }}">
-  <img src="{{ $baseurl }}/images/thumbs/{{ .Params.image }}" alt="{{ .Params.image }}" style="max-width: 100%; height: 200px;">
-  <h3 class="h2 post-title">{{ .Title }} {{ if .Draft }}(draft){{end}}</h3>
+  <img src="{{ $baseurl }}/images/thumbs/{{ .Params.image }}" alt="{{ .Params.image }}" style="max-width: 100%; height: auto;">
+  <h4 class="h2 post-title">{{ .Title }} {{ if .Draft }}(draft){{end}}</h4>
   <p class="post-summary">{{ .Description }}</p>
   </a>
   <!-- <p class="post-meta">{{ i18n "tags" }}:&nbsp;
