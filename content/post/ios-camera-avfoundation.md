@@ -1,5 +1,5 @@
 +++
-title = "iOSアプリのAVFoundation覚書〜バーコードリーダーの実装"
+title = "AVFoundation覚書 iOSアプリでバーコードリーダーを実装する"
 date = 2019-04-03T01:50:01+09:00
 description = "iOSアプリで画像や動画の加工を行う際に必要なAVFoundationというライブラリを使ってバーコード読み取り機能を実装した際のメモ。カメラアプリは作ったことがなく色々面倒くさそうな印象でしたが、ブログのおかげでなんとかできました。先人達に感謝。"
 tags = ["iOS","AVFoundation","Swift"]

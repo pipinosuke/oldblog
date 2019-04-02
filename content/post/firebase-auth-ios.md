@@ -92,7 +92,7 @@ XCodeのURLスキームに`GoogleService-Info.plist`のREVERSED_CLIENT_IDを登�
 ### ログイン画面の実装
 FirebaseAuthUIというライブラリがUIのテンプレを用意してくれているのでこれを使う。
 [![Image from Gyazo](https://i.gyazo.com/2e6e254eb084c4863c24f726ef7634d7.png)](https://gyazo.com/2e6e254eb084c4863c24f726ef7634d7)
-##### 1. FirebaseUIの導入
+#### 1. FirebaseUIの導入
 [FirebaseUI](https://firebase.google.com/docs/auth/ios/firebaseui?hl=ja)を導入する。Podfileに以下を記述。
 ``` vim
 pod 'Firebase/Auth'
