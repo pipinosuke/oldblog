@@ -5,7 +5,7 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">{{ .Title }}</h1>
+        <h4 class="py2">{{ .Title }}</h4>
         <img src="{{ $baseurl }}/images/thumbs/{{ .Params.image }}" alt="{{ .Params.image }}" style="max-width: 100%; height: auto;">
         <p class="post-meta">{{ i18n "tags" }}:&nbsp;
           {{ range $i, $e := .Params.tags }}
