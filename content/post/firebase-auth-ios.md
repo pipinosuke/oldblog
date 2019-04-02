@@ -1,13 +1,12 @@
 +++
 title = "FirebaseAuthenticationでSNSログイン機能の実装 覚書 (iOS版)"
 date = 2019-03-31T09:48:36+09:00
-description = "名前がイケてる感あるので遅ればせながら使ってみました。機能的には「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能を提供してくれるFireBaseAuth及びFirebaseAuthUIを利用してみた際の覚書です。"
+description = "名前がイケてる感あるので遅ればせながら使ってみました。「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい機能的には至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能とUIを提供してくれるFirebaseAuthUIを利用してみた際の覚書です。"
 tags = ["ios","firebase"]
 category = ["技術"]
 image = "firebase-auth-ios.png"
 draft = false
 +++
-名前がイケてる感あるので遅ればせながら使ってみました。機能的には「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能を提供してくれるFireBaseAuth及びFirebaseAuthUIを利用してみた際の覚書です。
 
 ##### 参考URL
 基本的には[公式ドキュメント](https://firebase.google.com/docs/auth/ios/password-auth?hl=ja)を参考にしましたが端折られている部分もあったので、こちらの[Qiitaの記事](https://qiita.com/matsuei/items/4f56c0f8d9a1b96cd9f0)も合わせて参考にしました。
@@ -16,7 +15,7 @@ cocoapodsでインストールします。cocoapodsの使い方については�
 [![FireBase installed image](https://i.gyazo.com/9f67804569f2d2d629136c98c3d7afd7.png)](https://gyazo.com/9f67804569f2d2d629136c98c3d7afd7)
 
 #### 共通部分
-AppDelegateに追記。公式ドキュメントに従って**didFinishLaunchingWithOptionsに書くとエラーになるので注意**（ふざけんな）
+AppDelegateに追記。公式ドキュメントに従って**didFinishLaunchingWithOptionsに書くとエラーになるので注意**。尚、このことは公式ドキュメントでは言及されていない。
 
 ``` swift
 import Firebase
@@ -118,7 +117,7 @@ class ViewController: UIViewController {
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
-        authUI.providers = providers
+        authUI.providers = providers //プロバイダをセット
     }
 
 ```
@@ -143,6 +142,7 @@ navigationController?.present(vc, animated: true, completion: nil)
 ```
 
 ### ログイン後の処理について
+FUIAuthのDelegateメソッドが用意されています。こんな感じで実装できます。
 ```swift
 extension ViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
@@ -154,7 +154,10 @@ extension ViewController: FUIAuthDelegate {
     }
 }
 ```
-FUIAuthのDelegateメソッドが用意されています。こんな感じで実装できます。
+`viewDidLoad`とかでdelegateの宣言も忘れずに。
+```swift
+   authUI.delegate = self
+```
 
 #### カスタマイズ
 FUIAuthDelegateメソッドでUIのカスタマイズが可能です。詳しく書く。
