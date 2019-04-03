@@ -62,3 +62,9 @@ draft = false
 | [MacLogicRepair](https://m-l-r.com/category/repair/)(埼玉)   | 個人店 |  無し  ||1~2日|要相談|
 | [パソコンお直し隊](https://www.note-pc.biz/)(全国各地)    | チェーン店 |  有り(10%)  ||3週間|1ヶ月|
 |  [愛Mac](https://aimac.biz)(渋谷) | 店舗 |  有り(10%)  ||問い合わせてないので不明|最大3ヶ月|
+
+### 追記: PCが治って数日後のワイ
+歴史から何も学んでない。
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">パソコンが故障した時バックアップをとっておけば良かったと激しく後悔した。修理して数日経過した今はどうか。結局バックアップ取っていないし、もはや取ろうという気持ちすらなくなった。<br><br>これぞ人間</p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1113023896649838592?ref_src=twsrc%5Etfw">2019年4月2日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
