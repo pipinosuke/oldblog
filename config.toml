@@ -1,5 +1,5 @@
 baseURL = "https://blog.nosugi.tech/"
-disablePathToLower = true
+disablePathToLower = false
 languageCode = "en-us"
 title = "nosugi blog"
 theme = "robost1"
@@ -17,5 +17,6 @@ twitter_username = "nosugi1"
 name = "nosugi"
 thumbnail = "images/avator.jpg"
 facebook = ""
-twitter = "nogusi1"
+twitter = "https://twitter.com/nosugi1"
 github = ""
+description = "ぴーひゃら"
