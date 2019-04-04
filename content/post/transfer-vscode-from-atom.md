@@ -3,7 +3,7 @@ title = "AtomからVSCodeに乗り換えた所感と行なった初期設定"
 date = 2019-04-04T12:30:46+09:00
 description = "最近VSCodeの新バージョンがリリースされたことを受け試してみた結果、AtomからVSCodeに乗り換えました。少し使っててAtomと比較しての所感と行なった初期設定のメモ。マジで軽くて少し感動しながら書いた。"
 tags = ["VSCode","開発環境"]
-category = ["その他"]
+category = ["技術"]
 image = "vscode.png"
 draft = false
 +++
