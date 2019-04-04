@@ -696,9 +696,9 @@ section.footer > header a {
 }
 
 {{ range $p := .Site.RegularPages }}
-{{ with $p.Params.thumbnail }}
+{{ with $p.Params.image }}
 .thumb-{{ $p.UniqueID }} {
-  background-image: url({{ $.Site.BaseURL }}{{ . }});
+  background-image: url({{ $.Site.BaseURL }}images/thumbs/{{ . }});
 }
 {{ end }}
 {{ end }}
