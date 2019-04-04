@@ -36,3 +36,4 @@ draft = false
 
 ### 通信について
 通信し値を受け取った時の挙動もRxSwiftでかけます。subject
+あとで追記します
