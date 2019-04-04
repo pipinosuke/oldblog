@@ -8,15 +8,15 @@ image = "vscode.png"
 draft = false
 +++
 
-#### VSCode新バージョンがリリース、試してみる
+#### メモリ使用量1/4の衝撃
 4/3日にVSCodeの新バージョンがリリースされました。TLを眺めていたところ、このようなツイートを発見。
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Gighubを買収した成果がこんなところにも。 VSやはり良いですね <a href="https://t.co/aJkeMwjOk3">https://t.co/aJkeMwjOk3</a></p>&mdash; Kurose (@jkurose777) <a href="https://twitter.com/jkurose777/status/1113315511486504960?ref_src=twsrc%5Etfw">2019年4月3日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-なんとメモリ使用量1/4・・・。乗るしかないこのビックウェーブに・・・ということで試してみた。
+    
+#### 乗るしかない、このビックウェーブに・・・！！
 
 ### 結論
-> AtomよりVSCode
+> Atomより**圧倒的に**VSCode
 
 Vim職人などの例外を除けば、無料で使えるエディタの中で一番ではないのかなと思います。立ち上がりのはやいAtomという感じ。（強い）
 
@@ -34,9 +34,6 @@ Sublimeほどまではいかないが、軽快。
 
 
 ### 初期設定など
-#### プラグイン
-[VSCodeのオススメ拡張機能 24 選 (とTipsをいくつか)](https://t.co/2o7zVxPKwX)から気に入ったものをインストールしました。他にもあれば教えて欲しいです。
-
 #### UI設定
 - フォントサイズの設定  
 デフォルトは12で少しみにくいので15
@@ -52,6 +49,9 @@ VSCode内でiTermを使いたいので以下のように設定します。 「Us
 [![use-iterm](https://i.gyazo.com/3d57e01e4e5326b67564e4a848259b7f.png)](https://gyazo.com/3d57e01e4e5326b67564e4a848259b7f)
 
 ちなみにMacでは`Control+Shift+@`でterminalを起動できます。
+
+#### プラグイン
+[VSCodeのオススメ拡張機能 24 選 (とTipsをいくつか)](https://t.co/2o7zVxPKwX)から気に入ったものをインストールしました。他にもあれば教えて欲しいです。
 
 #### デバッグ
 Webの開発行う人は入れておくとよいかと思います。
