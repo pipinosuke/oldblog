@@ -2,7 +2,7 @@ baseURL = "https://blog.nosugi.tech"
 disablePathToLower = true
 languageCode = "en-us"
 title = "nosugi blog"
-theme = "robost"
+theme = "robost1"
 description = "nosugiのブログです。技術や思考の軌跡を記録として残しておきます。"
 
 [indexes]
