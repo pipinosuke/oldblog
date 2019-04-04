@@ -13,8 +13,9 @@
       {{ if .IsDraft }}<li style="color: #2196f3;">DRAFT</li>{{ end }}
       {{ end }}
     </ul>
-
+    <p>{{ .Params.Description }}</p><br>
     {{ partial "share.html" . }}
+
   </header>
 
   {{ if .Params.toc }}
@@ -23,7 +24,9 @@
   </div>
   {{ end }}
 
-  <div class="article-body">{{ .Content }}</div>
+  <div class="article-body">
+    {{ .Content }}
+  </div>
 
   <footer class="article-footer">
 
