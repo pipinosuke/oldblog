@@ -28,11 +28,6 @@ Sublimeほどまではいかないが、軽快。
 - 洗練されたUI  
 画面分割やファイル検索など自在にできる。特にGitがみやすい。
 
-
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">インストールしてみた結果Atomより余裕でサクサク動くし、プラグインも充実してるな。乗り換えることにした。 <a href="https://twitter.com/hashtag/VSCode?src=hash&amp;ref_src=twsrc%5Etfw">#VSCode</a><a href="https://t.co/2o7zVxPKwX">https://t.co/2o7zVxPKwX</a></p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1113628550181965824?ref_src=twsrc%5Etfw">2019年4月4日</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
 ### 初期設定など
 #### UI設定
 - フォントサイズの設定  
