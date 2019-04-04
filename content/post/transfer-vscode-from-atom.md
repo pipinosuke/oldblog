@@ -53,6 +53,13 @@ VSCode内でiTermを使いたいので以下のように設定します。 「Us
 
 ちなみにMacでは`Control+Shift+@`でterminalを起動できます。
 
+#### デバッグ
+Webの開発行う人は入れておくとよいかと思います。
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+
+参考: [Visual Studio Code でフロントエンドの開発環境を構築してデバッグする](https://qiita.com/C3REVE/items/273646ad028e98758e70)
+
 #### ターミナルからファイルやプロジェクトをVSCodeで開く
 ```bash
 code .
