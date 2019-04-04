@@ -15,6 +15,7 @@ draft = false
 
 ## RxSwiftを使ったUITableViewの実装
 大きく分けてふたパターンあります。1のやり方はシンプルです。2は自由度が高い実装が可能です。
+
 > 1. ObservableをUITableViewにbindして実装
 > 2. DataSourceを自分で定義して実装
 
