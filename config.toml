@@ -3,13 +3,13 @@ disablePathToLower = false
 languageCode = "en-us"
 title = "nosugi blog"
 theme = "robost1"
+googleAnalytics = "UA-84084422-3"
 
 [indexes]
 category = "category"
 tag = "tags"
 
 [params]
-google_analytics_id = "UA-84084422-3"
 paginate = true
 twitter_username = "nosugi1"
 [params.author]
