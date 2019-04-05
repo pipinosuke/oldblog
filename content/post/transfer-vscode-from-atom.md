@@ -35,9 +35,12 @@ Sublimeほどまではいかないが、軽快。
 - テーマ  
 [Visual Studio Codeで見やすいテーマファイルのまとめ](https://coliss.com/articles/build-websites/operation/work/best-of-visual-studio-code-themes.html)から自分はAtomOneDarkを選びました。
 
-#### ファイルオートセーブ
+#### ファイル自動保存
 デフォルトではオフになっていて使いにくいので、onFocusChange(フォーカスを外した際に保存される)に変更。
 [![onFocusChange](https://i.gyazo.com/ddfa389faee5fd4d97b86b706545ab68.png)](https://gyazo.com/ddfa389faee5fd4d97b86b706545ab68)
+
+#### 自動コード整形
+設定画面の検索窓から「formaton」で検索。「`Format On Type`」にチェック
 
 #### 標準ターミナルではなくiTermを使えるように設定
 VSCode内でiTermを使いたいので以下のように設定します。 「UserSettings」→「Features」→「Extension Viewlet」
