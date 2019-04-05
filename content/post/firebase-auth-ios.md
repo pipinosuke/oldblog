@@ -1,8 +1,8 @@
 +++
-title = "FirebaseAuthenticationでSNSログイン機能の実装 覚書 (iOS版)"
+title = "Firebaseでサーバーレス開発  ログイン編(iOS版)"
 date = 2019-03-31T09:48:36+09:00
 description = "名前がイケてる感あるので遅ればせながら使ってみました。「サーバーレス開発」という言葉をこの流行らせたのって間違いなくFireBaseでしょう。というぐらい機能的には至れり尽くせりな感じでした。今回は自前での実装だと面倒なログイン機能とUIを提供してくれるFirebaseAuthUIを利用してみた際の覚書です。"
-tags = ["iOS","Firebase"]
+tags = ["iOS","Firebase","サーバーレス開発"]
 category = ["技術"]
 image = "firebase-auth-ios.png"
 draft = false
