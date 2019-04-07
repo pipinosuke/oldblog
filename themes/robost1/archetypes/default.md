@@ -1,9 +1,9 @@
 +++
-draft = true
-thumbnail = ""
-tags = []
-categories = []
-date = "{{ .Date }}"
-title = "{{ replace .TranslationBaseName "-" " " | title }}"
+title = ""
+date = {{ .Date }}
 description = ""
+tags = []
+category = []
+image = ""
+draft = false
 +++
