@@ -7,11 +7,11 @@ category = ["技術"]
 image = "rxswift.jpg"
 draft = false
 +++
-# RxSwiftでUITableViewにbindする
 鬼門でした。
 
 ## RxSwiftを使ったUITableViewの実装
 大きく分けてふたパターンあります。UITableViewDataSourceで実装する部分をRxを用いて実装します。1のやり方はシンプルです。2は自由度が高い実装が可能です。
+
 > 1. ObservableをUITableViewにbindして実装
 > 2. DataSourceを自分で定義して実装
 
