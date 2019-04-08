@@ -5,7 +5,7 @@ tags = ["iOS","RxSwift","リアクティブプログラミング"]
 category = ["技術"]
 date = "2019-04-08T03:06:17+09:00"
 title = "RxSwift入門とObservableの概要 まとめ"
-description = "Rxが注目されてからややしばらく経ちましたがわからず使っている部分も多々あり、また「Variable」が非推奨になるなど仕様が変更された部分もあるので改めて基本的な概念についてまとめました。。"
+description = "Rxが注目されてからややしばらく経ちましたがわからず使っている部分も多々あり、また「Variable」が非推奨になるなど仕様が変更された部分もあるので、RxSwift4について改めて基本的な概念についてまとめました。。"
 +++
 # RxSwift入門 Observableの概要 まとめ
 ### 入門
@@ -95,4 +95,4 @@ SubjectはObserver(購読者)から購読されるだけでなく、**外部に�
 ちなみにRxSwift独自で提供されていたVariableはRxSwift4で廃止になりました。代わりにはBehaviorRelyを使います。
 
 ### 補足 Variableについて
-RxSwift独自に提供されていたTraitであるVariableは非推奨(deprecated)になりました。ObserveすることができるObservableで、非常に紛らわしいです。ObserverとObservableの関係がこんがらがってしまう人も多いかと思います。 前述のTraitがあればVariableを使わずとも事足りるので、わざわざ使わないのが良いようです。
+RxSwift独自に提供されていたTraitであるVariableは非推奨(deprecated)になりました。ViewModelのプロパティとして使っている方が多くいらっしゃるかと思いますが、代わりにBehaviorSubject、もしくはBehaviorRelayを使うと良いかと思います。
