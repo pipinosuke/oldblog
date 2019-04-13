@@ -63,8 +63,12 @@ draft = false
 ##### 客 ~ コミュニケーション
 前述したように、コミュニケーションが生まれやすいという特徴があります。お客さんにとってはいつもの人間関係から解放されて利害関係なくコミュニケーションできる場所としての価値があります。
 
+### 後日談
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">エデンバー札幌店の様子からてっきり他の店舗も繁盛していると思っていましたが、どうやらそうではない様子。ビジネスモデル的にはこれ以上ないレベルで優れているかつ今の時代にマッチしている気がしますが、とはいえ肝心の集客は店長の力量次第か。。。<br>やはりどの業種でも重要なのは、人だなと。</p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1116996457251258368?ref_src=twsrc%5Etfw">2019年4月13日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### 一日店長をやってみた
+などと思いました。
+#### 一日店長をやってみた
 評論ではなく実践ということで、初来店したその翌週一日店長をやることにしました。
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">イベントバーエデン札幌(<a href="https://twitter.com/EBE_Sapporo?ref_src=twsrc%5Etfw">@EBE_Sapporo</a>)にて開催されます男子校バー、明日の3/2開催となります。関係者各位の皆様よろしくお願いします🙇<br>ちなみに今現在、私は押し寄せる｢滑り｣への恐怖と戦っております。 <a href="https://t.co/ZddV1MvDKN">pic.twitter.com/ZddV1MvDKN</a></p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1101419366489288704?ref_src=twsrc%5Etfw">March 1, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
