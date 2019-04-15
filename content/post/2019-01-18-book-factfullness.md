@@ -230,6 +230,9 @@ image: factfullness.jpeg
 - 一番伝わりやすい文章は物語形式  
 ドラマティックに感じられやすいため
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">ファクトフルネスの中に「人が最も消化しやすいのは物語である」と書かれてあり、試しにタベリーを創った理由を二つのフォーマットで書いてみた。<br><br>・端的な箇条書き<br>・ストーリー<br><br>後者の方がスッとはいってくるんでしょうか？？ <a href="https://t.co/RJ1szWciiy">pic.twitter.com/RJ1szWciiy</a></p>&mdash; Yamotty👨‍👩‍👦‍👦 (@yamotty3) <a href="https://twitter.com/yamotty3/status/1077728471705477121?ref_src=twsrc%5Etfw">2018年12月26日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 #### 追記
 この記事で使っている画像だが全て[コンサルタントのアウトプット図解](https://finfinmaru.hatenadiary.com/)というブログから引用している。質の高さに驚かされた！！圧倒的畏敬と感謝とと共にこの場を借りて紹介。
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">このブログ神すぎわろた<br>【図解レビュー】FACTFULNESS（ファクトフルネス）は日本人にこそ必要な本だ <a href="https://t.co/XqkRqWvCIz">https://t.co/XqkRqWvCIz</a></p>&mdash; とり (@nosugi1) <a href="https://twitter.com/nosugi1/status/1086567565135032321?ref_src=twsrc%5Etfw">2019年1月19日</a></blockquote>
