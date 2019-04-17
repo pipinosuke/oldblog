@@ -24,6 +24,9 @@ draft = false
 
 といった部分について掘り下げて聞いていこうというトーク番組です。具体的にはエンジニア向けのPodcast、[Rebuild FM](https://podcasts.apple.com/us/podcast/rebuild/id603013428?mt=2)のような落ち着いた感じの雰囲気をイメージしています。
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">やはり何かを作ってるひとというのはいいな<br>その裏には他人が想像も及ばない思いや願いが必ずある</p>&mdash; nosugi (@nosugi1) <a href="https://twitter.com/nosugi1/status/1117372281695555584?ref_src=twsrc%5Etfw">2019年4月14日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ### 目的
 > 文化資本と人的ネットワークへの投資
 
