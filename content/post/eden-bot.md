@@ -4,7 +4,7 @@ date = 2019-04-18T20:40:47+09:00
 description = "導入する価値のあるアプリであると自負しております。エデンBotに関するご質問やその他お問い合わせはTwitter@nosugi1までお気軽にご連絡をお願いします！！"
 tags = ["イベントバーエデン"]
 category = ["その他"]
-image = ""
+image = "edenbot.gif"
 draft = false
 +++
 ### 当記事の主旨
