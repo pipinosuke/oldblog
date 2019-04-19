@@ -2,7 +2,7 @@
 title = "エデンBotの機能説明とBetaテストにご協力いただける店舗様を募集します"
 date = 2019-04-18T20:40:47+09:00
 description = "導入する価値のあるアプリであると自負しております。エデンBotに関するご質問やその他お問い合わせはTwitter@nosugi1までお気軽にご連絡をお願いします！！"
-tags = []
+tags = ["イベントバーエデン"]
 category = ["その他"]
 image = ""
 draft = false
@@ -15,13 +15,13 @@ draft = false
 ## エデンBotについての説明
 エデンBotは僕個人が開発した、Line上で動作するアプリケーションです。下の画像のように店鋪運営のための事務作業を自動で行うことができます。
 
+### サンプルは[こちらから友達登録できます](https://t.co/HbELZ3fOUj)
+
 ### 主要な機能
 簡単にまとめると機能としては以下の二つです、  
 
 > 1. **一日店長希望者とのやりとりを自動化**
 2. **グーグルカレンダーへの登録を自動化**
-
-実際に触って挙動を確認したい場合は[こちらのリンク](https://t.co/HbELZ3fOUj)から友達登録していただき、実際に試していただければと思います。
 
 ### 画像で簡単な説明
 友達登録されると事前に設定された挨拶をします。  
@@ -33,8 +33,6 @@ draft = false
 <img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021155.jpg?raw=true)" height="400"><br>
 最後に登録して良いかを確認します。  
 <img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021210_02.jpg?raw=true)" height="400"><br>
-登録が完了すると、事前に設定された挨拶をします。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021225.jpg?raw=true)" height="400"><br>
 やりとりした情報がカレンダーに登録されています。  
 <img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-023614.jpg?raw=true)" height="400"><br>
 
@@ -68,6 +66,8 @@ Beta版のテストにご協力いただる店舗様を募集いたします。
 Twitter[@nosugi1](https://twitter.com/nosugi1)のDMまでお問い合わせください！！
 
 ## 最後に
+最後までご覧いただきありがとうございました。
+
 1. 当記事に関連するご質問
 2. エデンbot以外で「 こんなことはできないのか」といったご質問
 
