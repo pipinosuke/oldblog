@@ -15,26 +15,12 @@ draft = false
 ## エデンBotについての説明
 エデンBotは僕個人が開発した、Line上で動作するアプリケーションです。下の画像のように店鋪運営のための事務作業を自動で行うことができます。
 
-### サンプルは[こちらから友達登録できます](https://t.co/HbELZ3fOUj)
+### サンプルは[こちらから友達登録できます](https://line.me/R/ti/p/%40wsv7545e)
+説明するより言葉で実際に試していただいた方が手っ取り早いかと思います。
 
 ### 主要な機能
-簡単にまとめると機能としては以下の二つです、  
-
 > 1. **一日店長希望者とのやりとりを自動化**
 2. **グーグルカレンダーへの登録を自動化**
-
-### 画像で簡単な説明
-友達登録されると事前に設定された挨拶をします。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021103.jpg?raw=true)" height="400"><br>
-予約ボタンが押されると、やりとりが始まります。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021122.jpg?raw=true)" height="400"><br>
-このように日程も聞くことができます。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021210_01.jpg?raw=true)" height="400"><br>
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021155.jpg?raw=true)" height="400"><br>
-最後に登録して良いかを確認します。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-021210_02.jpg?raw=true)" height="400"><br>
-やりとりした情報がカレンダーに登録されています。  
-<img src="https://github.com/pipinosuke/blog/blob/master/static/images/edenbot_sample/Screenshot_20190420-023614.jpg?raw=true)" height="400"><br>
 
 ### 今後追加が考えられる機能
 また、このような機能の追加が考えられます。今後ユーザーの方からの意見を参考にして、優先度が高い順に実装を行います。下記以外にもイベントバーエデンの業務や仕組みはITによって最適化・自動化できる余地が多く残されていると感じています。
