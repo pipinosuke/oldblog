@@ -7,6 +7,9 @@ category = ["思考"]
 image = ""
 draft = false
 +++
+
+<iframe src="https://anchor.fm/fab-fm/embed" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
 ### 「#Fab FM」のテーマと趣旨について
 > 若き作り手にスポットライトを当てるラジオ
 
