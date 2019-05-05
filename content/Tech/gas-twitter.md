@@ -4,7 +4,7 @@ date = 2019-05-05T15:41:50+09:00
 description = "今回はGカレンダーの予定を取得し、週一でツイートするBotを開発します。"
 tags = ["GoogleAppsScript","Twitter"]
 category = ["技術"]
-image = ""
+image = "gas.png"
 draft = false
 +++
 ### 参考
