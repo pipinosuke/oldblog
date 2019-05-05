@@ -16,11 +16,9 @@ draft = false
 ### 1. アクセストークンとシークレットキーを取得する
 [ Google Apps ScriptでTwitter botを作ってみる](https://www.npca.jp/magazine/2019/sashiming.html)が圧倒的に詳しく解説されています。丸投げだと身もふたもないので、一応説明します。笑
 [https://developer.twitter.com/en/apps](https://developer.twitter.com/en/apps)から`create an app`を選択。
-![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/17.png)
-画像引用: [ Google Apps ScriptでTwitter botを作ってみる](https://www.npca.jp/magazine/2019/sashiming.html)
-![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/18.png)
-画像引用: [ Google Apps ScriptでTwitter botを作ってみる](https://www.npca.jp/magazine/2019/sashiming.html)
-![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/19.png)
+![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/17.png)  
+![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/18.png)  
+![enter image description here](https://www.npca.jp/magazine/2019/images/sashiming/19.png)  
 画像引用: [ Google Apps ScriptでTwitter botを作ってみる](https://www.npca.jp/magazine/2019/sashiming.html)
 
 #### Callback URLs
