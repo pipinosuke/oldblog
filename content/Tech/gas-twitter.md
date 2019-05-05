@@ -5,7 +5,7 @@ description = "今回はGカレンダーの予定を取得し、週一でツイ�
 tags = ["GoogleAppsScript","Twitter"]
 category = ["技術"]
 image = "gas.png"
-draft = false
+draft = true
 +++
 ### 参考
 - [GASで複数のGoogleカレンダーの予定を1週間取得する](https://cyuraharuto.com/gas-googlecalender-week-get/)
