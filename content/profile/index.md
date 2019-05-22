@@ -14,7 +14,7 @@ image = "profile.jpg"
 2018~ フリーランス 
 
 ### お仕事
-[ポートフォリオサイト](https://nosugi.tech)を公開しているのでご覧ください！
+[ポートフォリオサイト](https://nosugi.tech)を公開しております。そちらからご連絡ください。
 
 ### SNS
 - [Twitter](https://twitter.com/nosugi1)
