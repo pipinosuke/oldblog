@@ -1,7 +1,7 @@
 +++
 title = "GAS(GoogleAppsScript)とTypeScriptを使って簡単なLinebotを作る"
 date = 2019-04-04T04:08:49+09:00
-description = "TypeScriptとGASを使ってLineBotを作ります。今までカオスなJavascriptを敬遠していましたがTypeScriptによって型による平穏がもたらされたかつ、GASがTypeScriptに対応したと聞きつけたと言うことで手を出してみました。"
+description = "TypeScriptとGASを使ってLineBotを作ります。今までカオスなJavascriptを敬遠していましたがTypeScriptによって型による平穏がもたらされたかつ、GASがTypeScriptに対応したと聞きつけたと言うことで手を出してみました"
 tags = ["GoogleAppsScript","LineBot"]
 category = ["技術"]
 image = "linebot-gas.png"
