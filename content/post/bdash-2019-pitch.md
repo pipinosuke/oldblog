@@ -2,7 +2,7 @@
 title = "BdashCampピッチアリーナ決勝　レポート"
 date = 2019-05-26T03:24:48+09:00
 description = "決勝に出場したピッチの内容と質疑応答についてのメモを残しておきます。ちなみに優勝は電話営業のデータを可視化するB向けサービス、Miitelでした！！"
-tags = ["スタートアップ"]
+tags = ["スタートアップ","ビジネス"]
 category = ["その他"]
 image = "bdash_2019.png"
 draft = false

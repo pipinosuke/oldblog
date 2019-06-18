@@ -2,7 +2,7 @@
 title = "BdashCamp2019 Springのレポート"
 date = 2019-05-25T11:42:15+09:00
 description = "札幌で開催ということで学生スタッフとして参加した。久方ぶりのスタートアップイベントだった。セッションの内容などをメモします。"
-tags = ["スタートアップ"]
+tags = ["スタートアップ","ビジネス"]
 category = ["その他"]
 image = "bdash_2019.png"
 draft = false
