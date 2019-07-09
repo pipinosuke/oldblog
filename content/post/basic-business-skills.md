@@ -133,3 +133,8 @@ draft = false
 
 - 自分ができることや得意なこと
 - 他の人と役割が被らないこと
+
+## おまけ
+紹介した本の内容とは別にこれ覚えておくと良いかもなあというツイートなどはここに追加しておきます。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">英語に限らず日本語でも、仕事では意見を主語にするべきで、相手(you)を主語にした戦いをすること自体不健全だと思う。<br>日本語でも「君は間違っている」とは言わず、「この状況だったらBのオプションのほうが有効ではないか」と相手と対峙するのではなく同じ方向を向き合った議論をすべき。</p>&mdash; シャイニング丸の内 (@shimaru365) <a href="https://twitter.com/shimaru365/status/1148363380408799233?ref_src=twsrc%5Etfw">July 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
