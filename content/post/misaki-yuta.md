@@ -33,10 +33,13 @@ draft = false
 ![enter image description here](https://images-na.ssl-images-amazon.com/images/I/915ZtmQlWmL.jpg)  
 ![enter image description here](https://i1.wp.com/netgeek.biz/wp-content/uploads/2014/04/032212.jpg?resize=500,281)
 
-### 両者の共通点が示唆する3つの教訓
-- 両者共にプライドを捨て道化に徹している
-- 道化を始めるタイミングが両者共に社会的な立場を失った後である
+### 両者の共通点とそれらが示唆する3つの教訓
+僕が感じた二人の共通点この二点です
 
+- 両者共にプライドを捨て道化に徹している点
+- 道化を始めるタイミングが両者共に社会的な立場を失った後である点
+
+これは偶然ではなさそうということで自分なりに考えてみたところ、次の三つがその理由なのかなと感じました。順次解説。
 #### 1. 道化による低コストマーケティング
 普通の企業が何か商品をPRしようと思うと大々的に広告宣伝を打つ必要があります。がそれとは反対に、このような道化を上手に演じることができれば、広告を打つ正攻法でのやり方に比べて圧倒的にコストをかけずに注目を集める事が可能です。
 ![](http://appmajin.com/common/images/article/533a3eb7e10d7/images/02.PNG)
