@@ -8,9 +8,10 @@
       {{ end }}
       <div class="author-name">{{ .name }}</div>
       <ul class="author-facts">
-        {{ with .facebook }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>{{ end }}
+        <!-- {{ with .facebook }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>{{ end }} -->
         {{ with .twitter }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>{{ end }}
-        {{ with .github }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>{{ end }}
+        <!-- {{ with .github }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>{{ end }} -->
+        {{ with .profile }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fa fa-user" aria-hidden="true"></i></a></li>{{ end }}
       </ul>
       <div class="author-description">{{ .description | safeHTML }}</div>
     </div>
