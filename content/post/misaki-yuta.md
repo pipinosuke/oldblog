@@ -15,17 +15,13 @@ draft = false
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">初心にかえって一から挨拶の練習<br>店長に気合を入れ直してもらいました<br><br>最近、この仕事にやり甲斐を感じる。お客様が喜んでくれるのが本当に嬉しい<br><br>海外で焼き鳥屋を経営するという夢がある、この夢を叶えるまでは人生諦めめられない <a href="https://t.co/ZkvrElt8hQ">pic.twitter.com/ZkvrElt8hQ</a></p>&mdash; 三崎優太(Yuta Misaki) a.k.a. 三崎愛汁 元青汁王子 (@misakism13) <a href="https://twitter.com/misakism13/status/1153921672598081537?ref_src=twsrc%5Etfw">July 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 #### 彼女に振られてからの病み編
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">えちする？ <a href="https://t.co/kNEedhoPyS">pic.twitter.com/kNEedhoPyS</a></p>&mdash; 三崎優太(Yuta Misaki) a.k.a. 三崎愛汁 元青汁王子 (@misakism13) <a href="https://twitter.com/misakism13/status/1156445727234543617?ref_src=twsrc%5Etfw">July 31, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ついに男としての最後のプライドさえも失ってしまいました。<br><br>勃て！勃て！勃て！<br>と必死に自分を鼓舞しても、叫びは虚しく響くだけです。僅かな反応すらも返ってきません。<br><br>つらくて情けなくて、どこまでも惨めで、全身の震えがずっと止まらない。もう涙さえも枯れ果てました。 <a href="https://t.co/E0m9HbkF3k">pic.twitter.com/E0m9HbkF3k</a></p>&mdash; 三崎優太(Yuta Misaki) a.k.a. 三崎愛汁 元青汁王子 (@misakism13) <a href="https://twitter.com/misakism13/status/1159393826139602945?ref_src=twsrc%5Etfw">August 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 #### ホスト編
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">歌舞伎町へ運命の面接に行ってきました。<br><br>これが人生をやり直す最後のチャンスです。もう失敗するわけにはいきません。今までとは気合いが違います。<br><br>その結果、こんな僕のことを温かく受け入れてました。頭が上がりません。<br><br>三崎優太 ホスト 30歳<br>夜王の伝説が今はじまりました。 <a href="https://t.co/3c18rHh7ll">pic.twitter.com/3c18rHh7ll</a></p>&mdash; 三崎優太(Yuta Misaki) a.k.a. 三崎愛汁 元青汁王子 (@misakism13) <a href="https://twitter.com/misakism13/status/1162673683833339904?ref_src=twsrc%5Etfw">August 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">歌舞伎町へ運命の面接に行ってきました。<br><br>これが人生をやり直す最後のチャンスです。もう失敗するわけにはいきません。今までとは気合いが違います。<br><br>その結果、こんな僕のことを温かく受け入れてました。頭が上がりません。<br><br>三崎優太 ホスト 30歳<br>夜王の伝説が今はじまりました。 <a href="https://t.co/3c18rHh7ll">pic.twitter.com/3c18rHh7ll</a></p>&mdash; 三崎優太(Yuta Misaki) a.k.a. 三崎愛汁 元青汁王子 (@misakism13) <a href="https://twitter.com/misakism13/status/1162673683833339904?ref_src=twsrc%5Etfw">August 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
 
-### 総括
 と、まぁこんな感じの投稿を続けているわけです。笑  
 僕は青汁王子がツイートし始めてからの動向をリアリタイムでずっと見ていましたが、正直言ってどの投稿もお笑い芸人顔負けの面白さでした。
 「いやー、凄い・・・！！」と思わされると同時に、とある人物の姿が連想されました。
@@ -37,21 +33,23 @@ draft = false
 ![enter image description here](https://images-na.ssl-images-amazon.com/images/I/915ZtmQlWmL.jpg)  
 ![enter image description here](https://i1.wp.com/netgeek.biz/wp-content/uploads/2014/04/032212.jpg?resize=500,281)
 
-### 両者の道化戦略が示唆する3つの教訓
-#### 1. 道化による低コストマーケティング
-まず、注目したいのは道化商売を始めるタイミングが社会的な立場を失った後という点で共通している事です。おそらくこれは偶然ではありません。
-**プライドを捨て道化に徹している**という共通点があります。普通の企業が何か商品をPRしようと思うと大々的に広告宣伝を打つ必要があります。がそれとは反対に、このような道化を上手に演じることができれば、広告を打つ正攻法でのやり方に比べて圧倒的にコストをかけずに注目を集める事が可能です。与沢翼はブログでしたが、 青汁王子が活用したSNSなんかは投稿するために必要なお金はほとんどありません。  
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">もはやインフルエンサーと化した青汁王子こと三崎優太氏と情報商材を売っていた頃の与沢翼氏とは共通する部分が多くあることに気づき、スタバにて彼らへの思いを巡らせること約二時間が経過していた<br>どうやらワイの頭の中もバグってきてるっぽい。。 <a href="https://t.co/SnUjtGCPMd">pic.twitter.com/SnUjtGCPMd</a></p>&mdash; 極度労働(しません) (@alltime_neet) <a href="https://twitter.com/alltime_neet/status/1166318285945589764?ref_src=twsrc%5Etfw">August 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+### 両者の共通点が示唆する3つの教訓
+- 両者共にプライドを捨て道化に徹している
+- 道化を始めるタイミングが両者共に社会的な立場を失った後である
 
-####  2.「他人の不幸は蜜の味」戦略の強力さ
+#### 1. 道化による低コストマーケティング
+普通の企業が何か商品をPRしようと思うと大々的に広告宣伝を打つ必要があります。がそれとは反対に、このような道化を上手に演じることができれば、広告を打つ正攻法でのやり方に比べて圧倒的にコストをかけずに注目を集める事が可能です。
+![](http://appmajin.com/common/images/article/533a3eb7e10d7/images/02.PNG)
+
+####  2. 「他人の不幸は蜜の味」戦略の強力さ
 さらに道化戦略が敢行されたタイミングに関連して、僕がなるほどと思わされた、ツイートを紹介します。
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">与沢翼が編み出して、青汁王子が実践中の、大衆の心に潜む『ザマァ』をドリップしてマネタイズする手法を、行き詰まったのでイケハヤもパクろうとしてるのね。 <a href="https://t.co/6uygKKy5BU">https://t.co/6uygKKy5BU</a></p>&mdash; 次郎丸🦍哲戸 (@_Jiro70) <a href="https://twitter.com/_Jiro70/status/1163271184252731392?ref_src=twsrc%5Etfw">August 19, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 現在の青汁王子、そして過去の与沢翼がとった戦略を示唆するなるほどと思わされました。なぜ僕がこんなに青汁王子を好きになってしまったか、間違いなくその大きな要因の一つでしょう。一大で会社を育て上げた社長が今や道化を演じているというなんとも興味な構図な訳ですから、これ以上ないくらい興味をそそられる面白い話です。  
-余談ではありますが与沢翼氏の他にも逮捕後のホリエモンが出版した[刑務所なう。](https://www.amazon.co.jp/dp/B009A4969I/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)や、[社長失格](https://www.amazon.co.jp/dp/B00EH93MPA/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)、など著名人の転落っぷりが書籍化された例はたくさんありますね。やはりこういう類の本は売れるのでしょう。こういったことからも、「他人の不幸は蜜の味戦略」は非常に強力だなと感じました。
+余談ではありますが与沢翼氏の他にも逮捕後のホリエモンが出版した[刑務所なう。](https://www.amazon.co.jp/dp/B009A4969I/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)や、[社長失格](https://www.amazon.co.jp/dp/B00EH93MPA/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)、など転落人生が書籍化された例はたくさんありますね。転んでもただでは起きないというか、商魂たくましい。
 
-#### 3. プライドをかなぐり捨てた、驚異の「やりきり力」
-ここまで長々と説明してきましたが、この二人の共通点で最も特筆すべきなのはこの「やりきり力」ではないのかなと。この道化戦略を頭の中で理解していても、実行に移せる人はなかなかいないのではないのでしょうか？？やりきってしまうところにこの二人の本当の凄さを感じた次第です。尊厳やプライドと引き換えに商売のために必要な知名度を獲得する、、、まるで悪魔の契約のようですね笑
+#### プライドをかなぐり捨てた、驚異の「やりきり力」
+ここまで長々と説明してきましたが、この二人の共通点で最も特筆すべきなのはこの「やりきり力」ではないのかなと。この道化戦略を頭の中で理解していても、実行に移せる人はなかなかいないのではないのでしょうか？？やりきってしまうところにこの二人の本当の凄さを感じた次第です。尊厳やプライドと引き換えに商売のために必要な知名度を獲得する、、、まるで悪魔の契約のようですね
 
 #### 参考リンク
 - [与沢翼のブログ戦略がすごすぎる件](http://matsutake.hatenablog.jp/entry/%E4%B8%8E%E6%B2%A2%E7%BF%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%E6%88%A6%E7%95%A5%E3%81%8C%E3%81%99%E3%81%94%E3%81%99%E3%81%8E%E3%82%8B)
