@@ -14,7 +14,7 @@ paginate = true
 twitter_username = "alltime_neet"
 
 [params.author]
-name = "nosugi"
+name = "Yusuke Sugino"
 thumbnail = "images/avator.jpg"
 facebook = ""
 twitter = "https://twitter.com/alltime_neet"
