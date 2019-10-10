@@ -33,7 +33,8 @@ jobs:
           name: "Build & Push"
           command: |
             git clone -b gh-pages git@github.com:pipinosuke/blog.git public
-            hugo --ignoreCache
+            rm -rf public/*
+            hugo
             cd public
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
