@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RxSwift on All Time NEET</title>
+    <link>https://blog.nosugi.tech/tags/rxswift/</link>
+    <description>Recent content in RxSwift on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Apr 2019 03:06:17 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.nosugi.tech/tags/rxswift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RxSwift入門とObservableの概要 まとめ</title>
+      <link>https://blog.nosugi.tech/tech/rxswift-summary/</link>
+      <pubDate>Mon, 08 Apr 2019 03:06:17 +0900</pubDate>
+      
+      <guid>https://blog.nosugi.tech/tech/rxswift-summary/</guid>
+      <description>RxSwift入門 Observableの概要 まとめ 入門  リアクティブプログラミングとRxJavaの概要 オブザーバーパターンから始めるRxSwift入門  まずは上の記事でリアクティブプログラミングのノリを理解します。特に6pのマーブルダイヤグラムの図が理解に役立ちます。下の記事は実際のコードを交えた解説です。具体的にどのような実装を行えば良いのかがわかります。
+Rxができることとそのメリット Rxを使いこなせればありとあらゆるものをストリームとして扱うことが可能です
+例えばボタンをタップされた時の挙動はこう書けます。（以下のコードは厳密にはRxSwiftではなくRxCocoaというUIKitをObservableとして扱うことのできるライブラリを用いています。）
+import RxCocoa import RxSwift weak var button: UIButton! ~~~~~~~~~~~~~~~~~~ override func viewDidLoad(){ button.rx.tap.subscribe(onNext: { _ in print(&amp;quot;buttonがtapされたよー&amp;quot;) }).disposed(by: DisposeBag()) }  例えばデータのbindや、面倒だった非同期処理を簡単に書けるけるのがメリットです。若干学習コストは高いかなと思いますが、マスターできれば文字通りなんでもできます。
+Rxで登場する基本概念 2種 Observable 名前だけでも覚えて帰ってください！！Observableはストリームを流し、そのストーリムをsubscribe(購読)することが可能になります。 Observableが通知するイベントは以下の3種類。subscribe(購読)することで、それぞれのタイミングでクロージャ内のメソッドを呼ぶことが出来る。
+･onNext: 通常のイベントが発生した時
+･onError: エラーが発生になった時
+･onComplete: イベントが完了した時
+&amp;mdash; nosugi (@nosugi1) 2019年4月7日 
+言い換えると、何かが起こった時の挙動をクロージャの中に記述しておけば何もせんでも勝手に呼んでくれるということです。下のコードは新卒エンジニアの開発日記さんの記事から引用したものになります。趣旨とは外れますが、中の人とは実は学生時代の知り合いだったりします。笑
+import RxSwift import RxCococa let observableContentOffset = tableView.rx.contentOffset observableContentOffset .subscribe(onNext: { _ in print(&amp;quot;next&amp;quot;) //スクロールするたびに呼ばれる }, onError: { _ in print(&amp;quot;error&amp;quot;) }, onCompleted: { _ in print(&amp;quot;completed&amp;quot;) }).</description>
+    </item>
+    
+    <item>
+      <title>RxSwiftでUITableViewの実装</title>
+      <link>https://blog.nosugi.tech/tech/rxswift-uitableview/</link>
+      <pubDate>Wed, 03 Apr 2019 00:46:56 +0900</pubDate>
+      
+      <guid>https://blog.nosugi.tech/tech/rxswift-uitableview/</guid>
+      <description>鬼門でした。
+RxSwiftを使ったUITableViewの実装 大きく分けてふたパターンあります。UITableViewDataSourceで実装する部分をRxを用いて実装します。1のやり方はシンプルです。2は自由度が高い実装が可能です。
+  ObservableをUITableViewにbindして実装 DataSourceを自分で定義して実装   1. ObservableをUITableViewにbindして実装 A. デフォルトのセルを使う場合 indexPath.rowとitems[n]、cellを引数に取ります。
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: UITableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.textLabel?.text = element.name } .disposed(by: disposeBag)  B. カスタムセルを使う場合 Aパターンの実装に加えてcelltypeを指定できるようになりました。カスタムセルを使う場合はこちらを使います。
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;, cellType: MyTableViewCell.self)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: MyTableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.</description>
+    </item>
+    
+  </channel>
+</rss>

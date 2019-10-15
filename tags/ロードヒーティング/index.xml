@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ロードヒーティング  on All Time NEET</title>
+    <link>https://blog.nosugi.tech/tags/%E3%83%AD%E3%83%BC%E3%83%89%E3%83%92%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
+    <description>Recent content in ロードヒーティング  on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Feb 2019 14:29:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.nosugi.tech/tags/%E3%83%AD%E3%83%BC%E3%83%89%E3%83%92%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>「Enkaku」- ロードヒーティング 遠隔操作プロジェクト概要</title>
+      <link>https://blog.nosugi.tech/post/businness-roadheating/</link>
+      <pubDate>Sat, 16 Feb 2019 14:29:38 +0900</pubDate>
+      
+      <guid>https://blog.nosugi.tech/post/businness-roadheating/</guid>
+      <description>リードヒーティング市場について  クソ市場(冬場のみの稼働のため) 上記の市場規模のため大資本・企業が入ってこない。我々が介入する余地が多分に残っている 現状だと、業者などによって人力で行われているらしい。
+やること スマホからのロードヒーティング スイッチを操作のための適切なUI・UXを提供するサービスの開発
+ サービスをロードヒーティング の会社に営業し導入してもらう。以降サービスの開発運用を行う
+ サブスクリプション課金モデル
+ユーザー及び売上を積み上げる。年単位と言う長いサイクルであるため、解約のハードルはWEBサービスと比較すると高い。   特徴  スタートアップのような派手さ・スケーラビリティは無いが、大きな競合の出現が考えにくく、「解決すべき課題」が明確であるため売上が立つのが早く手堅い。
+ と言えると思います
+理想  2,3人のチーム 機動力が損なわれるのと、一人当たりのリターンが減少するため。 条件  ハードウェアに知見のあること 開発経験があること(一応個人でも可) 残りの在学期間が長いこと   参考 なぜ大企業はニッチ市場に参入して来ないのか？｜ニッチ市場は中小企業の主戦場</description>
+    </item>
+    
+  </channel>
+</rss>
