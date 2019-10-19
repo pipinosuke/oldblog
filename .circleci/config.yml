@@ -38,4 +38,4 @@ jobs:
             cd public
             git add .
             git commit -m "rebuilding site `date '+%Y-%m-%d'`"
-            git push origin gh-pages
+            git push origin netlify-deploy
