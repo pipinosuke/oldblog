@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All Time NEET</title>
+    <link>https://blog.nosugi.tech/</link>
+    <description>Recent content on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://blog.nosugi.tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>プロフィール</title>
+      <link>https://blog.nosugi.tech/profile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nosugi.tech/profile/</guid>
+      <description> 自己紹介 大学時代では、とある事情で宿を失い外で寝ていたところをパスポート・パソコンなどカバンごと根こそぎ盗まれる。大規模な花火大会にて無断でドローンを飛ばし主催の新聞社を激怒させ、大学や両親を巻き込んだ末謝罪する。六本木のITスタートアップを勤務開始後三日でクビになる。などを経て現在はなんちゃってフリーランスを名乗りながら、小さなプログラミングスクールを運営し日銭を稼いでいます。
+余談ですが大学に5年ほど在籍していながら、卒業する見込みは全くついておりません。
+仕事 ポートフォリオサイトを公開しております。何かあればお気軽にご連絡ください。
+経歴 1997 札幌市出身
+2014 北嶺中高等学校卒業、神戸大学経営学部入学
+2016~2017 株式会社Candleにて、Rails/iOSエンジニアとしてインターン。当時インターン生という身分ではありましたがCroozへのExitを経験しました。
+2018~ フリーランス とある在庫管理アプリの開発(iOSクライアント)に携わりました
+2019~ プログラミングスクールの運営を開始
+SNS  Twitter Facebook  </description>
+    </item>
+    
+  </channel>
+</rss>
