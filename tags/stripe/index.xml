@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stripe on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/stripe/</link>
+    <description>Recent content in Stripe on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jun 2019 21:49:39 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/stripe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>StripeのCheckoutで決済機能を簡単に導入する</title>
+      <link>https://alltimeneet.com/tech/stripe-checkout/</link>
+      <pubDate>Sun, 23 Jun 2019 21:49:39 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/stripe-checkout/</guid>
+      <description>経緯 今までは個人で運営しているスクールなどで発生する毎月の集金にはPaymoBizを利用していました。そんな中PaymoBizサービス終了が発表され、別の集金方法を模索することを余儀なくされてしまいました。「決済APIを利用するという方法が手数料安く済みそうだけど、自前でシステム作るしかないのか・・・手間がかかりそうだなぁ。。」などと思いながら詳しく調べていたところ、StripeではCheckoutという機能が提供されており、その機能を使うと自動生成されたコードを貼り付けるだけで決済機能が導入できるようでした。このシンプルさが自分にはドンピシャだったのですぐに試してみました。
+所感 試してみて複雑にデータを管理しなければならないものでなければCheckoutで十分だと感じました。またStripeはただオンライン決済のAPIを提供しているだけの印象でしたが実はそうではなく、ダッシュボードが充実していたりサードパーティ製の決済アプリのマーケトットプレイスとしての側面も持ち合わせていていわゆる「プラットフォーム」という方がしっくりきました。書いた後気付いたのですがPAY.JPが同様の機能を提供していてかつ手数料も1%ほど安いです。
+Stripe Checkoutの導入手順メモ 公式ドキュメント
+できること  WEBページにJSのスクリプトを貼り付けることで、サーバー側の処理を実装することなく決済機能を導入できます 月額課金にも対応しています カスタマイズ次第で顧客データの収集なども可能  仕様について  実際に使用する際はテストモードと本番モードを切り替える必要があります。最初はテストモードで挙動を確認しておくことをお勧めします。 決済成功時・失敗時の遷移先を用意しておく必要があります。 サイトはhttps化されている必要があります 手数料は一律3.6%(同じく決済APIを提供しているBASE社のPAY.JPは2.6%でした。こちらでも良いかもしれない)  1. アカウントの有効化 導かれるまま本人情報などを入力すればおkです。
+2. Checkoutの設定 公式ドキュメント、Checkout Client Quickstartを参考に導入します。主にやることは以下の二つです。
+ ドメインの設定 商品の作成とCheckoutの有効化  3. LIVEモードに切り替え Going Live with Checkoutを参考にLIVEモードでチェックアウトできるように設定します。本番モードで稼働する際はドメインが設定されていないとボタンを押しても正しく動作しないので注意。
+4. コードの貼り付けとカスタマイズ  テスト 
+  var stripe = Stripe(&#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&#39;); var checkoutButton = document.getElementById(&#39;checkout-button-plan_FIfczSYPCPZLe1&#39;); checkoutButton.addEventListener(&#39;click&#39;, function () { // When the customer clicks on the button, redirect // them to Checkout.</description>
+    </item>
+    
+  </channel>
+</rss>

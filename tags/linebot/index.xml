@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LineBot on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/linebot/</link>
+    <description>Recent content in LineBot on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Apr 2019 04:08:49 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/linebot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GAS(GoogleAppsScript)とTypeScriptを使って簡単なLinebotを作る</title>
+      <link>https://alltimeneet.com/tech/gas-linebot/</link>
+      <pubDate>Thu, 04 Apr 2019 04:08:49 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/gas-linebot/</guid>
+      <description>（GASのアプリケーションが正しく公開されていなかったりBotの設定がわからなかったりして普通に時間かかりました。Qiitaで30分でできたとか書いてる人いるけど絶対嘘だろ！！）
+使うもの  GAS clasp TypeScript  ローカル開発環境の構築 補完とか使えるので個人的にはローカルで開発することをお勧めします。もちろんGASのエディタを使っても良いです。まずはhttps://script.google.com/home/usersettingsからGoogleAppsScriptAPIをオンにしておきます。 
+プロジェクト作成 mkdir gas-project //プロジェクトファイル作成 cd gas-project npm init -y npm i -S @google/clasp //claspについては後述 npm i -S @types/google-apps-script @types/node clasp create --title &amp;quot;GcarenderBot&amp;quot; --rootDir ./src clasp pull  説明することが2つあるので軽く触れます。
+1. clasp 以下のようにGoogle製のCIライブラリであるclaspを使うことでプロジェクトファイルをgitみたいな感じで扱うことができます。clasp createでGASにプロジェクトが登録されます。その際&amp;ndash;rootDirオプションでディレクトリを指定しましょう。
+clasp create --title &amp;quot;gas-project&amp;quot; --rootDir ./src clasp pull //GASからpull clasp push //GASにpush  2. Typescriptへの対応 npm i -S @types/google-apps-script @types/node  地味に嬉しい人多いのでは??clasp pushすれば*.tsから*.jsへコンパイルはGASが勝手にやってくれます。強い。
+実装 ローカル開発環境を整えたところで、簡単な実装します。試しにおうむ返しするBotを作ります。LineBotでできることと仕様についてはLineMessagingAPIリファレンスをチェケラ
+コード コードは下記のリンクから拝借したしたものです。ファイル名は適当にcode.</description>
+    </item>
+    
+  </channel>
+</rss>

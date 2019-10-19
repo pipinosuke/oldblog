@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ブログ on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/</link>
+    <description>Recent content in ブログ on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jan 2019 09:03:48 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo覚書とその所感</title>
+      <link>https://alltimeneet.com/tech/2019-01-20-programming-hugo/</link>
+      <pubDate>Sun, 20 Jan 2019 09:03:48 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/2019-01-20-programming-hugo/</guid>
+      <description>ざっくりHugoについて Go製の静的webジェネレータ。新しいライブラリというかフレームワーク？？なので、コミュニティもJekyllに比べて盛んな印象です。
+インストール $ brew install hugo $ hugo version  brew以外のインストール方法もあるようです。 参考: install Hugo
+使い方 コマンド  プロジェクト作成
+$ hugo new site yoursite  ローカルサーバーを立てる
+$ hugo server  post
+$ hugo new post/first-post.md   /content以下に作成される仕様になっております。 - テーマの適用
+$ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone $ echo &#39;theme = &amp;quot;hoge&amp;quot;&#39; &amp;gt;&amp;gt; config.toml #config.tomlへ記述  設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。 こちらの公式ドキュメントが参考になると思います quickstart
+HugoでGithubPagesにホスティング $ hugo  でpublicディレクトリが追加される。 このpublicディレクトリ以下をGithubPagesでホスティングします。プロジェクトディレクトリではありません、注意！
+やっておくと良いこと  絶対パス化
+$ echo &#39;canonifyurls = true&#39; &amp;gt;&amp;gt; config.</description>
+    </item>
+    
+  </channel>
+</rss>

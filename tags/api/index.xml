@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/api/</link>
+    <description>Recent content in API on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Feb 2019 15:06:08 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SoracomAPIを試してみる</title>
+      <link>https://alltimeneet.com/tech/try-soracom-api/</link>
+      <pubDate>Sun, 17 Feb 2019 15:06:08 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/try-soracom-api/</guid>
+      <description>SoracomAirのSimを触ってみる SoracomSimの登録 soracomコンソールから登録できます 
+料金体系 公式サイト 
+APIを叩いてみる 1.APIキーとトークンの取得  リクエストURL  https://api.soracom.io/v1/auth  クエリ  email: メールアドレス password: パスワード  レスポンス
+{ &amp;quot;apiKey&amp;quot;: &amp;quot;APIKEY&amp;quot;, &amp;quot;operatorId&amp;quot;: &amp;quot;OPERATORID&amp;quot;, &amp;quot;userName&amp;quot;: null, &amp;quot;token&amp;quot;: &amp;quot;TOKEN&amp;quot; }   一応WEBからも発行可能です。こちらのリンクから二種類あるので好きなやり方で認証・発行してください。 
+2.APIを叩いてみる 試しに登録したSimカードの一覧を取得するAPIを叩いてみます。
+ リクエストURL  https://api.soracom.io/v1/subscribers  リクエストヘッダ 先ほど取得したapiKeyとTokenを使用します  X-Soracom-API-Key=APIKEY X-Soracom-Token=TOKEN  レスポンス
+[ { &amp;quot;imsi&amp;quot;: &amp;quot;440103198207751&amp;quot;, &amp;quot;msisdn&amp;quot;: &amp;quot;812016084496&amp;quot;, &amp;quot;ipAddress&amp;quot;: &amp;quot;10.245.237.68&amp;quot;, &amp;quot;operatorId&amp;quot;: &amp;quot;OP0061660828&amp;quot;, &amp;quot;apn&amp;quot;: &amp;quot;soracom.io&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;s1.standard&amp;quot;, &amp;quot;groupId&amp;quot;: null, &amp;quot;createdAt&amp;quot;: 1545836470247, &amp;quot;lastModifiedAt&amp;quot;: 1550380631731, &amp;quot;expiredAt&amp;quot;: null, &amp;quot;registeredTime&amp;quot;: 1549618116968, &amp;quot;expiryAction&amp;quot;: null, &amp;quot;terminationEnabled&amp;quot;: false, &amp;quot;status&amp;quot;: &amp;quot;active&amp;quot;, &amp;quot;tags&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;mySim&amp;quot; }, &amp;quot;sessionStatus&amp;quot;: { &amp;quot;lastUpdatedAt&amp;quot;: 1550380631731, &amp;quot;imei&amp;quot;: &amp;quot;353168044272803&amp;quot;, &amp;quot;location&amp;quot;: null, &amp;quot;cell&amp;quot;: { &amp;quot;radioType&amp;quot;: &amp;quot;lte&amp;quot;, &amp;quot;mcc&amp;quot;: 440, &amp;quot;mnc&amp;quot;: 10, &amp;quot;tac&amp;quot;: 12390, &amp;quot;eci&amp;quot;: 185881861 }, &amp;quot;ueIpAddress&amp;quot;: &amp;quot;10.</description>
+    </item>
+    
+  </channel>
+</rss>

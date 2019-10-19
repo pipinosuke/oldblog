@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/swift/</link>
+    <description>Recent content in Swift on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Apr 2019 01:50:01 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AVFoundation覚書 iOSアプリでバーコードリーダーを実装する</title>
+      <link>https://alltimeneet.com/tech/ios-camera-avfoundation/</link>
+      <pubDate>Wed, 03 Apr 2019 01:50:01 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/ios-camera-avfoundation/</guid>
+      <description> 挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
+ 参考URL  iOSでバーコードを読み取る AVFoundation(AVCaptureMetadataOutput)でバーコードリーダーを作ってみた  実装 事前準備 この手順を踏まずにカメラを起動しようとすると強制終了するので注意！。XcodeのInfo.plistにPrivacy - Camera Usage Descriptionを追加します。カメラを使用する目的を値として入力します。 
+ 参考: iOS10ではカメラアクセスなどの目的を明示しないと強制終了する  AVCaptureMetadataOutputObjectsDelegate </description>
+    </item>
+    
+  </channel>
+</rss>

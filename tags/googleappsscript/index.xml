@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoogleAppsScript on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/googleappsscript/</link>
+    <description>Recent content in GoogleAppsScript on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 May 2019 01:15:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/googleappsscript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GASで任意のTwitterアカウントにDMを送る</title>
+      <link>https://alltimeneet.com/tech/gas-twitter-dm/</link>
+      <pubDate>Fri, 31 May 2019 01:15:00 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/gas-twitter-dm/</guid>
+      <description>前準備 GASからTwitterのアカウントを操作するためには開発者用アカウントの取得などの前準備が必要です。こちらの記事を参考にしてください。
+DMする DMのAPIを叩くためには任意のアカウントに紐づくuserIDが必要です。因みにscreenNameとuserIdは違います。screen_nameはメンションするときなどにおなじみの「@」から始まる文字列です。それに対してuserIdは数字だけの文字列です。詳しくはTwitterAPIの公式ドキュメントを参照してください。
+今回紹介するgasのスクリプトはscreen_nameからuser_idを取得し、そのuser_id宛にDMを送信するという挙動となっています。
+1. screen_nameからuser_idを取得する function getUserId() { var service = twitter.getService(); var screenName = &amp;quot;screen_name&amp;quot; //@screen_nameさんにDMを送る場合 var requestURL = &amp;quot;https://api.twitter.com/1.1/users/lookup.json?screen_name=&amp;quot; + screenName var response = service.fetch(requestURL, { method: &amp;quot;get&amp;quot;, contentType: &#39;application/json&#39; }); var o = JSON.parse(response.getContentText()); var user_id = o[0].id_str //配列で帰ってくるのでそのうちの最初の要素のuser_idを取得する newDirectMessage(user_id) //後述します }  2. user_idに紐づくTwitterアカウント対してDMを送る function newDirectMessage(user_id){ try{ var service = twitter.getService(); var payload = JSON.stringify({ event: { type: &#39;message_create&#39;, message_create: { target: { recipient_id: String(user_id) //先ほど取得したuserId }, message_data: { text: &amp;quot;こんにちは&amp;quot; } //メッセージ内容を定義 } } }); var response = service.</description>
+    </item>
+    
+    <item>
+      <title>GASでGoogleカレンダーの予定を週ごとに定期的にツイートするスクリプト</title>
+      <link>https://alltimeneet.com/tech/gas-twitter/</link>
+      <pubDate>Sun, 05 May 2019 15:41:50 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/gas-twitter/</guid>
+      <description>参考  GASで複数のGoogleカレンダーの予定を1週間取得する Google Apps Script (GAS) でTwitterへ投稿するだけの機能を実装してみる Google Apps ScriptでTwitter botを作ってみる  手順 1. アクセストークンとシークレットキーを取得する Google Apps ScriptでTwitter botを作ってみるが圧倒的に詳しく解説されています。丸投げだと身もふたもないので、一応説明します。笑 https://developer.twitter.com/en/appsからcreate an appを選択。 画像引用: Google Apps ScriptでTwitter botを作ってみる
+Callback URLs https://script.google.com/macros/d/[GASのスクリプトID]/usercallbackとします。GASのScriptIDはGASエディタのプロパティから調べられます。
+登録後  APIKey APISecretKey  上記の二つの値を使用します。「Keys&amp;amp;Tokens」の「ConsumerKey」の欄にあります。
+2. GASプロジェクトの作成とTweet用のライブラリを導入する GASプロジェクトの作成方法は割愛します。作成後Twitter用のライブラリをインポートします。「リソース」→「ライブラリ」から以下のプロジェクトキーで追加できます。
+1rgo8rXsxi1DxI_5Xgo_t3irTw1Y5cxl2mGSkbozKsSXf2E_KBBPC3xTF
+3. Gカレンダーの一週間の予定を取得する ほぼGASで複数のGoogleカレンダーの予定を1週間取得するの通り。for文を用いて一週間それぞれの日付と終日イベントのタイトルの二つを配列として取得し、eventsForWeekにappendしています（最終的には二次配列の形で保存されます）。ちなみにgetDateやgetMonthした値に数字を足して処理しているのは、javascriptのDate型の仕様のため。
+参考: JavaScript の Date は罠が多すぎる
+function getEventsForWeek() { var calender = CalendarApp.getDefaultCalendar; var dateNow = new Date(); var date = new Date(); var eventsForWeek = []; for (var j = 2; j &amp;lt; 9 ; j++ ){ date.</description>
+    </item>
+    
+    <item>
+      <title>GAS(GoogleAppsScript)とTypeScriptを使って簡単なLinebotを作る</title>
+      <link>https://alltimeneet.com/tech/gas-linebot/</link>
+      <pubDate>Thu, 04 Apr 2019 04:08:49 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/gas-linebot/</guid>
+      <description>（GASのアプリケーションが正しく公開されていなかったりBotの設定がわからなかったりして普通に時間かかりました。Qiitaで30分でできたとか書いてる人いるけど絶対嘘だろ！！）
+使うもの  GAS clasp TypeScript  ローカル開発環境の構築 補完とか使えるので個人的にはローカルで開発することをお勧めします。もちろんGASのエディタを使っても良いです。まずはhttps://script.google.com/home/usersettingsからGoogleAppsScriptAPIをオンにしておきます。 
+プロジェクト作成 mkdir gas-project //プロジェクトファイル作成 cd gas-project npm init -y npm i -S @google/clasp //claspについては後述 npm i -S @types/google-apps-script @types/node clasp create --title &amp;quot;GcarenderBot&amp;quot; --rootDir ./src clasp pull  説明することが2つあるので軽く触れます。
+1. clasp 以下のようにGoogle製のCIライブラリであるclaspを使うことでプロジェクトファイルをgitみたいな感じで扱うことができます。clasp createでGASにプロジェクトが登録されます。その際&amp;ndash;rootDirオプションでディレクトリを指定しましょう。
+clasp create --title &amp;quot;gas-project&amp;quot; --rootDir ./src clasp pull //GASからpull clasp push //GASにpush  2. Typescriptへの対応 npm i -S @types/google-apps-script @types/node  地味に嬉しい人多いのでは??clasp pushすれば*.tsから*.jsへコンパイルはGASが勝手にやってくれます。強い。
+実装 ローカル開発環境を整えたところで、簡単な実装します。試しにおうむ返しするBotを作ります。LineBotでできることと仕様についてはLineMessagingAPIリファレンスをチェケラ
+コード コードは下記のリンクから拝借したしたものです。ファイル名は適当にcode.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>開発環境 on All Time NEET</title>
+    <link>https://alltimeneet.com/tags/%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83/</link>
+    <description>Recent content in 開発環境 on All Time NEET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Apr 2019 12:30:46 +0900</lastBuildDate>
+    
+	<atom:link href="https://alltimeneet.com/tags/%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AtomからVSCodeに乗り換えた所感と行なった初期設定</title>
+      <link>https://alltimeneet.com/tech/transfer-vscode-from-atom/</link>
+      <pubDate>Thu, 04 Apr 2019 12:30:46 +0900</pubDate>
+      
+      <guid>https://alltimeneet.com/tech/transfer-vscode-from-atom/</guid>
+      <description>メモリ使用量1/4の衝撃 4/3日にVSCodeの新バージョンがリリースされました。TLを眺めていたところ、このようなツイートを発見。 Gighubを買収した成果がこんなところにも。 VSやはり良いですね https://t.co/aJkeMwjOk3
+&amp;mdash; Kurose (@jkurose777) 2019年4月3日 
+乗るしかない、このビックウェーブに・・・！！ 結論  Atomより圧倒的にVSCode
+ Vim職人などの例外を除けば、無料で使えるエディタの中で一番ではないのかなと思います。立ち上がりのはやいAtomという感じ。（強い）
+Atomと比較しての所感  とにかく立ち上がりが早い！！・サクサク
+Sublimeほどまではいかないが、軽快。 Atomと同等もしくはそれ以上に充実したプラグイン
+自分が知らないだけという可能性もありますが、プラグインもatomより優秀な気がする。 洗練されたUI
+画面分割やファイル検索など自在にできる。特にGitがみやすい。  初期設定など UI設定  フォントサイズの設定
+デフォルトは12で少しみにくいので15 テーマ
+Visual Studio Codeで見やすいテーマファイルのまとめから自分はAtomOneDarkを選びました。  ファイル自動保存 デフォルトではオフになっていて使いにくいので、onFocusChange(フォーカスを外した際に保存される)に変更。 
+自動コード整形 設定画面の検索窓から「formaton」で検索。「Format On Type」にチェック
+標準ターミナルではなくiTermを使えるように設定 VSCode内でiTermを使いたいので以下のように設定します。 「UserSettings」→「Features」→「Extension Viewlet」 
+ちなみにMacではControl+Shift+@でterminalを起動できます。
+プラグイン VSCodeのオススメ拡張機能 24 選 (とTipsをいくつか)から気に入ったものをインストールしました。他にもあれば教えて欲しいです。
+デバッグ Webの開発行う人は入れておくとよいかと思います。 - Debugger for Chrome - Live Server
+参考: Visual Studio Code でフロントエンドの開発環境を構築してデバッグする
+ターミナルからファイルやプロジェクトをVSCodeで開く code .</description>
+    </item>
+    
+  </channel>
+</rss>
