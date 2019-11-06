@@ -3,7 +3,7 @@ disablePathToLower = false
 languageCode = "en-us"
 title = "All Time NEET"
 theme = "robost1"
-googleAnalytics = "UA-84084422-3"
+googleAnalytics = "UA-84084422-12"
 
 [indexes]
 category = "category"
