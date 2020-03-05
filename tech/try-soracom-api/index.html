@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/try-soracom-api/">
     
@@ -145,123 +147,104 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="soracomairのsimを触ってみる">SoracomAirのSimを触ってみる</h3>
-
+    <h3 id="soracomairのsimを触ってみる">SoracomAirのSimを触ってみる</h3>
 <h4 id="soracomsimの登録">SoracomSimの登録</h4>
-
 <p><a href="https://console.soracom.io/">soracomコンソール</a>から登録できます
-<a href="https://gyazo.com/042d9df4778b10b6a2679b70534194a5"><img src="https://i.gyazo.com/042d9df4778b10b6a2679b70534194a5.png" alt="Image from Gyazo" /></a></p>
-
+<a href="https://gyazo.com/042d9df4778b10b6a2679b70534194a5"><img src="https://i.gyazo.com/042d9df4778b10b6a2679b70534194a5.png" alt="Image from Gyazo"></a></p>
 <h4 id="料金体系">料金体系</h4>
-
 <p><a href="https://soracom.jp/pricing/">公式サイト</a>
-<a href="https://gyazo.com/7f4cca4f19fb379db83ede56063940ac"><img src="https://i.gyazo.com/7f4cca4f19fb379db83ede56063940ac.png" alt="Image from Gyazo" /></a></p>
-
+<a href="https://gyazo.com/7f4cca4f19fb379db83ede56063940ac"><img src="https://i.gyazo.com/7f4cca4f19fb379db83ede56063940ac.png" alt="Image from Gyazo"></a></p>
 <h4 id="apiを叩いてみる">APIを叩いてみる</h4>
-
-<h5 id="1-apiキーとトークンの取得">1.APIキーとトークンの取得</h5>
-
+<h5 id="1apiキーとトークンの取得">1.APIキーとトークンの取得</h5>
 <ul>
 <li>リクエストURL
-
 <ul>
 <li><a href="https://api.soracom.io/v1/auth">https://api.soracom.io/v1/auth</a></li>
-</ul></li>
+</ul>
+</li>
 <li>クエリ
-
 <ul>
 <li>email: メールアドレス</li>
 <li>password: パスワード</li>
-</ul></li>
-
-<li><p>レスポンス</p>
-
-<pre><code class="language-json">{
-&quot;apiKey&quot;: &quot;APIKEY&quot;,
-&quot;operatorId&quot;: &quot;OPERATORID&quot;,
-&quot;userName&quot;: null,
-&quot;token&quot;: &quot;TOKEN&quot;
-}
-</code></pre></li>
 </ul>
-
-<p>一応WEBからも発行可能です。<a href="https://dev.soracom.io/jp/docs/api/">こちらのリンク</a>から二種類あるので好きなやり方で認証・発行してください。
-<a href="https://gyazo.com/ed8209b0509d5c1177e442ce4c288e64"><img src="https://i.gyazo.com/ed8209b0509d5c1177e442ce4c288e64.png" alt="Image from Gyazo" /></a></p>
-
-<h5 id="2-apiを叩いてみる">2.APIを叩いてみる</h5>
-
+</li>
+<li>レスポンス</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;apiKey&#34;</span>: <span style="color:#e6db74">&#34;APIKEY&#34;</span>,
+  <span style="color:#f92672">&#34;operatorId&#34;</span>: <span style="color:#e6db74">&#34;OPERATORID&#34;</span>,
+  <span style="color:#f92672">&#34;userName&#34;</span>: <span style="color:#66d9ef">null</span>,
+  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;TOKEN&#34;</span>
+}
+</code></pre></div><p>一応WEBからも発行可能です。<a href="https://dev.soracom.io/jp/docs/api/">こちらのリンク</a>から二種類あるので好きなやり方で認証・発行してください。
+<a href="https://gyazo.com/ed8209b0509d5c1177e442ce4c288e64"><img src="https://i.gyazo.com/ed8209b0509d5c1177e442ce4c288e64.png" alt="Image from Gyazo"></a></p>
+<h5 id="2apiを叩いてみる">2.APIを叩いてみる</h5>
 <p>試しに登録したSimカードの一覧を取得するAPIを叩いてみます。</p>
-
 <ul>
 <li>リクエストURL
-
 <ul>
 <li><a href="https://api.soracom.io/v1/subscribers">https://api.soracom.io/v1/subscribers</a></li>
-</ul></li>
+</ul>
+</li>
 <li>リクエストヘッダ
 先ほど取得したapiKeyとTokenを使用します
-
 <ul>
 <li>X-Soracom-API-Key=APIKEY</li>
 <li>X-Soracom-Token=TOKEN</li>
-</ul></li>
-
-<li><p>レスポンス</p>
-
-<pre><code class="language-json">[
-{
-&quot;imsi&quot;: &quot;440103198207751&quot;,
-&quot;msisdn&quot;: &quot;812016084496&quot;,
-&quot;ipAddress&quot;: &quot;10.245.237.68&quot;,
-&quot;operatorId&quot;: &quot;OP0061660828&quot;,
-&quot;apn&quot;: &quot;soracom.io&quot;,
-&quot;type&quot;: &quot;s1.standard&quot;,
-&quot;groupId&quot;: null,
-&quot;createdAt&quot;: 1545836470247,
-&quot;lastModifiedAt&quot;: 1550380631731,
-&quot;expiredAt&quot;: null,
-&quot;registeredTime&quot;: 1549618116968,
-&quot;expiryAction&quot;: null,
-&quot;terminationEnabled&quot;: false,
-&quot;status&quot;: &quot;active&quot;,
-&quot;tags&quot;: {
-  &quot;name&quot;: &quot;mySim&quot;
-},
-&quot;sessionStatus&quot;: {
-  &quot;lastUpdatedAt&quot;: 1550380631731,
-  &quot;imei&quot;: &quot;353168044272803&quot;,
-  &quot;location&quot;: null,
-  &quot;cell&quot;: {
-    &quot;radioType&quot;: &quot;lte&quot;,
-    &quot;mcc&quot;: 440,
-    &quot;mnc&quot;: 10,
-    &quot;tac&quot;: 12390,
-    &quot;eci&quot;: 185881861
-  },
-  &quot;ueIpAddress&quot;: &quot;10.245.237.68&quot;,
-  &quot;dnsServers&quot;: [
-    &quot;100.127.0.53&quot;,
-    &quot;100.127.1.53&quot;
-  ],
-  &quot;online&quot;: true
-},
-&quot;imeiLock&quot;: null,
-&quot;speedClass&quot;: &quot;s1.standard&quot;,
-&quot;moduleType&quot;: &quot;mini&quot;,
-&quot;plan&quot;: 0,
-&quot;iccid&quot;: &quot;8981100005601355721&quot;,
-&quot;serialNumber&quot;: &quot;DN0605601355720&quot;,
-&quot;subscription&quot;: &quot;plan-D&quot;,
-&quot;createdTime&quot;: 1545836470247,
-&quot;expiryTime&quot;: null,
-&quot;lastModifiedTime&quot;: 1550380631731
-}
-]
-</code></pre></li>
 </ul>
-
+</li>
+<li>レスポンス</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;imsi&#34;</span>: <span style="color:#e6db74">&#34;440103198207751&#34;</span>,
+    <span style="color:#f92672">&#34;msisdn&#34;</span>: <span style="color:#e6db74">&#34;812016084496&#34;</span>,
+    <span style="color:#f92672">&#34;ipAddress&#34;</span>: <span style="color:#e6db74">&#34;10.245.237.68&#34;</span>,
+    <span style="color:#f92672">&#34;operatorId&#34;</span>: <span style="color:#e6db74">&#34;OP0061660828&#34;</span>,
+    <span style="color:#f92672">&#34;apn&#34;</span>: <span style="color:#e6db74">&#34;soracom.io&#34;</span>,
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;s1.standard&#34;</span>,
+    <span style="color:#f92672">&#34;groupId&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;createdAt&#34;</span>: <span style="color:#ae81ff">1545836470247</span>,
+    <span style="color:#f92672">&#34;lastModifiedAt&#34;</span>: <span style="color:#ae81ff">1550380631731</span>,
+    <span style="color:#f92672">&#34;expiredAt&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;registeredTime&#34;</span>: <span style="color:#ae81ff">1549618116968</span>,
+    <span style="color:#f92672">&#34;expiryAction&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;terminationEnabled&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;active&#34;</span>,
+    <span style="color:#f92672">&#34;tags&#34;</span>: {
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;mySim&#34;</span>
+    },
+    <span style="color:#f92672">&#34;sessionStatus&#34;</span>: {
+      <span style="color:#f92672">&#34;lastUpdatedAt&#34;</span>: <span style="color:#ae81ff">1550380631731</span>,
+      <span style="color:#f92672">&#34;imei&#34;</span>: <span style="color:#e6db74">&#34;353168044272803&#34;</span>,
+      <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#66d9ef">null</span>,
+      <span style="color:#f92672">&#34;cell&#34;</span>: {
+        <span style="color:#f92672">&#34;radioType&#34;</span>: <span style="color:#e6db74">&#34;lte&#34;</span>,
+        <span style="color:#f92672">&#34;mcc&#34;</span>: <span style="color:#ae81ff">440</span>,
+        <span style="color:#f92672">&#34;mnc&#34;</span>: <span style="color:#ae81ff">10</span>,
+        <span style="color:#f92672">&#34;tac&#34;</span>: <span style="color:#ae81ff">12390</span>,
+        <span style="color:#f92672">&#34;eci&#34;</span>: <span style="color:#ae81ff">185881861</span>
+      },
+      <span style="color:#f92672">&#34;ueIpAddress&#34;</span>: <span style="color:#e6db74">&#34;10.245.237.68&#34;</span>,
+      <span style="color:#f92672">&#34;dnsServers&#34;</span>: [
+        <span style="color:#e6db74">&#34;100.127.0.53&#34;</span>,
+        <span style="color:#e6db74">&#34;100.127.1.53&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;online&#34;</span>: <span style="color:#66d9ef">true</span>
+    },
+    <span style="color:#f92672">&#34;imeiLock&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;speedClass&#34;</span>: <span style="color:#e6db74">&#34;s1.standard&#34;</span>,
+    <span style="color:#f92672">&#34;moduleType&#34;</span>: <span style="color:#e6db74">&#34;mini&#34;</span>,
+    <span style="color:#f92672">&#34;plan&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;iccid&#34;</span>: <span style="color:#e6db74">&#34;8981100005601355721&#34;</span>,
+    <span style="color:#f92672">&#34;serialNumber&#34;</span>: <span style="color:#e6db74">&#34;DN0605601355720&#34;</span>,
+    <span style="color:#f92672">&#34;subscription&#34;</span>: <span style="color:#e6db74">&#34;plan-D&#34;</span>,
+    <span style="color:#f92672">&#34;createdTime&#34;</span>: <span style="color:#ae81ff">1545836470247</span>,
+    <span style="color:#f92672">&#34;expiryTime&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;lastModifiedTime&#34;</span>: <span style="color:#ae81ff">1550380631731</span>
+  }
+]
+</code></pre></div>
   </div>
 
   <footer class="article-footer">

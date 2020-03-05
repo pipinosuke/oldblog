@@ -17,7 +17,7 @@
       <pubDate>Wed, 03 Apr 2019 01:50:01 +0900</pubDate>
       
       <guid>https://alltimeneet.com/tech/ios-camera-avfoundation/</guid>
-      <description> 挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
+      <description>挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
  参考URL  iOSでバーコードを読み取る AVFoundation(AVCaptureMetadataOutput)でバーコードリーダーを作ってみた  実装 事前準備 この手順を踏まずにカメラを起動しようとすると強制終了するので注意！。XcodeのInfo.plistにPrivacy - Camera Usage Descriptionを追加します。カメラを使用する目的を値として入力します。 
  参考: iOS10ではカメラアクセスなどの目的を明示しないと強制終了する  AVCaptureMetadataOutputObjectsDelegate </description>
     </item>

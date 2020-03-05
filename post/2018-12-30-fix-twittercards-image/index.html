@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/post/2018-12-30-fix-twittercards-image/">
     
@@ -145,26 +147,19 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<hr />
-
+    <hr>
 <p>適当に調べたところ、このような記事を発見。参考にしたら治りました。
 <a href="https://blog.apar.jp/web/9844/#_CDN">Twitterカードの設定は正しいのに画像が表示されない原因</a></p>
-
 <h2 id="やったこと">やったこと</h2>
-
-<pre><code class="language-html">  &lt;meta name=&quot;twitter:image&quot; content=&quot;https://raw.githubusercontent.com/myusername/blog/master/images/thumbs/{{ page.image }}&quot; /&gt;
-</code></pre>
-
-<p>のようにカスタムドメインではなく、githubcontent.comのURLで指定するとうまくいきました。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/myusername/blog/master/images/thumbs/{{ page.image }}&#34;</span> /&gt;
+</code></pre></div><p>のようにカスタムドメインではなく、githubcontent.comのURLで指定するとうまくいきました。</p>
 <h2 id="おまけ">おまけ</h2>
-
-<p>参考にしてくださいmm
-- ツイッターカードのメタデータ一覧
-<a href="https://gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08"><img src="https://i.gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08.png" alt="Image from Gyazo" /></a>
-引用: <a href="https://gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08">ツイートにページ情報を表示する「Twitterカード（Twitter Cards）」を設定してみた</a></p>
+<p>参考にしてくださいmm</p>
+<ul>
+<li>ツイッターカードのメタデータ一覧
+<a href="https://gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08"><img src="https://i.gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08.png" alt="Image from Gyazo"></a>
+引用: <a href="https://gyazo.com/5ddc2411c01aa686ca3a60ed48ff7e08">ツイートにページ情報を表示する「Twitterカード（Twitter Cards）」を設定してみた</a></li>
+</ul>
 
   </div>
 

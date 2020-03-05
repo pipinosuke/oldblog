@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/post/2018-12-29-swift-enum/">
     
@@ -145,40 +147,28 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<hr />
-
+    <hr>
 <h2 id="要素数の取得">要素数の取得</h2>
-
 <ul>
-<li><p><a href="https://developer.apple.com/documentation/swift/caseiterable">CaseIterable</a>プロトコルの準拠(Swift4.2~)</p>
-
-<pre><code class="language-swift">Enum.allCases.count
-</code></pre></li>
+<li><a href="https://developer.apple.com/documentation/swift/caseiterable">CaseIterable</a>プロトコルの準拠(Swift4.2~)</li>
 </ul>
-
-<h2 id="値の取得-逆引き">値の取得・逆引き</h2>
-
-<p>値型Enumの時はrawValueを用いて取得可能
-- 取得</p>
-
-<pre><code class="language-swift">Enum.case.rawValue
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">Enum.allCases.count
+</code></pre></div><h2 id="値の取得逆引き">値の取得・逆引き</h2>
+<p>値型Enumの時はrawValueを用いて取得可能</p>
 <ul>
-<li><p>値から逆引き</p>
-
-<pre><code class="language-swift">Enum(rawValue: value)
-</code></pre>
-
-<p>ちなみに値を指定しなかった時はかたによって以下のように振る舞いが変わります</p></li>
-
-<li><p>String型のとき
-caseの名前がそのまま値になる</p></li>
-
-<li><p>Int型のとき
-0から順に番号が振られる</p></li>
+<li>取得</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">Enum.<span style="color:#66d9ef">case</span>.rawValue
+</code></pre></div><ul>
+<li>値から逆引き</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">Enum(rawValue: value)
+</code></pre></div><p>ちなみに値を指定しなかった時はかたによって以下のように振る舞いが変わります</p>
+<ul>
+<li>String型のとき
+caseの名前がそのまま値になる</li>
+<li>Int型のとき
+0から順に番号が振られる</li>
 </ul>
 
   </div>

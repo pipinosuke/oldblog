@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/circleci-hugo/">
     
@@ -145,97 +147,75 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h4 id="ciサービスとは">CIサービスとは</h4>
-
+    <h4 id="ciサービスとは">CIサービスとは</h4>
 <blockquote>
 <p>ビルドとテストを自動化するためのサービス</p>
 </blockquote>
-
 <p>ということで理解しておけばいいと思います。一応直訳すると「Continuous Integration（継続的インテグレーションサービス）」、略してCIサービスということらしいです。</p>
-
 <p>参考: <a href="https://dev.classmethod.jp/devenv/why-ci-is-needed/">なぜCIが必要なのか</a></p>
-
 <h3 id="目標">目標</h3>
-
 <blockquote>
 <p>GithubPagesで公開しているHugoプロジェクトのデプロイ作業を自動化する</p>
 </blockquote>
-
 <p>Hugoの場合はプロジェクト本体ではなく、publicディレクトリ以下をgithubにホスティングする必要があるので、デプロイするときは基本的に以下のような手順を踏まなければならない。</p>
-
-<pre><code class="language-bash">$ git commit -m &quot;hoge&quot;
-$ hugo #public以下にサイトを生成するコマンド
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git commit -m <span style="color:#e6db74">&#34;hoge&#34;</span>
+$ hugo <span style="color:#75715e">#public以下にサイトを生成するコマンド</span>
 $ cd public
-$ git commit -m &quot;hogehoge&quot;
+$ git commit -m <span style="color:#e6db74">&#34;hogehoge&#34;</span>
 $ git push
-</code></pre>
-
-<p>このルーティンが段々だるくなってくきたので、<a href="https://circleci.com/">CircleCi</a>でこれを自動化する。</p>
-
+</code></pre></div><p>このルーティンが段々だるくなってくきたので、<a href="https://circleci.com/">CircleCi</a>でこれを自動化する。</p>
 <h3 id="手順">手順</h3>
-
 <ol>
 <li>レポジトリとデプロイキーを登録する</li>
 <li>.circleci/config.ymlの記述</li>
 </ol>
-
-<p>参考: <a href="https://t32k.me/mol/log/hugo-circleci-ghpages-2018/">CircleCIでHugoを実行してGitHub Pagesにデプロイ</a><br />
+<p>参考: <a href="https://t32k.me/mol/log/hugo-circleci-ghpages-2018/">CircleCIでHugoを実行してGitHub Pagesにデプロイ</a><br>
 <a href="https://koirand.github.io/blog/2018/blog-auto-deploy/">ブログ(HUGO)のビルドとデプロイをCircleCIで自動化した</a></p>
-
 <h4 id="1-レポジトリとデプロイキーを登録する">1. レポジトリとデプロイキーを登録する</h4>
-
 <ul>
-<li>レポジトリの登録<br />
+<li>レポジトリの登録<br>
 最初のブランチ一覧が表示される画面で登録したいレポジトリにチェックマークをつけてFollowを押せば登録できます。</li>
-<li>デプロイキーの登録<br />
+<li>デプロイキーの登録<br>
 今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、pushのための書き込み権限の付与がされてなくてエラーになりました、何やかんややりましたが解決できなかったので、check out ssh keyからの登録をお勧めします。</li>
 </ul>
-
-<h4 id="2-circleci-config-ymlの記述">2. .circleci/config.ymlの記述</h4>
-
+<h4 id="2-circleciconfigymlの記述">2. .circleci/config.ymlの記述</h4>
 <p>CircleCiにやってほしいことを.circleci/config.ymlに記述します。githubのレポジトリにpushされた時発火します。
 僕の場合masterブランチでhugoプロジェクト本体、gh-pagesブランチで公開用のpublic以下のファイル群を管理しています。内容はこんな感じです参考までに</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">jobs</span>:
+  <span style="color:#66d9ef">build</span>:
+    <span style="color:#66d9ef">docker</span>:
+      - <span style="color:#66d9ef">image</span>: cibuilds/hugo:latest
+        <span style="color:#66d9ef">environment</span>:
+          <span style="color:#66d9ef">TZ</span>: Asia/Tokyo  <span style="color:#75715e">#ここら辺はコピペでいいと思う</span>
 
-<pre><code class="language-yaml">version: 2
-jobs:
-  build:
-    docker:
-      - image: cibuilds/hugo:latest
-        environment:
-          TZ: Asia/Tokyo  #ここら辺はコピペでいいと思う
+    <span style="color:#66d9ef">branches</span>:
+      <span style="color:#66d9ef">ignore</span>:
+        - gh-pages <span style="color:#75715e">#gh-pagesにプッシュされた際に反応しないようにignoreを設定している</span>
 
-    branches:
-      ignore:
-        - gh-pages #gh-pagesにプッシュされた際に反応しないようにignoreを設定している
-
-    steps:
+    <span style="color:#66d9ef">steps</span>:
       - checkout
 
-      - run:
-          name: &quot;Setting for Git&quot;
-          command: |
-            git config --global user.name &quot;username&quot;
-            git config --global user.email &quot;adress@adress&quot;
+      - <span style="color:#66d9ef">run</span>:
+          <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;Setting for Git&#34;</span>
+          <span style="color:#66d9ef">command</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            git config --global user.name &#34;username&#34;</span>
+            git config --global user.email <span style="color:#e6db74">&#34;adress@adress&#34;</span>
 
-      - run:
-          name: &quot;Get GitHub repository&quot;
-          command: git clone git@github.com:username/blog.git
+      - <span style="color:#66d9ef">run</span>:
+          <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;Get GitHub repository&#34;</span>
+          <span style="color:#66d9ef">command</span>: git clone git@github.com:username/blog.git
 
-      - run:
-          name: &quot;Build &amp; Push&quot;
-          command: |
-            git clone -b gh-pages git@github.com:username/blog.git public
+      - <span style="color:#66d9ef">run</span>:
+          <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;Build &amp; Push&#34;</span>
+          <span style="color:#66d9ef">command</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            git clone -b gh-pages git@github.com:username/blog.git public</span>
             hugo
             cd public
             git add .
-            git commit -m &quot;rebuilding site `date '+%Y-%m-%d'`&quot;
+            git commit -m <span style="color:#e6db74">&#34;rebuilding site `date &#39;+%Y-%m-%d&#39;`&#34;</span>
             git push origin gh-pages
-</code></pre>
-
-<h3 id="最後に">最後に</h3>
-
+</code></pre></div><h3 id="最後に">最後に</h3>
 <p>目的が達成できたので非常に満足。Hugoのブログを管理しているレポジトリではmaster(hugoプロジェクト)とgh-pages（public/以下を管理する公開用）と言う二つのブランチで管理しており、masterへの配置で満足してgh-pagesの方のブランチにconfig.ymlを置き忘れたせいで、ずっとブランチをignoreする設定が効かなかった。注意しましょう。笑</p>
 
   </div>

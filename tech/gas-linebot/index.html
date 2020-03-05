@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/gas-linebot/">
     
@@ -145,146 +147,107 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<p>（GASのアプリケーションが正しく公開されていなかったりBotの設定がわからなかったりして普通に時間かかりました。Qiitaで30分でできたとか書いてる人いるけど絶対嘘だろ！！）</p>
-
+    <p>（GASのアプリケーションが正しく公開されていなかったりBotの設定がわからなかったりして普通に時間かかりました。Qiitaで30分でできたとか書いてる人いるけど絶対嘘だろ！！）</p>
 <h5 id="使うもの">使うもの</h5>
-
 <ul>
 <li>GAS</li>
 <li>clasp</li>
 <li>TypeScript</li>
 </ul>
-
 <h3 id="ローカル開発環境の構築">ローカル開発環境の構築</h3>
-
 <p>補完とか使えるので個人的にはローカルで開発することをお勧めします。もちろんGASのエディタを使っても良いです。まずは<a href="https://script.google.com/home/usersettings">https://script.google.com/home/usersettings</a>からGoogleAppsScriptAPIをオンにしておきます。
-<a href="https://gyazo.com/03f659b5a167d80852448fdcec0deca9"><img src="https://i.gyazo.com/03f659b5a167d80852448fdcec0deca9.png" alt="GASAPIの有効化" /></a></p>
-
+<a href="https://gyazo.com/03f659b5a167d80852448fdcec0deca9"><img src="https://i.gyazo.com/03f659b5a167d80852448fdcec0deca9.png" alt="GASAPIの有効化"></a></p>
 <h4 id="プロジェクト作成">プロジェクト作成</h4>
-
-<pre><code class="language-bash">mkdir gas-project //プロジェクトファイル作成
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir gas-project //プロジェクトファイル作成
 cd gas-project
 npm init -y
 npm i -S @google/clasp //claspについては後述
 npm i -S @types/google-apps-script @types/node
-clasp create --title &quot;GcarenderBot&quot; --rootDir ./src
+clasp create --title <span style="color:#e6db74">&#34;GcarenderBot&#34;</span> --rootDir ./src
 clasp pull
-</code></pre>
-
-<p>説明することが2つあるので軽く触れます。</p>
-
+</code></pre></div><p>説明することが2つあるので軽く触れます。</p>
 <h5 id="1-clasp">1. clasp</h5>
-
 <p>以下のようにGoogle製のCIライブラリであるclaspを使うことでプロジェクトファイルをgitみたいな感じで扱うことができます。<code>clasp create</code>でGASにプロジェクトが登録されます。その際&ndash;rootDirオプションでディレクトリを指定しましょう。</p>
-
-<pre><code class="language-bash">clasp create --title &quot;gas-project&quot; --rootDir ./src
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">clasp create --title <span style="color:#e6db74">&#34;gas-project&#34;</span> --rootDir ./src
 clasp pull //GASからpull
 clasp push //GASにpush
-</code></pre>
-
-<h5 id="2-typescriptへの対応">2. Typescriptへの対応</h5>
-
-<pre><code class="language-bash">npm i -S @types/google-apps-script @types/node
-</code></pre>
-
-<p>地味に嬉しい人多いのでは??<code>clasp push</code>すれば<code>*.ts</code>から<code>*.js</code>へコンパイルはGASが勝手にやってくれます。強い。</p>
-
+</code></pre></div><h5 id="2-typescriptへの対応">2. Typescriptへの対応</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -S @types/google-apps-script @types/node
+</code></pre></div><p>地味に嬉しい人多いのでは??<code>clasp push</code>すれば<code>*.ts</code>から<code>*.js</code>へコンパイルはGASが勝手にやってくれます。強い。</p>
 <h3 id="実装">実装</h3>
-
 <p>ローカル開発環境を整えたところで、簡単な実装します。試しにおうむ返しするBotを作ります。LineBotでできることと仕様については<a href="https://developers.line.biz/ja/docs/messaging-api/overview/">LineMessagingAPIリファレンス</a>をチェケラ</p>
-
 <h4 id="コード">コード</h4>
-
 <p>コードは下記のリンクから拝借したしたものです。ファイル名は適当に<code>code.ts</code>とかで良いと思います。</p>
-
 <ul>
-<li><p><a href="https://www.takeiho.com/messaging-api-gas">【LINE Botの作り方】Messaging API × GAS(Google Apps Script)でおうむ返しボットを作成する</a></p>
-
-<pre><code class="language-javascript">var channel_access_token = &quot;各自取得&quot;
-
-function doPost(e) {
-var events = JSON.parse(e.postData.contents).events;
-events.forEach(function(event) {
-if(event.type == &quot;message&quot;) {
-  reply(event);
-} else if(event.type == &quot;follow&quot;) {
-  follow(event);
-} else if(event.type == &quot;unfollow&quot;) {
-  unFollow(event);
-}
-});
-}
-
-// 入力されたメッセージをおうむ返し
-function reply(e) {
-var message = {
-&quot;replyToken&quot; : e.replyToken,
-&quot;messages&quot; : [
-  {
-    &quot;type&quot; : &quot;text&quot;,
-    &quot;text&quot; : ((e.message.type==&quot;text&quot;) ? e.message.text : &quot;Text以外は返せません・・・&quot;)
-  }
-]
-};
-var replyData = {
-&quot;method&quot; : &quot;post&quot;,
-&quot;headers&quot; : {
-  &quot;Content-Type&quot; : &quot;application/json&quot;,
-  &quot;Authorization&quot; : &quot;Bearer &quot; + channel_access_token
-},
-&quot;payload&quot; : JSON.stringify(message)
-};
-UrlFetchApp.fetch(&quot;https://api.line.me/v2/bot/message/reply&quot;, replyData);
-}
-
-/* フォローされた時の処理 */
-function follow(e) {
-
-}
-
-/* アンフォローされた時の処理 */
-function unFollow(e){
-
-}
-</code></pre></li>
+<li><a href="https://www.takeiho.com/messaging-api-gas">【LINE Botの作り方】Messaging API × GAS(Google Apps Script)でおうむ返しボットを作成する</a></li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">channel_access_token</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;各自取得&#34;</span>
 
-<p>アクセストークンは<a href="https://developers.line.biz/console/">LineDeveloppers</a>の設定から各自取得しましょう。
-<a href="https://gyazo.com/0c59246484f7269d20d3d3504c367825"><img src="https://i.gyazo.com/0c59246484f7269d20d3d3504c367825.png" alt="Image from Gyazo" /></a></p>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">doPost</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">events</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">postData</span>.<span style="color:#a6e22e">contents</span>).<span style="color:#a6e22e">events</span>;
+  <span style="color:#a6e22e">events</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;message&#34;</span>) {
+      <span style="color:#a6e22e">reply</span>(<span style="color:#a6e22e">event</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;follow&#34;</span>) {
+      <span style="color:#a6e22e">follow</span>(<span style="color:#a6e22e">event</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;unfollow&#34;</span>) {
+      <span style="color:#a6e22e">unFollow</span>(<span style="color:#a6e22e">event</span>);
+    }
+ });
+}
 
+<span style="color:#75715e">// 入力されたメッセージをおうむ返し
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reply</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#34;replyToken&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">replyToken</span>,
+    <span style="color:#e6db74">&#34;messages&#34;</span> <span style="color:#f92672">:</span> [
+      {
+        <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text&#34;</span>,
+        <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#f92672">:</span> ((<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">type</span><span style="color:#f92672">==</span><span style="color:#e6db74">&#34;text&#34;</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Text以外は返せません・・・&#34;</span>)
+      }
+    ]
+  };
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">replyData</span> <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#34;method&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;post&#34;</span>,
+    <span style="color:#e6db74">&#34;headers&#34;</span> <span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;Content-Type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span>,
+      <span style="color:#e6db74">&#34;Authorization&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bearer &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">channel_access_token</span>
+    },
+    <span style="color:#e6db74">&#34;payload&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">message</span>)
+  };
+  <span style="color:#a6e22e">UrlFetchApp</span>.<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;https://api.line.me/v2/bot/message/reply&#34;</span>, <span style="color:#a6e22e">replyData</span>);
+}
+
+<span style="color:#75715e">/* フォローされた時の処理 */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">follow</span>(<span style="color:#a6e22e">e</span>) {
+
+}
+
+<span style="color:#75715e">/* アンフォローされた時の処理 */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unFollow</span>(<span style="color:#a6e22e">e</span>){
+
+}
+</code></pre></div><p>アクセストークンは<a href="https://developers.line.biz/console/">LineDeveloppers</a>の設定から各自取得しましょう。
+<a href="https://gyazo.com/0c59246484f7269d20d3d3504c367825"><img src="https://i.gyazo.com/0c59246484f7269d20d3d3504c367825.png" alt="Image from Gyazo"></a></p>
 <h4 id="gasアプリケーションの公開">GASアプリケーションの公開</h4>
-
 <p>プロジェクトを<code>clasp push</code>したらGASアプリケーションとして公開します。公開した際のURLはWebhook設定の時に使います。</p>
-
-<pre><code class="language-bash">clasp open
-</code></pre>
-
-<p>でGASを開いて「公開」→「ウェブアプリケーションとして公開」を選択します。以下の点に注意してください。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">clasp open
+</code></pre></div><p>でGASを開いて「公開」→「ウェブアプリケーションとして公開」を選択します。以下の点に注意してください。</p>
 <ul>
 <li>初回の公開のみ「プロジェクトバージョン」→「New」にする</li>
 <li>「アプリケーションにアクセスできるユーザー」→「全員(匿名ユーザーを含む)」</li>
 </ul>
-
 <h4 id="webhookの設定">Webhookの設定</h4>
-
 <p>続いて<a href="https://developers.line.biz/console/">LineDeveloppers</a>からBot設定画面を開きます。</p>
-
 <ul>
 <li>「Line@機能の自動応答」→「オフ」にします
-<a href="https://gyazo.com/f1a7c955bd235f4bc9f786f0011d4027"><img src="https://i.gyazo.com/f1a7c955bd235f4bc9f786f0011d4027.png" alt="Image from Gyazo" /></a></li>
+<a href="https://gyazo.com/f1a7c955bd235f4bc9f786f0011d4027"><img src="https://i.gyazo.com/f1a7c955bd235f4bc9f786f0011d4027.png" alt="Image from Gyazo"></a></li>
 <li>「Webhook送信」→利用する</li>
 <li>「WebhookUrl」に公開したGASアプリケーションのURLを登録</li>
 </ul>
-
 <p>接続確認ができれば実装完了。おうむ返ししてくれましたかと思います。次回はもう少し発展させたものを作ります。</p>
-
 <h3 id="参考url">参考URL</h3>
-
 <p>毎回言ってる気がするけど先人達に感謝。</p>
-
 <ul>
 <li><a href="https://qiita.com/tanabee/items/2c51681396fe12b6a0e4">GAS ビギナーが GAS を使いこなすために知るべきこと 10 選</a></li>
 <li><a href="https://budougumi0617.github.io/2019/01/16/develop-google-apps-script-by-typescript/">Google Apps ScriptをTypeScriptで実装する(clasp/TSLint/Prettier)</a></li>

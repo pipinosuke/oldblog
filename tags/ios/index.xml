@@ -20,14 +20,10 @@
       <description>RxSwift入門 Observableの概要 まとめ 入門  リアクティブプログラミングとRxJavaの概要 オブザーバーパターンから始めるRxSwift入門  まずは上の記事でリアクティブプログラミングのノリを理解します。特に6pのマーブルダイヤグラムの図が理解に役立ちます。下の記事は実際のコードを交えた解説です。具体的にどのような実装を行えば良いのかがわかります。
 Rxができることとそのメリット Rxを使いこなせればありとあらゆるものをストリームとして扱うことが可能です
 例えばボタンをタップされた時の挙動はこう書けます。（以下のコードは厳密にはRxSwiftではなくRxCocoaというUIKitをObservableとして扱うことのできるライブラリを用いています。）
-import RxCocoa import RxSwift weak var button: UIButton! ~~~~~~~~~~~~~~~~~~ override func viewDidLoad(){ button.rx.tap.subscribe(onNext: { _ in print(&amp;quot;buttonがtapされたよー&amp;quot;) }).disposed(by: DisposeBag()) }  例えばデータのbindや、面倒だった非同期処理を簡単に書けるけるのがメリットです。若干学習コストは高いかなと思いますが、マスターできれば文字通りなんでもできます。
-Rxで登場する基本概念 2種 Observable 名前だけでも覚えて帰ってください！！Observableはストリームを流し、そのストーリムをsubscribe(購読)することが可能になります。 Observableが通知するイベントは以下の3種類。subscribe(購読)することで、それぞれのタイミングでクロージャ内のメソッドを呼ぶことが出来る。
-･onNext: 通常のイベントが発生した時
-･onError: エラーが発生になった時
-･onComplete: イベントが完了した時
-&amp;mdash; nosugi (@nosugi1) 2019年4月7日 
+import RxCocoa import RxSwift weak var button: UIButton! ~~~~~~~~~~~~~~~~~~ override func viewDidLoad(){ button.rx.tap.subscribe(onNext: { _ in print(&amp;#34;buttonがtapされたよー&amp;#34;) }).disposed(by: DisposeBag()) } 例えばデータのbindや、面倒だった非同期処理を簡単に書けるけるのがメリットです。若干学習コストは高いかなと思いますが、マスターできれば文字通りなんでもできます。
+Rxで登場する基本概念 2種 Observable 名前だけでも覚えて帰ってください！！Observableはストリームを流し、そのストーリムをsubscribe(購読)することが可能になります。
 言い換えると、何かが起こった時の挙動をクロージャの中に記述しておけば何もせんでも勝手に呼んでくれるということです。下のコードは新卒エンジニアの開発日記さんの記事から引用したものになります。趣旨とは外れますが、中の人とは実は学生時代の知り合いだったりします。笑
-import RxSwift import RxCococa let observableContentOffset = tableView.rx.contentOffset observableContentOffset .subscribe(onNext: { _ in print(&amp;quot;next&amp;quot;) //スクロールするたびに呼ばれる }, onError: { _ in print(&amp;quot;error&amp;quot;) }, onCompleted: { _ in print(&amp;quot;completed&amp;quot;) }).</description>
+import RxSwift import RxCococa let observableContentOffset = tableView.rx.contentOffset observableContentOffset .subscribe(onNext: { _ in print(&amp;#34;next&amp;#34;) //スクロールするたびに呼ばれる }, onError: { _ in print(&amp;#34;error&amp;#34;) }, onCompleted: { _ in print(&amp;#34;completed&amp;#34;) }).disposed(by: DisposeBag()) Disposable }.disposed(by: DisposeBag()) について疑問を持った方も多いと思います。これについて説明します。こう書くことによって購読を解除できます。購読し続けるとその分メモリを圧迫し、アプリのパフォーマンスに影響するので基本的にはメソッドが走った最後に購読を解除します。今まで特に理解せずにこのメソッドを使っていましたが、オブザーバーパターンから始めるRxSwift入門 から引用するとどうやら</description>
     </item>
     
     <item>
@@ -36,7 +32,7 @@ import RxSwift import RxCococa let observableContentOffset = tableView.rx.conten
       <pubDate>Wed, 03 Apr 2019 01:50:01 +0900</pubDate>
       
       <guid>https://alltimeneet.com/tech/ios-camera-avfoundation/</guid>
-      <description> 挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
+      <description>挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
  参考URL  iOSでバーコードを読み取る AVFoundation(AVCaptureMetadataOutput)でバーコードリーダーを作ってみた  実装 事前準備 この手順を踏まずにカメラを起動しようとすると強制終了するので注意！。XcodeのInfo.plistにPrivacy - Camera Usage Descriptionを追加します。カメラを使用する目的を値として入力します。 
  参考: iOS10ではカメラアクセスなどの目的を明示しないと強制終了する  AVCaptureMetadataOutputObjectsDelegate </description>
     </item>
@@ -50,8 +46,8 @@ import RxSwift import RxCococa let observableContentOffset = tableView.rx.conten
       <description>鬼門でした。
 RxSwiftを使ったUITableViewの実装 大きく分けてふたパターンあります。UITableViewDataSourceで実装する部分をRxを用いて実装します。1のやり方はシンプルです。2は自由度が高い実装が可能です。
   ObservableをUITableViewにbindして実装 DataSourceを自分で定義して実装   1. ObservableをUITableViewにbindして実装 A. デフォルトのセルを使う場合 indexPath.rowとitems[n]、cellを引数に取ります。
-let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: UITableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.textLabel?.text = element.name } .disposed(by: disposeBag)  B. カスタムセルを使う場合 Aパターンの実装に加えてcelltypeを指定できるようになりました。カスタムセルを使う場合はこちらを使います。
-let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;, cellType: MyTableViewCell.self)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: MyTableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.</description>
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;#34;Cell&amp;#34;)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: UITableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.textLabel?.text = element.name } .disposed(by: disposeBag) B. カスタムセルを使う場合 Aパターンの実装に加えてcelltypeを指定できるようになりました。カスタムセルを使う場合はこちらを使います。
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;#34;Cell&amp;#34;, cellType: MyTableViewCell.self)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: MyTableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.</description>
     </item>
     
     <item>
@@ -63,7 +59,7 @@ let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.i
       <description>参考URL 基本的には公式ドキュメントを参考にしましたが端折られている部分もあったので、こちらのQiitaの記事も合わせて参考にしました。
 導入 cocoapodsでインストールします。cocoapodsの使い方については割愛します。そのあとは下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。 
 共通部分 AppDelegateに追記。公式ドキュメントに従ってdidFinishLaunchingWithOptionsに書くとエラーになるので注意。尚、このことは公式ドキュメントでは言及されていない。
-import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false }  ツイッターログイン 1. Twitterログインの有効化 developer.</description>
+import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false } ツイッターログイン 1. Twitterログインの有効化 developer.twitter.comからapiKeyとTokenを取得する必要があります。使用用途などについて300文字くらい書かされてクッソめんどかったです。まぁ無料で使わせてもらってるので大人しく感謝します。先ほどのリンクからアプリを登録したあと、FirebaseAuthのコンソールからそれぞれのキーを登録・有効化しましょう。</description>
     </item>
     
   </channel>

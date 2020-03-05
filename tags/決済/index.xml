@@ -23,8 +23,9 @@ Stripe Checkoutの導入手順メモ 公式ドキュメント
 できること  WEBページにJSのスクリプトを貼り付けることで、サーバー側の処理を実装することなく決済機能を導入できます 月額課金にも対応しています カスタマイズ次第で顧客データの収集なども可能  仕様について  実際に使用する際はテストモードと本番モードを切り替える必要があります。最初はテストモードで挙動を確認しておくことをお勧めします。 決済成功時・失敗時の遷移先を用意しておく必要があります。 サイトはhttps化されている必要があります 手数料は一律3.6%(同じく決済APIを提供しているBASE社のPAY.JPは2.6%でした。こちらでも良いかもしれない)  1. アカウントの有効化 導かれるまま本人情報などを入力すればおkです。
 2. Checkoutの設定 公式ドキュメント、Checkout Client Quickstartを参考に導入します。主にやることは以下の二つです。
  ドメインの設定 商品の作成とCheckoutの有効化  3. LIVEモードに切り替え Going Live with Checkoutを参考にLIVEモードでチェックアウトできるように設定します。本番モードで稼働する際はドメインが設定されていないとボタンを押しても正しく動作しないので注意。
-4. コードの貼り付けとカスタマイズ  テスト 
-  var stripe = Stripe(&#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&#39;); var checkoutButton = document.getElementById(&#39;checkout-button-plan_FIfczSYPCPZLe1&#39;); checkoutButton.addEventListener(&#39;click&#39;, function () { // When the customer clicks on the button, redirect // them to Checkout.</description>
+4. コードの貼り付けとカスタマイズ &amp;lt;button style=&amp;quot;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&amp;rdquo; id=&amp;quot;checkout-button-plan_FIfczSYPCPZLe1&amp;rdquo; role=&amp;quot;link&amp;rdquo;
+  テスト 上のボタンを押すとクレジットカード情報の入力フォームにリダイレクトされるはずです。中身のコードは以下に掲載しています。見た目や顧客データの処理についてのカスタマイズも可能です。詳しくは公式ドキュメントを参照してください。
+&amp;lt;script src=&amp;#34;https://js.stripe.com/v3&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. --&amp;gt; &amp;lt;button style=&amp;#34;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&amp;#34; id=&amp;#34;checkout-button-plan_FIfczSYPCPZLe1&amp;#34; role=&amp;#34;link&amp;#34; &amp;gt; テスト &amp;lt;/button&amp;gt; &amp;lt;div id=&amp;#34;error-message&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // 本番はLIVEモードのAPIキーを入力してください  var stripe = Stripe(&amp;#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&amp;#39;); var checkoutButton = document.</description>
     </item>
     
   </channel>

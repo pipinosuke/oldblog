@@ -20,7 +20,7 @@
       <description>参考URL 基本的には公式ドキュメントを参考にしましたが端折られている部分もあったので、こちらのQiitaの記事も合わせて参考にしました。
 導入 cocoapodsでインストールします。cocoapodsの使い方については割愛します。そのあとは下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。 
 共通部分 AppDelegateに追記。公式ドキュメントに従ってdidFinishLaunchingWithOptionsに書くとエラーになるので注意。尚、このことは公式ドキュメントでは言及されていない。
-import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false }  ツイッターログイン 1. Twitterログインの有効化 developer.</description>
+import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false } ツイッターログイン 1. Twitterログインの有効化 developer.twitter.comからapiKeyとTokenを取得する必要があります。使用用途などについて300文字くらい書かされてクッソめんどかったです。まぁ無料で使わせてもらってるので大人しく感謝します。先ほどのリンクからアプリを登録したあと、FirebaseAuthのコンソールからそれぞれのキーを登録・有効化しましょう。</description>
     </item>
     
   </channel>

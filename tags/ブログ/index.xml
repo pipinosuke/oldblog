@@ -18,15 +18,11 @@
       
       <guid>https://alltimeneet.com/tech/2019-01-20-programming-hugo/</guid>
       <description>ざっくりHugoについて Go製の静的webジェネレータ。新しいライブラリというかフレームワーク？？なので、コミュニティもJekyllに比べて盛んな印象です。
-インストール $ brew install hugo $ hugo version  brew以外のインストール方法もあるようです。 参考: install Hugo
-使い方 コマンド  プロジェクト作成
-$ hugo new site yoursite  ローカルサーバーを立てる
-$ hugo server  post
-$ hugo new post/first-post.md   /content以下に作成される仕様になっております。 - テーマの適用
-$ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone $ echo &#39;theme = &amp;quot;hoge&amp;quot;&#39; &amp;gt;&amp;gt; config.toml #config.tomlへ記述  設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。 こちらの公式ドキュメントが参考になると思います quickstart
-HugoでGithubPagesにホスティング $ hugo  でpublicディレクトリが追加される。 このpublicディレクトリ以下をGithubPagesでホスティングします。プロジェクトディレクトリではありません、注意！
-やっておくと良いこと  絶対パス化
-$ echo &#39;canonifyurls = true&#39; &amp;gt;&amp;gt; config.</description>
+インストール $ brew install hugo $ hugo version brew以外のインストール方法もあるようです。 参考: install Hugo
+使い方 コマンド  プロジェクト作成  $ hugo new site yoursite  ローカルサーバーを立てる  $ hugo server  post  $ hugo new post/first-post.md /content以下に作成される仕様になっております。
+ テーマの適用  $ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone $ echo &amp;#39;theme = &amp;#34;hoge&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml #config.tomlへ記述 設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。 こちらの公式ドキュメントが参考になると思います quickstart
+HugoでGithubPagesにホスティング $ hugo でpublicディレクトリが追加される。 このpublicディレクトリ以下をGithubPagesでホスティングします。プロジェクトディレクトリではありません、注意！
+やっておくと良いこと  絶対パス化  $ echo &amp;#39;canonifyurls = true&amp;#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>

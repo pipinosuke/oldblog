@@ -23,8 +23,9 @@ Stripe Checkoutの導入手順メモ 公式ドキュメント
 できること  WEBページにJSのスクリプトを貼り付けることで、サーバー側の処理を実装することなく決済機能を導入できます 月額課金にも対応しています カスタマイズ次第で顧客データの収集なども可能  仕様について  実際に使用する際はテストモードと本番モードを切り替える必要があります。最初はテストモードで挙動を確認しておくことをお勧めします。 決済成功時・失敗時の遷移先を用意しておく必要があります。 サイトはhttps化されている必要があります 手数料は一律3.6%(同じく決済APIを提供しているBASE社のPAY.JPは2.6%でした。こちらでも良いかもしれない)  1. アカウントの有効化 導かれるまま本人情報などを入力すればおkです。
 2. Checkoutの設定 公式ドキュメント、Checkout Client Quickstartを参考に導入します。主にやることは以下の二つです。
  ドメインの設定 商品の作成とCheckoutの有効化  3. LIVEモードに切り替え Going Live with Checkoutを参考にLIVEモードでチェックアウトできるように設定します。本番モードで稼働する際はドメインが設定されていないとボタンを押しても正しく動作しないので注意。
-4. コードの貼り付けとカスタマイズ  テスト 
-  var stripe = Stripe(&#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&#39;); var checkoutButton = document.getElementById(&#39;checkout-button-plan_FIfczSYPCPZLe1&#39;); checkoutButton.addEventListener(&#39;click&#39;, function () { // When the customer clicks on the button, redirect // them to Checkout.</description>
+4. コードの貼り付けとカスタマイズ &amp;lt;button style=&amp;quot;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&amp;rdquo; id=&amp;quot;checkout-button-plan_FIfczSYPCPZLe1&amp;rdquo; role=&amp;quot;link&amp;rdquo;
+  テスト 上のボタンを押すとクレジットカード情報の入力フォームにリダイレクトされるはずです。中身のコードは以下に掲載しています。見た目や顧客データの処理についてのカスタマイズも可能です。詳しくは公式ドキュメントを参照してください。
+&amp;lt;script src=&amp;#34;https://js.stripe.com/v3&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. --&amp;gt; &amp;lt;button style=&amp;#34;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&amp;#34; id=&amp;#34;checkout-button-plan_FIfczSYPCPZLe1&amp;#34; role=&amp;#34;link&amp;#34; &amp;gt; テスト &amp;lt;/button&amp;gt; &amp;lt;div id=&amp;#34;error-message&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // 本番はLIVEモードのAPIキーを入力してください  var stripe = Stripe(&amp;#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&amp;#39;); var checkoutButton = document.</description>
     </item>
     
     <item>
@@ -36,7 +37,7 @@ Stripe Checkoutの導入手順メモ 公式ドキュメント
       <description>前準備 GASからTwitterのアカウントを操作するためには開発者用アカウントの取得などの前準備が必要です。こちらの記事を参考にしてください。
 DMする DMのAPIを叩くためには任意のアカウントに紐づくuserIDが必要です。因みにscreenNameとuserIdは違います。screen_nameはメンションするときなどにおなじみの「@」から始まる文字列です。それに対してuserIdは数字だけの文字列です。詳しくはTwitterAPIの公式ドキュメントを参照してください。
 今回紹介するgasのスクリプトはscreen_nameからuser_idを取得し、そのuser_id宛にDMを送信するという挙動となっています。
-1. screen_nameからuser_idを取得する function getUserId() { var service = twitter.getService(); var screenName = &amp;quot;screen_name&amp;quot; //@screen_nameさんにDMを送る場合 var requestURL = &amp;quot;https://api.twitter.com/1.1/users/lookup.json?screen_name=&amp;quot; + screenName var response = service.fetch(requestURL, { method: &amp;quot;get&amp;quot;, contentType: &#39;application/json&#39; }); var o = JSON.parse(response.getContentText()); var user_id = o[0].id_str //配列で帰ってくるのでそのうちの最初の要素のuser_idを取得する newDirectMessage(user_id) //後述します }  2. user_idに紐づくTwitterアカウント対してDMを送る function newDirectMessage(user_id){ try{ var service = twitter.getService(); var payload = JSON.stringify({ event: { type: &#39;message_create&#39;, message_create: { target: { recipient_id: String(user_id) //先ほど取得したuserId }, message_data: { text: &amp;quot;こんにちは&amp;quot; } //メッセージ内容を定義 } } }); var response = service.</description>
+1. screen_nameからuser_idを取得する function getUserId() { var service = twitter.getService(); var screenName = &amp;#34;screen_name&amp;#34; //@screen_nameさんにDMを送る場合  var requestURL = &amp;#34;https://api.twitter.com/1.1/users/lookup.json?screen_name=&amp;#34; + screenName var response = service.fetch(requestURL, { method: &amp;#34;get&amp;#34;, contentType: &amp;#39;application/json&amp;#39; }); var o = JSON.parse(response.getContentText()); var user_id = o[0].id_str //配列で帰ってくるのでそのうちの最初の要素のuser_idを取得する  newDirectMessage(user_id) //後述します } 2. user_idに紐づくTwitterアカウント対してDMを送る function newDirectMessage(user_id){ try{ var service = twitter.getService(); var payload = JSON.stringify({ event: { type: &amp;#39;message_create&amp;#39;, message_create: { target: { recipient_id: String(user_id) //先ほど取得したuserId  }, message_data: { text: &amp;#34;こんにちは&amp;#34; } //メッセージ内容を定義  } } }); var response = service.</description>
     </item>
     
     <item>
@@ -64,14 +65,10 @@ function getEventsForWeek() { var calender = CalendarApp.getDefaultCalendar; var
       <description>RxSwift入門 Observableの概要 まとめ 入門  リアクティブプログラミングとRxJavaの概要 オブザーバーパターンから始めるRxSwift入門  まずは上の記事でリアクティブプログラミングのノリを理解します。特に6pのマーブルダイヤグラムの図が理解に役立ちます。下の記事は実際のコードを交えた解説です。具体的にどのような実装を行えば良いのかがわかります。
 Rxができることとそのメリット Rxを使いこなせればありとあらゆるものをストリームとして扱うことが可能です
 例えばボタンをタップされた時の挙動はこう書けます。（以下のコードは厳密にはRxSwiftではなくRxCocoaというUIKitをObservableとして扱うことのできるライブラリを用いています。）
-import RxCocoa import RxSwift weak var button: UIButton! ~~~~~~~~~~~~~~~~~~ override func viewDidLoad(){ button.rx.tap.subscribe(onNext: { _ in print(&amp;quot;buttonがtapされたよー&amp;quot;) }).disposed(by: DisposeBag()) }  例えばデータのbindや、面倒だった非同期処理を簡単に書けるけるのがメリットです。若干学習コストは高いかなと思いますが、マスターできれば文字通りなんでもできます。
-Rxで登場する基本概念 2種 Observable 名前だけでも覚えて帰ってください！！Observableはストリームを流し、そのストーリムをsubscribe(購読)することが可能になります。 Observableが通知するイベントは以下の3種類。subscribe(購読)することで、それぞれのタイミングでクロージャ内のメソッドを呼ぶことが出来る。
-･onNext: 通常のイベントが発生した時
-･onError: エラーが発生になった時
-･onComplete: イベントが完了した時
-&amp;mdash; nosugi (@nosugi1) 2019年4月7日 
+import RxCocoa import RxSwift weak var button: UIButton! ~~~~~~~~~~~~~~~~~~ override func viewDidLoad(){ button.rx.tap.subscribe(onNext: { _ in print(&amp;#34;buttonがtapされたよー&amp;#34;) }).disposed(by: DisposeBag()) } 例えばデータのbindや、面倒だった非同期処理を簡単に書けるけるのがメリットです。若干学習コストは高いかなと思いますが、マスターできれば文字通りなんでもできます。
+Rxで登場する基本概念 2種 Observable 名前だけでも覚えて帰ってください！！Observableはストリームを流し、そのストーリムをsubscribe(購読)することが可能になります。
 言い換えると、何かが起こった時の挙動をクロージャの中に記述しておけば何もせんでも勝手に呼んでくれるということです。下のコードは新卒エンジニアの開発日記さんの記事から引用したものになります。趣旨とは外れますが、中の人とは実は学生時代の知り合いだったりします。笑
-import RxSwift import RxCococa let observableContentOffset = tableView.rx.contentOffset observableContentOffset .subscribe(onNext: { _ in print(&amp;quot;next&amp;quot;) //スクロールするたびに呼ばれる }, onError: { _ in print(&amp;quot;error&amp;quot;) }, onCompleted: { _ in print(&amp;quot;completed&amp;quot;) }).</description>
+import RxSwift import RxCococa let observableContentOffset = tableView.rx.contentOffset observableContentOffset .subscribe(onNext: { _ in print(&amp;#34;next&amp;#34;) //スクロールするたびに呼ばれる }, onError: { _ in print(&amp;#34;error&amp;#34;) }, onCompleted: { _ in print(&amp;#34;completed&amp;#34;) }).disposed(by: DisposeBag()) Disposable }.disposed(by: DisposeBag()) について疑問を持った方も多いと思います。これについて説明します。こう書くことによって購読を解除できます。購読し続けるとその分メモリを圧迫し、アプリのパフォーマンスに影響するので基本的にはメソッドが走った最後に購読を解除します。今まで特に理解せずにこのメソッドを使っていましたが、オブザーバーパターンから始めるRxSwift入門 から引用するとどうやら</description>
     </item>
     
     <item>
@@ -80,8 +77,7 @@ import RxSwift import RxCococa let observableContentOffset = tableView.rx.conten
       <pubDate>Thu, 04 Apr 2019 12:30:46 +0900</pubDate>
       
       <guid>https://alltimeneet.com/tech/transfer-vscode-from-atom/</guid>
-      <description>メモリ使用量1/4の衝撃 4/3日にVSCodeの新バージョンがリリースされました。TLを眺めていたところ、このようなツイートを発見。 Gighubを買収した成果がこんなところにも。 VSやはり良いですね https://t.co/aJkeMwjOk3
-&amp;mdash; Kurose (@jkurose777) 2019年4月3日 
+      <description>メモリ使用量1/4の衝撃 4/3日にVSCodeの新バージョンがリリースされました。TLを眺めていたところ、このようなツイートを発見。
 乗るしかない、このビックウェーブに・・・！！ 結論  Atomより圧倒的にVSCode
  Vim職人などの例外を除けば、無料で使えるエディタの中で一番ではないのかなと思います。立ち上がりのはやいAtomという感じ。（強い）
 Atomと比較しての所感  とにかく立ち上がりが早い！！・サクサク
@@ -94,9 +90,10 @@ Visual Studio Codeで見やすいテーマファイルのまとめから自分�
 標準ターミナルではなくiTermを使えるように設定 VSCode内でiTermを使いたいので以下のように設定します。 「UserSettings」→「Features」→「Extension Viewlet」 
 ちなみにMacではControl+Shift+@でterminalを起動できます。
 プラグイン VSCodeのオススメ拡張機能 24 選 (とTipsをいくつか)から気に入ったものをインストールしました。他にもあれば教えて欲しいです。
-デバッグ Webの開発行う人は入れておくとよいかと思います。 - Debugger for Chrome - Live Server
-参考: Visual Studio Code でフロントエンドの開発環境を構築してデバッグする
-ターミナルからファイルやプロジェクトをVSCodeで開く code .</description>
+デバッグ Webの開発行う人は入れておくとよいかと思います。
+ Debugger for Chrome Live Server  参考: Visual Studio Code でフロントエンドの開発環境を構築してデバッグする
+ターミナルからファイルやプロジェクトをVSCodeで開く code . code filename で開けるように設定。ターミナルからVisual Studio Codeを起動する方法【公式の方法】の通りです。
+最後に さようならAtom。</description>
     </item>
     
     <item>
@@ -107,11 +104,12 @@ Visual Studio Codeで見やすいテーマファイルのまとめから自分�
       <guid>https://alltimeneet.com/tech/gas-linebot/</guid>
       <description>（GASのアプリケーションが正しく公開されていなかったりBotの設定がわからなかったりして普通に時間かかりました。Qiitaで30分でできたとか書いてる人いるけど絶対嘘だろ！！）
 使うもの  GAS clasp TypeScript  ローカル開発環境の構築 補完とか使えるので個人的にはローカルで開発することをお勧めします。もちろんGASのエディタを使っても良いです。まずはhttps://script.google.com/home/usersettingsからGoogleAppsScriptAPIをオンにしておきます。 
-プロジェクト作成 mkdir gas-project //プロジェクトファイル作成 cd gas-project npm init -y npm i -S @google/clasp //claspについては後述 npm i -S @types/google-apps-script @types/node clasp create --title &amp;quot;GcarenderBot&amp;quot; --rootDir ./src clasp pull  説明することが2つあるので軽く触れます。
+プロジェクト作成 mkdir gas-project //プロジェクトファイル作成 cd gas-project npm init -y npm i -S @google/clasp //claspについては後述 npm i -S @types/google-apps-script @types/node clasp create --title &amp;#34;GcarenderBot&amp;#34; --rootDir ./src clasp pull 説明することが2つあるので軽く触れます。
 1. clasp 以下のようにGoogle製のCIライブラリであるclaspを使うことでプロジェクトファイルをgitみたいな感じで扱うことができます。clasp createでGASにプロジェクトが登録されます。その際&amp;ndash;rootDirオプションでディレクトリを指定しましょう。
-clasp create --title &amp;quot;gas-project&amp;quot; --rootDir ./src clasp pull //GASからpull clasp push //GASにpush  2. Typescriptへの対応 npm i -S @types/google-apps-script @types/node  地味に嬉しい人多いのでは??clasp pushすれば*.tsから*.jsへコンパイルはGASが勝手にやってくれます。強い。
+clasp create --title &amp;#34;gas-project&amp;#34; --rootDir ./src clasp pull //GASからpull clasp push //GASにpush 2. Typescriptへの対応 npm i -S @types/google-apps-script @types/node 地味に嬉しい人多いのでは??clasp pushすれば*.tsから*.jsへコンパイルはGASが勝手にやってくれます。強い。
 実装 ローカル開発環境を整えたところで、簡単な実装します。試しにおうむ返しするBotを作ります。LineBotでできることと仕様についてはLineMessagingAPIリファレンスをチェケラ
-コード コードは下記のリンクから拝借したしたものです。ファイル名は適当にcode.</description>
+コード コードは下記のリンクから拝借したしたものです。ファイル名は適当にcode.tsとかで良いと思います。
+ 【LINE Botの作り方】Messaging API × GAS(Google Apps Script)でおうむ返しボットを作成する  var channel_access_token = &amp;#34;各自取得&amp;#34; function doPost(e) { var events = JSON.</description>
     </item>
     
     <item>
@@ -120,7 +118,7 @@ clasp create --title &amp;quot;gas-project&amp;quot; --rootDir ./src clasp pull 
       <pubDate>Wed, 03 Apr 2019 01:50:01 +0900</pubDate>
       
       <guid>https://alltimeneet.com/tech/ios-camera-avfoundation/</guid>
-      <description> 挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
+      <description>挙動  読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。
  参考URL  iOSでバーコードを読み取る AVFoundation(AVCaptureMetadataOutput)でバーコードリーダーを作ってみた  実装 事前準備 この手順を踏まずにカメラを起動しようとすると強制終了するので注意！。XcodeのInfo.plistにPrivacy - Camera Usage Descriptionを追加します。カメラを使用する目的を値として入力します。 
  参考: iOS10ではカメラアクセスなどの目的を明示しないと強制終了する  AVCaptureMetadataOutputObjectsDelegate </description>
     </item>
@@ -134,8 +132,8 @@ clasp create --title &amp;quot;gas-project&amp;quot; --rootDir ./src clasp pull 
       <description>鬼門でした。
 RxSwiftを使ったUITableViewの実装 大きく分けてふたパターンあります。UITableViewDataSourceで実装する部分をRxを用いて実装します。1のやり方はシンプルです。2は自由度が高い実装が可能です。
   ObservableをUITableViewにbindして実装 DataSourceを自分で定義して実装   1. ObservableをUITableViewにbindして実装 A. デフォルトのセルを使う場合 indexPath.rowとitems[n]、cellを引数に取ります。
-let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: UITableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.textLabel?.text = element.name } .disposed(by: disposeBag)  B. カスタムセルを使う場合 Aパターンの実装に加えてcelltypeを指定できるようになりました。カスタムセルを使う場合はこちらを使います。
-let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;quot;Cell&amp;quot;, cellType: MyTableViewCell.self)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: MyTableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.</description>
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;#34;Cell&amp;#34;)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: UITableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.textLabel?.text = element.name } .disposed(by: disposeBag) B. カスタムセルを使う場合 Aパターンの実装に加えてcelltypeを指定できるようになりました。カスタムセルを使う場合はこちらを使います。
+let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.items(cellIdentifier: &amp;#34;Cell&amp;#34;, cellType: MyTableViewCell.self)) { row, element, cell in // row: Int …… アイテムのインデックス // element: Item …… アイテムのインスタンス // cell: MyTableViewCell …… セルのインスタンス // ここでセルの中身を設定する cell.</description>
     </item>
     
     <item>
@@ -147,7 +145,7 @@ let items: Observable&amp;lt;[Item]&amp;gt; = ... items .bind(to: tableView.rx.i
       <description>参考URL 基本的には公式ドキュメントを参考にしましたが端折られている部分もあったので、こちらのQiitaの記事も合わせて参考にしました。
 導入 cocoapodsでインストールします。cocoapodsの使い方については割愛します。そのあとは下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。 
 共通部分 AppDelegateに追記。公式ドキュメントに従ってdidFinishLaunchingWithOptionsに書くとエラーになるので注意。尚、このことは公式ドキュメントでは言及されていない。
-import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false }  ツイッターログイン 1. Twitterログインの有効化 developer.</description>
+import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicationDelegate { var window: UIWindow? //以下追記 override init() { super.init() FirebaseApp.configure() } func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&amp;gt; Bool { let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String? if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false { return true } // other URL handling goes here. return false } ツイッターログイン 1. Twitterログインの有効化 developer.twitter.comからapiKeyとTokenを取得する必要があります。使用用途などについて300文字くらい書かされてクッソめんどかったです。まぁ無料で使わせてもらってるので大人しく感謝します。先ほどのリンクからアプリを登録したあと、FirebaseAuthのコンソールからそれぞれのキーを登録・有効化しましょう。</description>
     </item>
     
     <item>
@@ -158,11 +156,9 @@ import Firebase import FirebaseAuthUI class AppDelegate: UIResponder, UIApplicat
       <guid>https://alltimeneet.com/tech/try-soracom-api/</guid>
       <description>SoracomAirのSimを触ってみる SoracomSimの登録 soracomコンソールから登録できます 
 料金体系 公式サイト 
-APIを叩いてみる 1.APIキーとトークンの取得  リクエストURL  https://api.soracom.io/v1/auth  クエリ  email: メールアドレス password: パスワード  レスポンス
-{ &amp;quot;apiKey&amp;quot;: &amp;quot;APIKEY&amp;quot;, &amp;quot;operatorId&amp;quot;: &amp;quot;OPERATORID&amp;quot;, &amp;quot;userName&amp;quot;: null, &amp;quot;token&amp;quot;: &amp;quot;TOKEN&amp;quot; }   一応WEBからも発行可能です。こちらのリンクから二種類あるので好きなやり方で認証・発行してください。 
+APIを叩いてみる 1.APIキーとトークンの取得  リクエストURL  https://api.soracom.io/v1/auth   クエリ  email: メールアドレス password: パスワード   レスポンス  { &amp;#34;apiKey&amp;#34;: &amp;#34;APIKEY&amp;#34;, &amp;#34;operatorId&amp;#34;: &amp;#34;OPERATORID&amp;#34;, &amp;#34;userName&amp;#34;: null, &amp;#34;token&amp;#34;: &amp;#34;TOKEN&amp;#34; } 一応WEBからも発行可能です。こちらのリンクから二種類あるので好きなやり方で認証・発行してください。 
 2.APIを叩いてみる 試しに登録したSimカードの一覧を取得するAPIを叩いてみます。
- リクエストURL  https://api.soracom.io/v1/subscribers  リクエストヘッダ 先ほど取得したapiKeyとTokenを使用します  X-Soracom-API-Key=APIKEY X-Soracom-Token=TOKEN  レスポンス
-[ { &amp;quot;imsi&amp;quot;: &amp;quot;440103198207751&amp;quot;, &amp;quot;msisdn&amp;quot;: &amp;quot;812016084496&amp;quot;, &amp;quot;ipAddress&amp;quot;: &amp;quot;10.245.237.68&amp;quot;, &amp;quot;operatorId&amp;quot;: &amp;quot;OP0061660828&amp;quot;, &amp;quot;apn&amp;quot;: &amp;quot;soracom.io&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;s1.standard&amp;quot;, &amp;quot;groupId&amp;quot;: null, &amp;quot;createdAt&amp;quot;: 1545836470247, &amp;quot;lastModifiedAt&amp;quot;: 1550380631731, &amp;quot;expiredAt&amp;quot;: null, &amp;quot;registeredTime&amp;quot;: 1549618116968, &amp;quot;expiryAction&amp;quot;: null, &amp;quot;terminationEnabled&amp;quot;: false, &amp;quot;status&amp;quot;: &amp;quot;active&amp;quot;, &amp;quot;tags&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;mySim&amp;quot; }, &amp;quot;sessionStatus&amp;quot;: { &amp;quot;lastUpdatedAt&amp;quot;: 1550380631731, &amp;quot;imei&amp;quot;: &amp;quot;353168044272803&amp;quot;, &amp;quot;location&amp;quot;: null, &amp;quot;cell&amp;quot;: { &amp;quot;radioType&amp;quot;: &amp;quot;lte&amp;quot;, &amp;quot;mcc&amp;quot;: 440, &amp;quot;mnc&amp;quot;: 10, &amp;quot;tac&amp;quot;: 12390, &amp;quot;eci&amp;quot;: 185881861 }, &amp;quot;ueIpAddress&amp;quot;: &amp;quot;10.</description>
+ リクエストURL  https://api.soracom.io/v1/subscribers   リクエストヘッダ 先ほど取得したapiKeyとTokenを使用します  X-Soracom-API-Key=APIKEY X-Soracom-Token=TOKEN   レスポンス  [ { &amp;#34;imsi&amp;#34;: &amp;#34;440103198207751&amp;#34;, &amp;#34;msisdn&amp;#34;: &amp;#34;812016084496&amp;#34;, &amp;#34;ipAddress&amp;#34;: &amp;#34;10.245.237.68&amp;#34;, &amp;#34;operatorId&amp;#34;: &amp;#34;OP0061660828&amp;#34;, &amp;#34;apn&amp;#34;: &amp;#34;soracom.io&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;s1.standard&amp;#34;, &amp;#34;groupId&amp;#34;: null, &amp;#34;createdAt&amp;#34;: 1545836470247, &amp;#34;lastModifiedAt&amp;#34;: 1550380631731, &amp;#34;expiredAt&amp;#34;: null, &amp;#34;registeredTime&amp;#34;: 1549618116968, &amp;#34;expiryAction&amp;#34;: null, &amp;#34;terminationEnabled&amp;#34;: false, &amp;#34;status&amp;#34;: &amp;#34;active&amp;#34;, &amp;#34;tags&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;mySim&amp;#34; }, &amp;#34;sessionStatus&amp;#34;: { &amp;#34;lastUpdatedAt&amp;#34;: 1550380631731, &amp;#34;imei&amp;#34;: &amp;#34;353168044272803&amp;#34;, &amp;#34;location&amp;#34;: null, &amp;#34;cell&amp;#34;: { &amp;#34;radioType&amp;#34;: &amp;#34;lte&amp;#34;, &amp;#34;mcc&amp;#34;: 440, &amp;#34;mnc&amp;#34;: 10, &amp;#34;tac&amp;#34;: 12390, &amp;#34;eci&amp;#34;: 185881861 }, &amp;#34;ueIpAddress&amp;#34;: &amp;#34;10.</description>
     </item>
     
     <item>
@@ -176,13 +172,13 @@ APIを叩いてみる 1.APIキーとトークンの取得  リクエストURL  h
 参考: なぜCIが必要なのか
 目標  GithubPagesで公開しているHugoプロジェクトのデプロイ作業を自動化する
  Hugoの場合はプロジェクト本体ではなく、publicディレクトリ以下をgithubにホスティングする必要があるので、デプロイするときは基本的に以下のような手順を踏まなければならない。
-$ git commit -m &amp;quot;hoge&amp;quot; $ hugo #public以下にサイトを生成するコマンド $ cd public $ git commit -m &amp;quot;hogehoge&amp;quot; $ git push  このルーティンが段々だるくなってくきたので、CircleCiでこれを自動化する。
+$ git commit -m &amp;#34;hoge&amp;#34; $ hugo #public以下にサイトを生成するコマンド $ cd public $ git commit -m &amp;#34;hogehoge&amp;#34; $ git push このルーティンが段々だるくなってくきたので、CircleCiでこれを自動化する。
 手順  レポジトリとデプロイキーを登録する .circleci/config.ymlの記述  参考: CircleCIでHugoを実行してGitHub Pagesにデプロイ
 ブログ(HUGO)のビルドとデプロイをCircleCIで自動化した
 1. レポジトリとデプロイキーを登録する  レポジトリの登録
 最初のブランチ一覧が表示される画面で登録したいレポジトリにチェックマークをつけてFollowを押せば登録できます。 デプロイキーの登録
 今回はgithubへのsshキーを登録します。サイドメニューのcheck out SSH Key からadd User KeyでGithubアカウントにログインすること楽に登録ができます。手動で登録も可能ですが、pushのための書き込み権限の付与がされてなくてエラーになりました、何やかんややりましたが解決できなかったので、check out ssh keyからの登録をお勧めします。  2. .circleci/config.ymlの記述 CircleCiにやってほしいことを.circleci/config.ymlに記述します。githubのレポジトリにpushされた時発火します。 僕の場合masterブランチでhugoプロジェクト本体、gh-pagesブランチで公開用のpublic以下のファイル群を管理しています。内容はこんな感じです参考までに
-version: 2 jobs: build: docker: - image: cibuilds/hugo:latest environment: TZ: Asia/Tokyo #ここら辺はコピペでいいと思う branches: ignore: - gh-pages #gh-pagesにプッシュされた際に反応しないようにignoreを設定している steps: - checkout - run: name: &amp;quot;Setting for Git&amp;quot; command: | git config --global user.</description>
+version: 2 jobs: build: docker: - image: cibuilds/hugo:latest environment: TZ: Asia/Tokyo #ここら辺はコピペでいいと思う branches: ignore: - gh-pages #gh-pagesにプッシュされた際に反応しないようにignoreを設定している steps: - checkout - run: name: &amp;#34;Setting for Git&amp;#34; command: | git config --global user.</description>
     </item>
     
     <item>
@@ -192,8 +188,8 @@ version: 2 jobs: build: docker: - image: cibuilds/hugo:latest environment: TZ: A
       
       <guid>https://alltimeneet.com/tech/hugo-import-jekyll/</guid>
       <description>データをJekyllからインポート なんとHugoがコマンドを用意してくれています。一発で綺麗に引越し完了！とはなりませんが、楽チン。
-$ hugo imoprt jekyll path_to_jekyll_root_project path_to_hugo_root_project  日付のデータは、移行できないようです。なぜか記事ファイルのメタデータが無視されていたので、手動でコピーし直しました。 終了すると、Hugoから
-$ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-cove $ hugo server --theme=herring-cove  「このコマンド打ってな〜」と言われると思いますが、なんとその通りにやってもうまくいきません！笑 git cloneしたherring-coveテーマが原因です。おそらくアプデされていないのでしょう。以下のように直します。変更箇所は複数のファイルで存在するので、エディタの機能使うなどして一括変換するといいと思います。
+$ hugo imoprt jekyll path_to_jekyll_root_project path_to_hugo_root_project 日付のデータは、移行できないようです。なぜか記事ファイルのメタデータが無視されていたので、手動でコピーし直しました。 終了すると、Hugoから
+$ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-cove $ hugo server --theme=herring-cove 「このコマンド打ってな〜」と言われると思いますが、なんとその通りにやってもうまくいきません！笑 git cloneしたherring-coveテーマが原因です。おそらくアプデされていないのでしょう。以下のように直します。変更箇所は複数のファイルで存在するので、エディタの機能使うなどして一括変換するといいと思います。
  {{ template &amp;ldquo;theme/herring-cove/footer.html&amp;rdquo; . }} を {{ partial &amp;ldquo;footer.html&amp;rdquo; }}に {{ template &amp;ldquo;theme/herring-cove/header.html&amp;rdquo; . }} を {{ partial &amp;ldquo;header.html&amp;rdquo; }}に  これで再度hugo serverすると動いてくれるかなと思います。正常に動くのを確認したら、あとは適当に良さげなテーマ選んでやればおkです！
 終わりに 日付のデータを移行できなかったのが残念ですね。。それ以外は簡単に移行できたので、まぁ良しとします！
 「ブログを書く→git commit→git push」という手順を踏むのが面倒になってきたので 次回は流行り？のCIサービス、CircleCIの無料枠を使ってデプロイの自動化を行いたいと思います。こちらもこのブログで手順や所感をメモしておこうとお思います。</description>
@@ -206,15 +202,11 @@ $ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-co
       
       <guid>https://alltimeneet.com/tech/2019-01-20-programming-hugo/</guid>
       <description>ざっくりHugoについて Go製の静的webジェネレータ。新しいライブラリというかフレームワーク？？なので、コミュニティもJekyllに比べて盛んな印象です。
-インストール $ brew install hugo $ hugo version  brew以外のインストール方法もあるようです。 参考: install Hugo
-使い方 コマンド  プロジェクト作成
-$ hugo new site yoursite  ローカルサーバーを立てる
-$ hugo server  post
-$ hugo new post/first-post.md   /content以下に作成される仕様になっております。 - テーマの適用
-$ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone $ echo &#39;theme = &amp;quot;hoge&amp;quot;&#39; &amp;gt;&amp;gt; config.toml #config.tomlへ記述  設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。 こちらの公式ドキュメントが参考になると思います quickstart
-HugoでGithubPagesにホスティング $ hugo  でpublicディレクトリが追加される。 このpublicディレクトリ以下をGithubPagesでホスティングします。プロジェクトディレクトリではありません、注意！
-やっておくと良いこと  絶対パス化
-$ echo &#39;canonifyurls = true&#39; &amp;gt;&amp;gt; config.</description>
+インストール $ brew install hugo $ hugo version brew以外のインストール方法もあるようです。 参考: install Hugo
+使い方 コマンド  プロジェクト作成  $ hugo new site yoursite  ローカルサーバーを立てる  $ hugo server  post  $ hugo new post/first-post.md /content以下に作成される仕様になっております。
+ テーマの適用  $ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone $ echo &amp;#39;theme = &amp;#34;hoge&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml #config.tomlへ記述 設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。 こちらの公式ドキュメントが参考になると思います quickstart
+HugoでGithubPagesにホスティング $ hugo でpublicディレクトリが追加される。 このpublicディレクトリ以下をGithubPagesでホスティングします。プロジェクトディレクトリではありません、注意！
+やっておくと良いこと  絶対パス化  $ echo &amp;#39;canonifyurls = true&amp;#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>

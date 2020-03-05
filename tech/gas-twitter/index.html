@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/gas-twitter/">
     
@@ -145,120 +147,90 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="参考">参考</h3>
-
+    <h3 id="参考">参考</h3>
 <ul>
 <li><a href="https://cyuraharuto.com/gas-googlecalender-week-get/">GASで複数のGoogleカレンダーの予定を1週間取得する</a></li>
 <li><a href="https://qiita.com/akkey2475/items/ad190a507b4a7b7dc17c">Google Apps Script (GAS) でTwitterへ投稿するだけの機能を実装してみる</a></li>
 <li><a href="https://www.npca.jp/magazine/2019/sashiming.html"> Google Apps ScriptでTwitter botを作ってみる</a></li>
 </ul>
-
 <h2 id="手順">手順</h2>
-
 <h3 id="1-アクセストークンとシークレットキーを取得する">1. アクセストークンとシークレットキーを取得する</h3>
-
 <p><a href="https://www.npca.jp/magazine/2019/sashiming.html"> Google Apps ScriptでTwitter botを作ってみる</a>が圧倒的に詳しく解説されています。丸投げだと身もふたもないので、一応説明します。笑
 <a href="https://developer.twitter.com/en/apps">https://developer.twitter.com/en/apps</a>から<code>create an app</code>を選択。
-<img src="https://www.npca.jp/magazine/2019/images/sashiming/17.png" alt="enter image description here" /><br />
-<img src="https://www.npca.jp/magazine/2019/images/sashiming/18.png" alt="enter image description here" /><br />
-<img src="https://www.npca.jp/magazine/2019/images/sashiming/19.png" alt="enter image description here" /><br />
+<img src="https://www.npca.jp/magazine/2019/images/sashiming/17.png" alt="enter image description here"><br>
+<img src="https://www.npca.jp/magazine/2019/images/sashiming/18.png" alt="enter image description here"><br>
+<img src="https://www.npca.jp/magazine/2019/images/sashiming/19.png" alt="enter image description here"><br>
 画像引用: <a href="https://www.npca.jp/magazine/2019/sashiming.html"> Google Apps ScriptでTwitter botを作ってみる</a></p>
-
 <h4 id="callback-urls">Callback URLs</h4>
-
 <p><code>https://script.google.com/macros/d/[GASのスクリプトID]/usercallback</code>とします。GASのScriptIDはGASエディタのプロパティから調べられます。</p>
-
 <h4 id="登録後">登録後</h4>
-
 <ul>
 <li>APIKey</li>
 <li>APISecretKey</li>
 </ul>
-
 <p>上記の二つの値を使用します。「Keys&amp;Tokens」の「ConsumerKey」の欄にあります。</p>
-
 <h3 id="2-gasプロジェクトの作成とtweet用のライブラリを導入する">2. GASプロジェクトの作成とTweet用のライブラリを導入する</h3>
-
-<p>GASプロジェクトの作成方法は割愛します。作成後Twitter用のライブラリをインポートします。「リソース」→「ライブラリ」から以下のプロジェクトキーで追加できます。<br />
+<p>GASプロジェクトの作成方法は割愛します。作成後Twitter用のライブラリをインポートします。「リソース」→「ライブラリ」から以下のプロジェクトキーで追加できます。<br>
 <code>1rgo8rXsxi1DxI_5Xgo_t3irTw1Y5cxl2mGSkbozKsSXf2E_KBBPC3xTF</code></p>
-
 <h3 id="3-gカレンダーの一週間の予定を取得する">3. Gカレンダーの一週間の予定を取得する</h3>
-
-<p>ほぼ<a href="https://cyuraharuto.com/gas-googlecalender-week-get/">GASで複数のGoogleカレンダーの予定を1週間取得する</a>の通り。for文を用いて一週間それぞれの日付と終日イベントのタイトルの二つを配列として取得し、eventsForWeekにappendしています（最終的には二次配列の形で保存されます）。ちなみにgetDateやgetMonthした値に数字を足して処理しているのは、javascriptのDate型の仕様のため。<br />
+<p>ほぼ<a href="https://cyuraharuto.com/gas-googlecalender-week-get/">GASで複数のGoogleカレンダーの予定を1週間取得する</a>の通り。for文を用いて一週間それぞれの日付と終日イベントのタイトルの二つを配列として取得し、eventsForWeekにappendしています（最終的には二次配列の形で保存されます）。ちなみにgetDateやgetMonthした値に数字を足して処理しているのは、javascriptのDate型の仕様のため。<br>
 参考: <a href="https://qiita.com/labocho/items/5fbaa0491b67221419b4">JavaScript の Date は罠が多すぎる</a></p>
-
-<pre><code class="language-javascript">function getEventsForWeek() {
-    var calender = CalendarApp.getDefaultCalendar;
-    var dateNow = new Date();
-    var date = new Date();
-    var eventsForWeek = [];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getEventsForWeek</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">calender</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">CalendarApp</span>.<span style="color:#a6e22e">getDefaultCalendar</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dateNow</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">eventsForWeek</span> <span style="color:#f92672">=</span> [];
     
-    for (var j = 2; j &lt; 9 ; j++ ){
-        date.setDate(dateNow.getDate() + j);
-        date.setMonth(dateNow.getMonth());
-        var dateStr = (date.getMonth() + 1).toString() + &quot;/&quot; + date.getDate().toString()
-        var events = calender.getEventsForDay(date);
-        if (events.length &gt; 0 &amp;&amp; events.slice(0, 1)[0].isAllDayEvent()) {
-            eventsForWeek.push([dateStr,events.slice(0, 1)[0].getTitle()])
-        } else {
-            eventsForWeek.push([dateStr,&quot;空き&quot;])//終日イベントが登録されていない時
-        }
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">9</span> ; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> ){
+        <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">setDate</span>(<span style="color:#a6e22e">dateNow</span>.<span style="color:#a6e22e">getDate</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">j</span>);
+        <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">setMonth</span>(<span style="color:#a6e22e">dateNow</span>.<span style="color:#a6e22e">getMonth</span>());
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dateStr</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getMonth</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">toString</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getDate</span>().<span style="color:#a6e22e">toString</span>()
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">events</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calender</span>.<span style="color:#a6e22e">getEventsForDay</span>(<span style="color:#a6e22e">date</span>);
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">events</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">events</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">isAllDayEvent</span>()) {
+            <span style="color:#a6e22e">eventsForWeek</span>.<span style="color:#a6e22e">push</span>([<span style="color:#a6e22e">dateStr</span>,<span style="color:#a6e22e">events</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">getTitle</span>()])
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#a6e22e">eventsForWeek</span>.<span style="color:#a6e22e">push</span>([<span style="color:#a6e22e">dateStr</span>,<span style="color:#e6db74">&#34;空き&#34;</span>])<span style="color:#75715e">//終日イベントが登録されていない時
+</span><span style="color:#75715e"></span>        }
     }
-    Logger.log(eventsForWeek);
+    <span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">eventsForWeek</span>);
 }
-</code></pre>
-
-<h3 id="4-tweetさせる">4. Tweetさせる</h3>
-
+</code></pre></div><h3 id="4-tweetさせる">4. Tweetさせる</h3>
 <p>ちなみにTwitterAPIを用いてできることは、ツイート以外にもそこそこあります。</p>
-
 <h4 id="認証">認証</h4>
-
 <p>初回のみツイッタアカウントへの認証作業が必要です。それ以降は認証する必要はありません。以下のように記述し、authorizeメソッドを走らせたあと、CMD + Returnでログを確認します。urlが記述されているはずなので、そのURLにアクセスします。</p>
-
-<pre><code class="language-javascript">var twitter = TwitterWebService.getInstance(
-  &quot;手順1で取得したAPIKey&quot;,
-  &quot;手順1で取得したAPISecretKey &quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">twitter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TwitterWebService</span>.<span style="color:#a6e22e">getInstance</span>(
+  <span style="color:#e6db74">&#34;手順1で取得したAPIKey&#34;</span>,
+  <span style="color:#e6db74">&#34;手順1で取得したAPISecretKey &#34;</span>
 );
 
-// 認証
-function authorize() {
-  twitter.authorize();
+<span style="color:#75715e">// 認証
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">authorize</span>() {
+  <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">authorize</span>();
 }
 
-// 認証解除
-function reset() {
-  twitter.reset();
+<span style="color:#75715e">// 認証解除
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reset</span>() {
+  <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">reset</span>();
 }
 
-// 認証後のコールバック
-function authCallback(request) {
-  return twitter.authCallback(request);
+<span style="color:#75715e">// 認証後のコールバック
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">authCallback</span>(<span style="color:#a6e22e">request</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">authCallback</span>(<span style="color:#a6e22e">request</span>);
 }
-</code></pre>
-
-<h4 id="ツイート">ツイート</h4>
-
+</code></pre></div><h4 id="ツイート">ツイート</h4>
 <p>以下のように実装しました。<code>tweetStr</code>をツイートするようになっています。</p>
-
-<pre><code class="language-javascript">function Tweet(tweetStr) {
-  var service  = twitter.getService();
-  var response = service.fetch(&quot;https://api.twitter.com/1.1/statuses/update.json&quot;, {
-    method: &quot;post&quot;,
-    payload: { status: tweetStr }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Tweet</span>(<span style="color:#a6e22e">tweetStr</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">service</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">getService</span>();
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;https://api.twitter.com/1.1/statuses/update.json&#34;</span>, {
+    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;post&#34;</span>,
+    <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tweetStr</span> }
   });
 }
-</code></pre>
-
-<h3 id="5-cron処理">5. cron処理</h3>
-
+</code></pre></div><h3 id="5-cron処理">5. cron処理</h3>
 <p>cron的なことをさせる方法です。超簡単。
-<a href="https://gyazo.com/8e18e415fda911d1f2df10548cd01549"><img src="https://i.gyazo.com/8e18e415fda911d1f2df10548cd01549.png" alt="Image from Gyazo" /></a></p>
-
+<a href="https://gyazo.com/8e18e415fda911d1f2df10548cd01549"><img src="https://i.gyazo.com/8e18e415fda911d1f2df10548cd01549.png" alt="Image from Gyazo"></a></p>
 <p>こんな感じで選べます。
-<a href="https://gyazo.com/1615b9141fa0d9ec65df41550855a737"><img src="https://i.gyazo.com/1615b9141fa0d9ec65df41550855a737.png" alt="Image from Gyazo" /></a></p>
+<a href="https://gyazo.com/1615b9141fa0d9ec65df41550855a737"><img src="https://i.gyazo.com/1615b9141fa0d9ec65df41550855a737.png" alt="Image from Gyazo"></a></p>
 
   </div>
 

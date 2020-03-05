@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/post/2019-01-05-programming-roadheating/">
     
@@ -145,26 +147,17 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h2 id="趣旨">趣旨</h2>
-
+    <h2 id="趣旨">趣旨</h2>
 <blockquote>
 <p>下記の問題を、ロードヒーティングのOn/Offをスマホから操作できるようにすることで解決したい。</p>
 </blockquote>
-
 <h2 id="経緯">経緯</h2>
-
 <p>僕が住む北海道などの積雪地方ではロードヒーティングという設備が利用されている。本州在住の方には馴染みがないかもしれないがこの装置は、文字通り床を温めて雪を溶かしてくれるものだ。</p>
-
 <p>このロードヒーティングを稼働させるには「自動」と「手動」の2タイプが存在するのだが、「自動」の場合稼働させるとアイドリングで結構電気代を持っていかれるし雨と雪を勘違いする誤動作も多いためコスパが悪い。そのため我が家では「手動」で行っている。
 「手動」で稼働させた場合スイッチは物理的に切り替えなければならないため、外出時に突然雪が降ってきて家のロードヒーティングのスイッチを入れておくみたいなことはできない。
 これが自分の家だけではまだいいのだが、両親が他に所有している近くのアパートも同じ仕組みで動いておりわざわざアパートまで出向きスイッチを入れなければならず、この点が非常にネックになっている。というか非常に面倒臭い。この問題をRaspberryPiを用いてスマホから操作できるようにすることで解決できないかと思い、考えてみた。</p>
-
 <h2 id="必要なもの">必要なもの</h2>
-
 <p>注）商品のリンクはAMAZONですが、金額は実際に購入した金額です。買えるものはメルカリで買っているので、リンク先の値段と表の値段が異なる場合があります。</p>
-
 <table>
 <thead>
 <tr>
@@ -173,38 +166,32 @@ if (!doNotTrack) {
 <th>値段</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><a href="https://www.switch-science.com/catalog/2878/">soracom airカード</a></td>
 <td>ネットとの通信に必要。IoT用のものを使用。</td>
 <td>1200円</td>
 </tr>
-
 <tr>
 <td>usbドングル</td>
 <td>RasPiとSimを接続するためのもの。<a href="https://amzn.to/2R8teQC">DOCOMO L-02C</a></td>
 <td>1680円</td>
 </tr>
-
 <tr>
 <td><a href="https://www.switch-science.com/catalog/3646/">Raspberry Pi WH</a></td>
 <td>基盤（PCで言う所のマザーボードのようなもの）&amp;CPU</td>
 <td>1800円</td>
 </tr>
-
 <tr>
 <td>SwitchBot</td>
 <td>RaspberryPiと繋いでスイッチングできるモジュール</td>
 <td>&mdash;</td>
 </tr>
-
 <tr>
 <td>sdカード</td>
 <td>Raspiに刺してOSをインストールするもの</td>
 <td>すでに持っている</td>
 </tr>
-
 <tr>
 <td>RasPi用電源コード</td>
 <td>スマホのような充電方法だと、電力不足になるらしい</td>
@@ -212,42 +199,32 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <h3 id="rasberry-piの種類について簡単なメモ">Rasberry Piの種類について簡単なメモ</h3>
-
 <h5 id="標準サイズ">標準サイズ</h5>
-
 <ul>
 <li>Raspberry Pi 3
 CPU 64bit。WifiとBluetoothが標準搭載。</li>
-
-<li><p>Raspberry Pi 2 Model B
-RasPi 3に次ぐスペック。</p>
-
-<h5 id="小型版">小型版</h5></li>
-
-<li><p>Raspberry Pi Zero
-初心者用のシンプルなモデル。5$と非常に安価。</p></li>
-
-<li><p>Raspberry Pi Zero W
-RasPi ZeroにWifiとBluetoothが標準搭載されたモデル。</p></li>
-
-<li><p>Raspberry Pi Zero WH
-Raspberry Pi Zero Wにピンヘッダを実装したもの。今回はこれを実験用として使う。</p>
-
-<h5 id="エクステンション">エクステンション</h5></li>
-
-<li><p>3GPi
-simスロットが搭載されている。RasPi3と組み合わせて使用する。2万円代と少し値段が高い・・・</p></li>
+<li>Raspberry Pi 2 Model B
+RasPi 3に次ぐスペック。</li>
 </ul>
-
+<h5 id="小型版">小型版</h5>
+<ul>
+<li>Raspberry Pi Zero
+初心者用のシンプルなモデル。5$と非常に安価。</li>
+<li>Raspberry Pi Zero W
+RasPi ZeroにWifiとBluetoothが標準搭載されたモデル。</li>
+<li>Raspberry Pi Zero WH
+Raspberry Pi Zero Wにピンヘッダを実装したもの。今回はこれを実験用として使う。</li>
+</ul>
+<h5 id="エクステンション">エクステンション</h5>
+<ul>
+<li>3GPi
+simスロットが搭載されている。RasPi3と組み合わせて使用する。2万円代と少し値段が高い・・・</li>
+</ul>
 <p>参考: <a href="https://littlewing.hatenablog.com/entry/2016/01/26/135043">購入可能なラズパイ比較(2018年5月)Pi 3 Model B/Pi Zero/Pi Zero W/Pi2 Model B/Pi Model B+</a></p>
-
 <h2 id="要素分解">要素分解</h2>
-
 <ul>
 <li>通信
-
 <ul>
 <li>スマホ
 サーバーにリクエストを送るアプリを作る</li>
@@ -255,43 +232,35 @@ simスロットが搭載されている。RasPi3と組み合わせて使用す�
 スマホからのリクエストを受けて、soracomAPIを叩く。とりあえずrailsで実装する。</li>
 <li>ロードヒーティング
 soracomAPiを受けてなんやかんや</li>
-</ul></li>
+</ul>
+</li>
 <li>スイッチング
 ロードヒーティングスイッチの仕組みがわからないのでまだなんとも言えない。</li>
 </ul>
-
 <h2 id="最後に">最後に</h2>
-
 <p>親から聞いた話なのだが驚いたことに、、テクノロジーが発達した今もなおロードヒーティングのスイッチ切り替えはもなお人力で行なうのが主流だそうだ。これは予想だが、業界内がソフトウェアの知識に疎い、かつ市場規模的な問題とかで事業化したところでペイしないため依然としてアナログ的なやり方のままここまで来たのだろうと思われる。
 複数の物件を持つ不動産オーナーはわざわざ業者を雇って人力でスイッチの切り替えを行なっているらしい。
 仮にスマホからの操作が実現可能ならば、我が家の他にも一定数いるであろう上記のような不動産オーナーの役立つものと考えられる。</p>
-
 <h2 id="参考url">参考URL</h2>
-
 <h3 id="raspiについて">Raspiについて</h3>
-
 <ul>
-<li><p><a href="https://www.g104robo.com/entry/shopping-list-for-raspberry-pi-zero#USB%E3%83%8F%E3%83%96">Raspberry Pi Zeroに必要な物リスト</a></p>
-
-<h3 id="通信">通信</h3></li>
-
-<li><p><a href="https://dev.soracom.io/jp/start/device_setting/">SORACOM公式 各種デバイスで SORACOM Air を使用する </a></p></li>
-
-<li><p><a href="https://ermine.co.jp/raspberry-pi-soracom-sim/">RASPBERRY PIをSORACOM SIMでインターネットに繋ぐ</a></p>
-
-<h3 id="スイッチング">スイッチング</h3></li>
-
-<li><p><a href="https://qiita.com/RyosukeKamei/items/5c19819a2153b0a997b6">Raspberry Pi 3でpythonを使いスイッチ制御でLEDを光らせる！</a></p></li>
-
-<li><p><a href="https://yuki-no-yabo.com/switch-bot/">Switch Botについて</a></p></li>
-
-<li><p><a href="https://gigazine.net/news/20170907-switchbot-raspberry-pi/">物理的にスイッチ操作するIoTデバイス「SwitchBot」をラズパイ経由でIFTTT連携し全自動化してみた</a></p></li>
-
-<li><p><a href="https://deathmarch.net/archives/193">RaspberryPiにスイッチを付けよう</a></p>
-
-<h3 id="類似サービス">類似サービス</h3></li>
-
-<li><p><a href="https://www.ecomott.co.jp/service/yurimott.html">ゆりもっと</a></p></li>
+<li><a href="https://www.g104robo.com/entry/shopping-list-for-raspberry-pi-zero#USB%E3%83%8F%E3%83%96">Raspberry Pi Zeroに必要な物リスト</a></li>
+</ul>
+<h3 id="通信">通信</h3>
+<ul>
+<li><a href="https://dev.soracom.io/jp/start/device_setting/">SORACOM公式 各種デバイスで SORACOM Air を使用する </a></li>
+<li><a href="https://ermine.co.jp/raspberry-pi-soracom-sim/">RASPBERRY PIをSORACOM SIMでインターネットに繋ぐ</a></li>
+</ul>
+<h3 id="スイッチング">スイッチング</h3>
+<ul>
+<li><a href="https://qiita.com/RyosukeKamei/items/5c19819a2153b0a997b6">Raspberry Pi 3でpythonを使いスイッチ制御でLEDを光らせる！</a></li>
+<li><a href="https://yuki-no-yabo.com/switch-bot/">Switch Botについて</a></li>
+<li><a href="https://gigazine.net/news/20170907-switchbot-raspberry-pi/">物理的にスイッチ操作するIoTデバイス「SwitchBot」をラズパイ経由でIFTTT連携し全自動化してみた</a></li>
+<li><a href="https://deathmarch.net/archives/193">RaspberryPiにスイッチを付けよう</a></li>
+</ul>
+<h3 id="類似サービス">類似サービス</h3>
+<ul>
+<li><a href="https://www.ecomott.co.jp/service/yurimott.html">ゆりもっと</a></li>
 </ul>
 
   </div>

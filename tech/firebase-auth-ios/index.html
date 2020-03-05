@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/firebase-auth-ios/">
     
@@ -145,184 +147,133 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h5 id="参考url">参考URL</h5>
-
+    <h5 id="参考url">参考URL</h5>
 <p>基本的には<a href="https://firebase.google.com/docs/auth/ios/password-auth?hl=ja">公式ドキュメント</a>を参考にしましたが端折られている部分もあったので、こちらの<a href="https://qiita.com/matsuei/items/4f56c0f8d9a1b96cd9f0">Qiitaの記事</a>も合わせて参考にしました。</p>
-
 <h3 id="導入">導入</h3>
-
 <p>cocoapodsでインストールします。cocoapodsの使い方については割愛します。そのあとは下の画像のような感じでかなり親切にやってくれます、簡単に導入できました。
-<a href="https://gyazo.com/9f67804569f2d2d629136c98c3d7afd7"><img src="https://i.gyazo.com/9f67804569f2d2d629136c98c3d7afd7.png" alt="FireBase installed image" /></a></p>
-
+<a href="https://gyazo.com/9f67804569f2d2d629136c98c3d7afd7"><img src="https://i.gyazo.com/9f67804569f2d2d629136c98c3d7afd7.png" alt="FireBase installed image"></a></p>
 <h4 id="共通部分">共通部分</h4>
-
 <p>AppDelegateに追記。公式ドキュメントに従って<strong>didFinishLaunchingWithOptionsに書くとエラーになるので注意</strong>。尚、このことは公式ドキュメントでは言及されていない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseAuthUI</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppDelegate</span>: UIResponder, UIApplicationDelegate {
 
-<pre><code class="language-swift">import Firebase
-import FirebaseAuthUI
-class AppDelegate: UIResponder, UIApplicationDelegate {
+    <span style="color:#66d9ef">var</span> window: UIWindow?
 
-    var window: UIWindow?
-
-    //以下追記
-    override init() {
-        super.init()
+    <span style="color:#75715e">//以下追記</span>
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() {
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>()
         FirebaseApp.configure()
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&gt; Bool {
-        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
-        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-            return true
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&gt; Bool {
+        <span style="color:#66d9ef">let</span> sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] <span style="color:#66d9ef">as</span>! String?
+        <span style="color:#66d9ef">if</span> FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? <span style="color:#66d9ef">false</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
         }
 
-        // other URL handling goes here.
-        return false
+        <span style="color:#75715e">// other URL handling goes here.</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
     }
 
-</code></pre>
-
-<h4 id="ツイッターログイン">ツイッターログイン</h4>
-
+</code></pre></div><h4 id="ツイッターログイン">ツイッターログイン</h4>
 <h5 id="1-twitterログインの有効化">1. Twitterログインの有効化</h5>
-
 <p><a href="https://developer.twitter.com/en/apps">developer.twitter.com</a>からapiKeyとTokenを取得する必要があります。使用用途などについて300文字くらい書かされてクッソめんどかったです。まぁ無料で使わせてもらってるので大人しく感謝します。先ほどのリンクからアプリを登録したあと、FirebaseAuthのコンソールからそれぞれのキーを登録・有効化しましょう。
-<a href="https://gyazo.com/3b90e9e386df85be75e637e25d1c6c54"><img src="https://i.gyazo.com/3b90e9e386df85be75e637e25d1c6c54.png" alt="TwitterLoginConfig" /></a></p>
-
+<a href="https://gyazo.com/3b90e9e386df85be75e637e25d1c6c54"><img src="https://i.gyazo.com/3b90e9e386df85be75e637e25d1c6c54.png" alt="TwitterLoginConfig"></a></p>
 <h4 id="2-twitterのコールバックurlを設定">2. TwitterのコールバックURLを設定</h4>
-
 <ul>
 <li>twitterkit-CONSUMERKEY(CONSUMERKEYの部分は<a href="https://developer.twitter.com/en/">developer.twitter.com</a>から各自参照)</li>
-
-<li><p>上の画像のURL
+<li>上の画像のURL
 以上二つを<a href="https://developer.twitter.com/en/apps">developer.twitter.com</a>のアプリのコールバックURLに設定します。
-<a href="https://gyazo.com/b0939fdc9278a664f9372f560ae5bdab"><img src="https://i.gyazo.com/b0939fdc9278a664f9372f560ae5bdab.png" alt="Image from Gyazo" /></a></p>
-
-<h5 id="3-urlスキームの登録">3. URLスキームの登録</h5>
-
-<p>Xcodeのworkspace→target→Infoの「URL Types」からURLスキームを登録します。
-<a href="https://gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef"><img src="https://i.gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef.png" alt="Image from Gyazo" /></a>
-<code>twitterkit-CONSUMERKEY</code>という形で入力します。ConsumerKeyも<a href="https://developer.twitter.com/en/apps">developer.twitter.com</a>から参照できます。</p></li>
+<a href="https://gyazo.com/b0939fdc9278a664f9372f560ae5bdab"><img src="https://i.gyazo.com/b0939fdc9278a664f9372f560ae5bdab.png" alt="Image from Gyazo"></a></li>
 </ul>
-
-<h5 id="3-実装">3.  実装</h5>
-
+<h5 id="3-urlスキームの登録">3. URLスキームの登録</h5>
+<p>Xcodeのworkspace→target→Infoの「URL Types」からURLスキームを登録します。
+<a href="https://gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef"><img src="https://i.gyazo.com/fbf18c8ad97472731e3a8c1b6fa8abef.png" alt="Image from Gyazo"></a>
+<code>twitterkit-CONSUMERKEY</code>という形で入力します。ConsumerKeyも<a href="https://developer.twitter.com/en/apps">developer.twitter.com</a>から参照できます。</p>
+<h5 id="3--実装">3.  実装</h5>
 <p>AppDelegateのdidFinishLaunchingWithOptionsに以下のように記述。引数は各自入力しましょう。</p>
-
-<pre><code class="language-swift">import TwitterKit
-~~~~~~~~~~~~~~~
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
-        // Override point for customization after application launch.
-        //Twitterログイン
-        TWTRTwitter.sharedInstance().start(withConsumerKey: &quot;CONSUMERKEY&quot;, consumerSecret: &quot;SECRET&quot;)
-        return true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">TwitterKit</span>
+<span style="color:#f92672">~~~~~~~~~~~~~~~</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+        <span style="color:#75715e">// Override point for customization after application launch.</span>
+        <span style="color:#75715e">//Twitterログイン</span>
+        TWTRTwitter.sharedInstance().start(withConsumerKey: <span style="color:#e6db74">&#34;CONSUMERKEY&#34;</span>, consumerSecret: <span style="color:#e6db74">&#34;SECRET&#34;</span>)
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
     }
-</code></pre>
-
-<p>続いてAppDelegateのapplicationに記述。ここも公式に書いてなくてわからんかったです。</p>
-
-<pre><code class="language-swift">    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&gt; Bool {
-        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
-        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-            return true
+</code></pre></div><p>続いてAppDelegateのapplicationに記述。ここも公式に書いてなくてわからんかったです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -&gt; Bool {
+        <span style="color:#66d9ef">let</span> sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] <span style="color:#66d9ef">as</span>! String?
+        <span style="color:#66d9ef">if</span> FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? <span style="color:#66d9ef">false</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
         }
-    //ツイッターログイン
-        if TWTRTwitter.sharedInstance().application(app, open: url, options: options) {
-            return true
+    <span style="color:#75715e">//ツイッターログイン</span>
+        <span style="color:#66d9ef">if</span> TWTRTwitter.sharedInstance().application(app, open: url, options: options) {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
         }
 
-        // other URL handling goes here.
-        return false
+        <span style="color:#75715e">// other URL handling goes here.</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
     }
 
-</code></pre>
-
-<h4 id="googleログイン">Googleログイン</h4>
-
+</code></pre></div><h4 id="googleログイン">Googleログイン</h4>
 <p>こちらは簡単Firebase コンソールで [Authentication] セクションを開き、Google ログインを有効にします。
 XCodeのURLスキームに<code>GoogleService-Info.plist</code>のREVERSED_CLIENT_IDを登録します。ツイッターと同じ要領で追加すればおk。</p>
-
 <h3 id="ログイン画面の実装">ログイン画面の実装</h3>
-
 <p>FirebaseAuthUIというライブラリがUIのテンプレを用意してくれているのでこれを使う。
-<a href="https://gyazo.com/2e6e254eb084c4863c24f726ef7634d7"><img src="https://i.gyazo.com/2e6e254eb084c4863c24f726ef7634d7.png" alt="Image from Gyazo" /></a></p>
-
+<a href="https://gyazo.com/2e6e254eb084c4863c24f726ef7634d7"><img src="https://i.gyazo.com/2e6e254eb084c4863c24f726ef7634d7.png" alt="Image from Gyazo"></a></p>
 <h4 id="1-firebaseuiの導入">1. FirebaseUIの導入</h4>
-
 <p><a href="https://firebase.google.com/docs/auth/ios/firebaseui?hl=ja">FirebaseUI</a>を導入する。Podfileに以下を記述。</p>
-
-<pre><code class="language-vim">pod 'Firebase/Auth'
-//以下追記部分
-pod 'FirebaseUI/Auth'
-pod 'FirebaseUI/Google'
-pod 'FirebaseUI/Twitter'
-</code></pre>
-
-<h4 id="2-ログイン画面の実装と遷移">2. ログイン画面の実装と遷移</h4>
-
-<pre><code class="language-swift">import FirebaseAuthUI
-import FirebaseTwitterAuthUI
-import FirebaseGoogleAuthUI
-~~~~~
-class ViewController: UIViewController {
-  private var authUI = FUIAuth.defaultAuthUI() //authUIの初期化
-  private let providers: [FUIAuthProvider] = [
-        //ここでプロバイダの追加を行う
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">pod</span> <span style="color:#e6db74">&#39;Firebase/Auth&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#e6db74">//</span><span style="color:#a6e22e">以下追記部分</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">pod</span> <span style="color:#e6db74">&#39;FirebaseUI/Auth&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">pod</span> <span style="color:#e6db74">&#39;FirebaseUI/Google&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">pod</span> <span style="color:#e6db74">&#39;FirebaseUI/Twitter&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><h4 id="2-ログイン画面の実装と遷移">2. ログイン画面の実装と遷移</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseAuthUI</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseTwitterAuthUI</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseGoogleAuthUI</span>
+<span style="color:#f92672">~~~~~</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> authUI = FUIAuth.defaultAuthUI() <span style="color:#75715e">//authUIの初期化</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> providers: [FUIAuthProvider] = [
+        <span style="color:#75715e">//ここでプロバイダの追加を行う</span>
         FUITwitterAuth(),
         FUIGoogleAuth()
     ]
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        authUI.providers = providers //プロバイダをセット
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        authUI.providers = providers <span style="color:#75715e">//プロバイダをセット</span>
     }
 
-</code></pre>
-
-<p>といった感じでログインできるプロバイダを追加してあげて、後はお決まりのやつで遷移できます。</p>
-
-<pre><code class="language-swift">let authVC = authUI.authViewController() //ログイン画面のインスタンス化
-present(vc, animated: true, completion: nil)
-</code></pre>
-
-<h3 id="ログイン状態か否かの判定について">ログイン状態か否かの判定について</h3>
-
+</code></pre></div><p>といった感じでログインできるプロバイダを追加してあげて、後はお決まりのやつで遷移できます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> authVC = authUI.authViewController() <span style="color:#75715e">//ログイン画面のインスタンス化</span>
+present(vc, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</code></pre></div><h3 id="ログイン状態か否かの判定について">ログイン状態か否かの判定について</h3>
 <p><code>viewWillAppear</code>でaddStateChangeListenerを呼ぶことで判定します。ログイン状態でないときはuserがnilになります。</p>
-
-<pre><code class="language-swift">    override func viewWillAppear(_ animated: Bool) {
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewWillAppear</span>(<span style="color:#66d9ef">_</span> animated: Bool) {
+        Auth.auth().addStateDidChangeListener { (auth, user) <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> user = user {
                 print(user)
-            } else {
-                self.login() //nilなのでログインさせる
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">self</span>.login() <span style="color:#75715e">//nilなのでログインさせる</span>
             }
         }
     }
-</code></pre>
-
-<h3 id="ログイン後の処理について">ログイン後の処理について</h3>
-
+</code></pre></div><h3 id="ログイン後の処理について">ログイン後の処理について</h3>
 <p>FUIAuthのDelegateメソッドが用意されています。こんな感じで実装できます。</p>
-
-<pre><code class="language-swift">extension ViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if let error = error {
-            //エラー処理
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: FUIAuthDelegate {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">authUI</span>(<span style="color:#66d9ef">_</span> authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error {
+            <span style="color:#75715e">//エラー処理</span>
             print(error)
         }
-        //ログイン後の処理
+        <span style="color:#75715e">//ログイン後の処理</span>
     }
 }
-</code></pre>
-
-<p><code>viewDidLoad</code>とかでdelegateの宣言も忘れずに。</p>
-
-<pre><code class="language-swift">   authUI.delegate = self
-</code></pre>
-
-<h4 id="カスタマイズ">カスタマイズ</h4>
-
+</code></pre></div><p><code>viewDidLoad</code>とかでdelegateの宣言も忘れずに。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">   authUI.delegate = <span style="color:#66d9ef">self</span>
+</code></pre></div><h4 id="カスタマイズ">カスタマイズ</h4>
 <p>FUIAuthDelegateメソッドでUIのカスタマイズが可能です。詳しく書く。</p>
 
   </div>

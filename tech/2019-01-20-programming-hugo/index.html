@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/2019-01-20-programming-hugo/">
     
@@ -145,88 +147,57 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="ざっくりhugoについて">ざっくりHugoについて</h3>
-
+    <h3 id="ざっくりhugoについて">ざっくりHugoについて</h3>
 <p>Go製の静的webジェネレータ。新しいライブラリというかフレームワーク？？なので、コミュニティもJekyllに比べて盛んな印象です。</p>
-
 <h3 id="インストール">インストール</h3>
-
-<pre><code class="language-bash">$ brew install hugo
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install hugo
 $ hugo version
-</code></pre>
-
-<p>brew以外のインストール方法もあるようです。
+</code></pre></div><p>brew以外のインストール方法もあるようです。
 参考: <a href="https://gohugo.io/getting-started/installing/">install Hugo</a></p>
-
 <h2 id="使い方">使い方</h2>
-
 <h3 id="コマンド">コマンド</h3>
-
 <ul>
-<li><p>プロジェクト作成</p>
-
-<pre><code class="language-bash">$ hugo new site yoursite
-</code></pre></li>
-
-<li><p>ローカルサーバーを立てる</p>
-
-<pre><code class="language-bash">$ hugo server
-</code></pre></li>
-
-<li><p>post</p>
-
-<pre><code class="language-bash">$ hugo new post/first-post.md
-</code></pre></li>
+<li>プロジェクト作成</li>
 </ul>
-
-<p>/content以下に作成される仕様になっております。
-- テーマの適用</p>
-
-<pre><code class="language-bash">$ git clone hoge@hoge.git themes/hoge #テーマ「hoge」をclone
-$ echo 'theme = &quot;hoge&quot;' &gt;&gt; config.toml #config.tomlへ記述
-</code></pre>
-
-<p>設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site yoursite
+</code></pre></div><ul>
+<li>ローカルサーバーを立てる</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo server
+</code></pre></div><ul>
+<li>post</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new post/first-post.md
+</code></pre></div><p>/content以下に作成される仕様になっております。</p>
+<ul>
+<li>テーマの適用</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone hoge@hoge.git themes/hoge <span style="color:#75715e">#テーマ「hoge」をclone</span>
+$ echo <span style="color:#e6db74">&#39;theme = &#34;hoge&#34;&#39;</span> &gt;&gt; config.toml <span style="color:#75715e">#config.tomlへ記述</span>
+</code></pre></div><p>設定などはconfig.tomlへ記述するようです。どうでもいいけど、toml形式って初めて見ました。
 こちらの公式ドキュメントが参考になると思います <a href="https://gohugo.io/getting-started/quick-start/">quickstart</a></p>
-
 <h2 id="hugoでgithubpagesにホスティング">HugoでGithubPagesにホスティング</h2>
-
-<pre><code class="language-bash">$ hugo
-</code></pre>
-
-<p>でpublicディレクトリが追加される。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo
+</code></pre></div><p>でpublicディレクトリが追加される。
 このpublicディレクトリ以下をGithubPagesでホスティングします。<strong>プロジェクトディレクトリではありません</strong>、注意！</p>
-
 <h4 id="やっておくと良いこと">やっておくと良いこと</h4>
-
 <ul>
-<li><p>絶対パス化</p>
-
-<pre><code class="language-bash">$ echo 'canonifyurls = true' &gt;&gt; config.toml
-</code></pre></li>
-
-<li><p>gitignore</p>
-
-<pre><code class="language-bash">$ vi .gitignore
-</code></pre></li>
+<li>絶対パス化</li>
 </ul>
-
-<p>で以下をgitignoreしておくと良いと思います</p>
-
-<pre><code class="language-vim">themes
-public
-*.swp
-</code></pre>
-
-<p>参考:  <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a><br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ echo <span style="color:#e6db74">&#39;canonifyurls = true&#39;</span> &gt;&gt; config.toml
+</code></pre></div><ul>
+<li>gitignore</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi .gitignore
+</code></pre></div><p>で以下をgitignoreしておくと良いと思います</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">themes</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">public</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>*.<span style="color:#a6e22e">swp</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>参考:  <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a><br>
 おすすめ: <a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">HugoとGitHub Pagesで静的サイトを公開する</a></p>
-
 <h3 id="最後に-hugoの所感およびjekyllとの比較">最後に: Hugoの所感およびJekyllとの比較</h3>
-
 <p><strong>シンプルにイケてる！！</strong>
-go製ということで速さはもちろん、コミュニティが活発なせいかテーマのクオリティが高いように感じる。総合的にHugoの方がイケてる。コマンドもJekyllでは届かなかった痒い所に手が届く感じがする。触ってみるまで「いうてJekyllと同じやろw」とか思ってたが、githubpagesへのデプロイの方法などが若干異なる部分があった。<br />
+go製ということで速さはもちろん、コミュニティが活発なせいかテーマのクオリティが高いように感じる。総合的にHugoの方がイケてる。コマンドもJekyllでは届かなかった痒い所に手が届く感じがする。触ってみるまで「いうてJekyllと同じやろw」とか思ってたが、githubpagesへのデプロイの方法などが若干異なる部分があった。<br>
 追記: ホームページをHugoでリニューアルしましたリンクは<a href="https://nosugi.tech">こちら</a></p>
 
   </div>

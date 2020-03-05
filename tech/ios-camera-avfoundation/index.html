@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/ios-camera-avfoundation/">
     
@@ -145,32 +147,22 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="挙動">挙動</h3>
-
+    <h3 id="挙動">挙動</h3>
 <blockquote>
 <p>読み取ったバーコードの値でGoogleBooksAPIを叩いて本のタイトル、作者などの情報を取得する。</p>
 </blockquote>
-
 <h5 id="参考url">参考URL</h5>
-
 <ul>
 <li><a href="https://swiswiswift.com/barcode/">iOSでバーコードを読み取る</a></li>
 <li><a href="https://dev.classmethod.jp/smartphone/ios-avfoundation-avcapturemetadataoutput-ean13-ean8/">AVFoundation(AVCaptureMetadataOutput)でバーコードリーダーを作ってみた</a></li>
 </ul>
-
 <h3 id="実装">実装</h3>
-
 <h4 id="事前準備">事前準備</h4>
-
 <p><strong>この手順を踏まずにカメラを起動しようとすると強制終了するので注意！</strong>。Xcodeの<code>Info.plist</code>に<code>Privacy - Camera Usage Description</code>を追加します。カメラを使用する目的を値として入力します。
-<a href="https://gyazo.com/10cd0c5bf9a1a2fe89002096ee637495"><img src="https://i.gyazo.com/10cd0c5bf9a1a2fe89002096ee637495.png" alt="Info.plist" /></a></p>
-
+<a href="https://gyazo.com/10cd0c5bf9a1a2fe89002096ee637495"><img src="https://i.gyazo.com/10cd0c5bf9a1a2fe89002096ee637495.png" alt="Info.plist"></a></p>
 <ul>
 <li>参考: <a href="https://qiita.com/Takumi_Mori/items/f53c6eec1676d3df59dc">iOS10ではカメラアクセスなどの目的を明示しないと強制終了する</a></li>
 </ul>
-
 <h3 id="avcapturemetadataoutputobjectsdelegate">AVCaptureMetadataOutputObjectsDelegate</h3>
 
   </div>

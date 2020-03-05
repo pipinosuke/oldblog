@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/post/2019-01-11-fish-shell/">
     
@@ -145,55 +147,28 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h2 id="導入-設定">導入&amp;設定</h2>
-
+    <h2 id="導入設定">導入&amp;設定</h2>
 <h3 id="導入">導入</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$brew install fish
+</code></pre></div><p>デフォルトシェルに設定</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/shells
 
-<pre><code class="language-bash">$brew install fish
-</code></pre>
-
-<p>デフォルトシェルに設定</p>
-
-<pre><code class="language-bash">$ sudo vi /etc/shells
-
-#以下を記述
+<span style="color:#75715e">#以下を記述</span>
 /usr/local/bin/fish
-</code></pre>
-
-<pre><code class="language-bash">$chsh -s /usr/local/bin/fish
-</code></pre>
-
-<h3 id="設定">設定</h3>
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$chsh -s /usr/local/bin/fish
+</code></pre></div><h3 id="設定">設定</h3>
 <p>設定やpathはconfig.fishに記述</p>
-
-<pre><code class="language-bash">$ vi ~/.config/fish/config.fish
-</code></pre>
-
-<p>読み込み</p>
-
-<pre><code class="language-bash">$ source ~/.config/fish/config.fish
-</code></pre>
-
-<h2 id="その他">その他</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi ~/.config/fish/config.fish
+</code></pre></div><p>読み込み</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ source ~/.config/fish/config.fish
+</code></pre></div><h2 id="その他">その他</h2>
 <h3 id="rbenv">rbenv</h3>
-
 <p>rubyのバージョン管理のライブラリで使用している方も多いと思われる。fishだとそのままでは動かないので以下のように記述する</p>
-
-<pre><code class="language-bash">rbenv init - | source
-</code></pre>
-
-<h3 id="gopath">GOPath</h3>
-
-<pre><code class="language-bash">set -x GOPATH /users/username/go
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rbenv init - | source
+</code></pre></div><h3 id="gopath">GOPath</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set -x GOPATH /users/username/go
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
-</code></pre>
-
-<h2 id="参考">参考</h2>
-
+</code></pre></div><h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://qiita.com/k-waragai/items/396acd783ed03511d57c">【fish shellでモダンなターミナル環境を構築】＠2017年版</a></li>
 <li><a href="https://qiita.com/raccy/items/61bd4780b2bd6de49deb">fish で rbenv の初期処理を実行する方法</a></li>

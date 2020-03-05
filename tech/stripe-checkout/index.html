@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/stripe-checkout/">
     
@@ -145,149 +147,94 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="経緯">経緯</h3>
-
+    <h3 id="経緯">経緯</h3>
 <p>今までは個人で運営しているスクールなどで発生する毎月の集金には<a href="https://biz.paymo.life/">PaymoBiz</a>を利用していました。そんな中PaymoBizサービス終了が発表され、別の集金方法を模索することを余儀なくされてしまいました。「決済APIを利用するという方法が手数料安く済みそうだけど、自前でシステム作るしかないのか・・・手間がかかりそうだなぁ。。」などと思いながら詳しく調べていたところ、StripeではCheckoutという機能が提供されており、その機能を使うと自動生成されたコードを貼り付けるだけで決済機能が導入できるようでした。このシンプルさが自分にはドンピシャだったのですぐに試してみました。</p>
-
 <h3 id="所感">所感</h3>
-
 <p>試してみて複雑にデータを管理しなければならないものでなければCheckoutで十分だと感じました。またStripeはただオンライン決済のAPIを提供しているだけの印象でしたが実はそうではなく、ダッシュボードが充実していたりサードパーティ製の決済アプリのマーケトットプレイスとしての側面も持ち合わせていていわゆる「プラットフォーム」という方がしっくりきました。書いた後気付いたのですが<a href="https://pay.jp">PAY.JP</a>が同様の機能を提供していてかつ手数料も1%ほど安いです。</p>
-
 <h2 id="stripe-checkoutの導入手順メモ">Stripe Checkoutの導入手順メモ</h2>
-
 <p><a href="https://stripe.com/docs/payments/checkout/client">公式ドキュメント</a></p>
-
 <h4 id="できること">できること</h4>
-
 <ul>
 <li>WEBページにJSのスクリプトを貼り付けることで、サーバー側の処理を実装することなく決済機能を導入できます</li>
 <li>月額課金にも対応しています</li>
 <li>カスタマイズ次第で顧客データの収集なども可能</li>
 </ul>
-
 <h4 id="仕様について">仕様について</h4>
-
 <ul>
 <li>実際に使用する際はテストモードと本番モードを切り替える必要があります。最初はテストモードで挙動を確認しておくことをお勧めします。</li>
 <li>決済成功時・失敗時の遷移先を用意しておく必要があります。</li>
 <li>サイトはhttps化されている必要があります</li>
 <li>手数料は一律3.6%(同じく決済APIを提供しているBASE社の<a href="https://pay.jp">PAY.JP</a>は2.6%でした。こちらでも良いかもしれない)</li>
 </ul>
-
 <h3 id="1-アカウントの有効化">1. アカウントの有効化</h3>
-
 <p>導かれるまま本人情報などを入力すればおkです。</p>
-
 <h3 id="2-checkoutの設定">2. Checkoutの設定</h3>
-
 <p>公式ドキュメント、<a href="https://stripe.com/docs/payments/checkout/client">Checkout Client Quickstart</a>を参考に導入します。主にやることは以下の二つです。</p>
-
 <ul>
 <li>ドメインの設定</li>
 <li>商品の作成とCheckoutの有効化</li>
 </ul>
-
 <h3 id="3-liveモードに切り替え">3. LIVEモードに切り替え</h3>
-
 <p><a href="https://stripe.com/docs/payments/checkout/live">Going Live with Checkout</a>を参考にLIVEモードでチェックアウトできるように設定します。本番モードで稼働する際はドメインが設定されていないとボタンを押しても正しく動作しないので注意。</p>
-
 <h3 id="4-コードの貼り付けとカスタマイズ">4. コードの貼り付けとカスタマイズ</h3>
-
-<!-- Load Stripe.js on your website. -->
-
-<script src="https://js.stripe.com/v3"></script>
-
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-
-<p><button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-plan_FIfczSYPCPZLe1"
-  role="link"
->
-  テスト
-</button></p>
-
-<div id="error-message"></div>
-
-<script>
-  var stripe = Stripe('pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U');
-
-  var checkoutButton = document.getElementById('checkout-button-plan_FIfczSYPCPZLe1');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{plan: 'plan_FIfczSYPCPZLe1', quantity: 1}],
-
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: window.location.protocol + '//school.nosugi.tech/success',
-      cancelUrl: window.location.protocol + '//school.nosugi.tech/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-</script>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;button
+style=&quot;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&rdquo;
+id=&quot;checkout-button-plan_FIfczSYPCPZLe1&rdquo;
+role=&quot;link&rdquo;</p>
+<blockquote>
+</blockquote>
+<p>テスト
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>上のボタンを押すとクレジットカード情報の入力フォームにリダイレクトされるはずです。中身のコードは以下に掲載しています。見た目や顧客データの処理についてのカスタマイズも可能です。詳しくは<a href="https://stripe.com/docs/payments/checkout/client">公式ドキュメント</a>を参照してください。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://js.stripe.com/v3&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 
-<pre><code class="language-html">&lt;script src=&quot;https://js.stripe.com/v3&quot;&gt;&lt;/script&gt;
-
-&lt;!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. --&gt;
-&lt;button
-  style=&quot;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&quot;
-  id=&quot;checkout-button-plan_FIfczSYPCPZLe1&quot;
-  role=&quot;link&quot;
+<span style="color:#75715e">&lt;!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. --&gt;</span>
+&lt;<span style="color:#f92672">button</span>
+  <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em&#34;</span>
+  <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkout-button-plan_FIfczSYPCPZLe1&#34;</span>
+  <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span>
 &gt;
   テスト 
-&lt;/button&gt;
+&lt;/<span style="color:#f92672">button</span>&gt;
 
-&lt;div id=&quot;error-message&quot;&gt;&lt;/div&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 
-&lt;script&gt;
-    // 本番はLIVEモードのAPIキーを入力してください
-  var stripe = Stripe('pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U');
+&lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#75715e">// 本番はLIVEモードのAPIキーを入力してください
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stripe</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Stripe</span>(<span style="color:#e6db74">&#39;pk_test_IYYRFH7Xe3g9nygvZkfKsT4I006VEBDP5U&#39;</span>);
 
-  var checkoutButton = document.getElementById('checkout-button-plan_FIfczSYPCPZLe1');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{plan: 'plan_FIfczSYPCPZLe1', quantity: 1}],
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">checkoutButton</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;checkout-button-plan_FIfczSYPCPZLe1&#39;</span>);
+  <span style="color:#a6e22e">checkoutButton</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#75715e">// When the customer clicks on the button, redirect
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// them to Checkout.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">redirectToCheckout</span>({
+      <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">plan</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;plan_FIfczSYPCPZLe1&#39;</span>, <span style="color:#a6e22e">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>}],
 
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: window.location.protocol + '//success',
-      cancelUrl: window.location.protocol + '//canceled',
+      <span style="color:#75715e">// Do not rely on the redirect to the successUrl for fulfilling
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// purchases, customers may not always reach the success_url after
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// a successful payment.
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// Instead use one of the strategies described in
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// https://stripe.com/docs/payments/checkout/fulfillment
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">successUrl</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">protocol</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;//success&#39;</span>,
+      <span style="color:#a6e22e">cancelUrl</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">protocol</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;//canceled&#39;</span>,
     })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
+    .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">result</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">error</span>) {
+        <span style="color:#75715e">// If `redirectToCheckout` fails due to a browser or network
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// error, display the localized error message to your customer.
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">displayError</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;error-message&#39;</span>);
+        <span style="color:#a6e22e">displayError</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
       }
     });
   });
-&lt;/script&gt;
-</code></pre>
-
-<h2 id="まとめ">まとめ</h2>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>ダッシュボードのUIが非常にわかりやすかったおかげで特に詰まることなく導入できてしまいました。。。労力で考えると自前で用意するのとCheckoutを使うのでは雲泥の差だったと思うので非常に助かりました！！</p>
 
   </div>

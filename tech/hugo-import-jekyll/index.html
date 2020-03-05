@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <link rel="apple-touch-icon" href="https://alltimeneet.com/images/logo.png">
 
+
+<script data-ad-client="ca-pub-5857222895439958" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <link rel="canonical" href="https://alltimeneet.com/tech/hugo-import-jekyll/">
     
@@ -145,35 +147,22 @@ if (!doNotTrack) {
   
 
   <div class="article-body">
-    
-
-<h3 id="データをjekyllからインポート">データをJekyllからインポート</h3>
-
+    <h3 id="データをjekyllからインポート">データをJekyllからインポート</h3>
 <p>なんとHugoがコマンドを用意してくれています。一発で綺麗に引越し完了！とはなりませんが、楽チン。</p>
-
-<pre><code class="language-bash">$ hugo imoprt jekyll path_to_jekyll_root_project path_to_hugo_root_project
-</code></pre>
-
-<p>日付のデータは、移行できないようです。なぜか記事ファイルのメタデータが無視されていたので、手動でコピーし直しました。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo imoprt jekyll path_to_jekyll_root_project path_to_hugo_root_project
+</code></pre></div><p>日付のデータは、移行できないようです。なぜか記事ファイルのメタデータが無視されていたので、手動でコピーし直しました。
 終了すると、Hugoから</p>
-
-<pre><code class="language-bash">$ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-cove
-$ hugo server --theme=herring-cove
-</code></pre>
-
-<p>「このコマンド打ってな〜」と言われると思いますが、なんとその通りにやってもうまくいきません！笑
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/spf13/herring-cove.git HOGEHOGE/themes/herring-cove
+$ hugo server --theme<span style="color:#f92672">=</span>herring-cove
+</code></pre></div><p>「このコマンド打ってな〜」と言われると思いますが、なんとその通りにやってもうまくいきません！笑
 git cloneしたherring-coveテーマが原因です。おそらくアプデされていないのでしょう。以下のように直します。変更箇所は複数のファイルで存在するので、エディタの機能使うなどして一括変換するといいと思います。</p>
-
 <ul>
 <li>{{ template &ldquo;theme/herring-cove/footer.html&rdquo; . }} を {{ partial &ldquo;footer.html&rdquo; }}に</li>
 <li>{{ template &ldquo;theme/herring-cove/header.html&rdquo; . }} を {{ partial &ldquo;header.html&rdquo; }}に</li>
 </ul>
-
 <p>これで再度hugo serverすると動いてくれるかなと思います。正常に動くのを確認したら、あとは適当に良さげなテーマ選んでやればおkです！</p>
-
 <h3 id="終わりに">終わりに</h3>
-
-<p>日付のデータを移行できなかったのが残念ですね。。それ以外は簡単に移行できたので、まぁ良しとします！<br />
+<p>日付のデータを移行できなかったのが残念ですね。。それ以外は簡単に移行できたので、まぁ良しとします！<br>
 「ブログを書く→git commit→git push」という手順を踏むのが面倒になってきたので
 次回は流行り？のCIサービス、<a href="https://circleci.com/">CircleCI</a>の無料枠を使ってデプロイの自動化を行いたいと思います。こちらもこのブログで手順や所感を<a href="https://blog.nosugi.tech/post/circleci-hugo/">メモ</a>しておこうとお思います。</p>
 

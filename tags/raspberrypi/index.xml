@@ -20,11 +20,9 @@
       <description>ロードヒーティングのOn/Off切り替えが面倒なので、スマホから操作したいプロジェクトの実現に向けて、まずはRasPiとSoracomAirで通信できるか試してみる。
 目標  RasPiで通信する
  用意したもの  RaspberryPI ZERO WH  Amazon Basis miniHDMI-HDMIケーブル  USB変換アダプタ  SDカード(8GB以上必要)  やること  OSインストール wvdialで通信  OSインストール フォーマット まずはじめにSDカードのフォーマットを行なっておきましょう。RaspberryPiが読み込めるフォーマット(FAT32)にしておく必要があります。よくわからないという方はSDCardFormatterというソフトでフォーマットしておけばおkです。Raspbianのインストールには4GB以上必要なので注意です。(一敗)
-インストール RaspberryPiにraspbianというOSをインストールします。 1. こちらのリンクからダウンロードして解凍したファイル群をSDカードのルートにコピー 
-2. SDカードをRaspberryPiに挿入し、電源コードを接続すると起動するはずです
-3. メニューが表示されるのでRasbianをenter選択し、「i」を押すとインストールが始まります。
-通信してみる 1.USBデバイスの確認 $ lsusb としてUSB機器として認識しているかをまず確認します。「LG Electronics, Inc. Ally/Optimus One」という名称でした。  2.確認できたら、ttyデバイスとして認識させます。 sudo modprobe usbserial vendor=VENDORID product=PRODUCTID  3.必要なソフトのインストールと設定 sudo apt-get install wvdial sudo vi /etc/wvdial.conf  内容は以下です。コピペでおk。
-[Dialer Defaults] Init1 = ATZ Init2 = ATQ0 V1 E1 S0=0 &amp;amp;C1 &amp;amp;D2 +FCLASS=0 Init3 = AT+CGDCONT=1,&amp;quot;IP&amp;quot;,&amp;quot;soracom.</description>
+インストール RaspberryPiにraspbianというOSをインストールします。
+ こちらのリンクからダウンロードして解凍したファイル群をSDカードのルートにコピー  SDカードをRaspberryPiに挿入し、電源コードを接続すると起動するはずです メニューが表示されるのでRasbianをenter選択し、「i」を押すとインストールが始まります。  通信してみる 1.USBデバイスの確認 $ lsusb としてUSB機器として認識しているかをまず確認します。「LG Electronics, Inc. Ally/Optimus One」という名称でした。 2.確認できたら、ttyデバイスとして認識させます。 sudo modprobe usbserial vendor=VENDORID product=PRODUCTID 3.必要なソフトのインストールと設定 sudo apt-get install wvdial sudo vi /etc/wvdial.conf 内容は以下です。コピペでおk。
+[Dialer Defaults]Init1 = ATZInit2 = ATQ0 V1 E1 S0=0 &amp;amp;C1 &amp;amp;D2 +FCLASS=0Init3 = AT+CGDCONT=1,&amp;#34;IP&amp;#34;,&amp;#34;soracom.</description>
     </item>
     
   </channel>
