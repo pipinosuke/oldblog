@@ -17,7 +17,8 @@ draft = false
 ということでまさかこの歳になってポケモンアニメの記事を書くことになるとは思いませんでしたが、少しばかりお付き合いいただければ幸いですw
 
 ## 「無敗の帝王」グズマについて
-![enter image description here](http://pokemongo-master.com/wp-content/uploads/2019/06/77aecebb0f7e518aa0d4b73fe7eb2397.jpg)
+![enter image description here](https://i.gyazo.com/a94f49d8e482b38e860cf7c29fb7e147.png)
+
 #### 名前の由来
 グズマというキャラクターについて調べてみると[ピクシブ百科事典](https://dic.pixiv.net/a/%E3%82%B0%E3%82%BA%E3%83%9E#h3_3)によると花の名前がつけられていて
 #### こちら
